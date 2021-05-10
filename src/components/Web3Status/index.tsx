@@ -1,7 +1,7 @@
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { darken, transparentize } from 'polished'
 import React, { useMemo } from 'react'
-import { Activity, ChevronDown } from 'react-feather'
+import { ChevronDown } from 'react-feather'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { NetworkContextName } from '../../constants'
@@ -29,7 +29,8 @@ const ChainLogo: any = {
   [ChainId.RINKEBY]: EthereumLogo,
   [ChainId.ARBITRUM_TESTNET_V3]: ArbitrumLogo,
   [ChainId.SOKOL]: '',
-  [ChainId.XDAI]: XDAILogo
+  [ChainId.XDAI]: XDAILogo,
+  [ChainId.MATIC]: ''
 }
 
 const ChainLabel: any = {
@@ -37,7 +38,8 @@ const ChainLabel: any = {
   [ChainId.RINKEBY]: 'Rinkeby',
   [ChainId.ARBITRUM_TESTNET_V3]: 'Arbitrum',
   [ChainId.SOKOL]: 'Sokol',
-  [ChainId.XDAI]: 'xDai'
+  [ChainId.XDAI]: 'xDai',
+  [ChainId.MATIC]: 'Matic'
 }
 
 const IconWrapper = styled.div<{ size?: number | null }>`
@@ -130,15 +132,10 @@ const Text = styled.p<{ fontSize?: number }>`
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0 0.5rem 0 0.25rem;
-  font-size: 1rem;
+  font-size: 12px;
   width: fit-content;
   font-weight: 500;
   ${({ fontSize }) => (fontSize ? `font-size:${fontSize}px` : '')};
-`
-
-const NetworkIcon = styled(Activity)`
-  width: 5px;
-  height: 5px;
 `
 
 // we want the latest one to come first, so return negative if a is after b
@@ -149,6 +146,7 @@ function newTransactionsFirst(a: TransactionDetails, b: TransactionDetails) {
 function Web3StatusInner() {
   const { t } = useTranslation()
   const { account, error } = useWeb3React()
+  
   const { chainId: networkConnectorChainId } = useActiveWeb3React()
 
   const { ENSName } = useENSName(account ?? undefined)
@@ -169,7 +167,6 @@ function Web3StatusInner() {
   if (error) {
     return (
       <Web3StatusError onClick={toggleWalletModal}>
-        <NetworkIcon />
         <Text>{error instanceof UnsupportedChainIdError ? 'Wrong Network' : 'Error'}</Text>
       </Web3StatusError>
     )

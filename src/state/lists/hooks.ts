@@ -27,7 +27,8 @@ const EMPTY_LIST: TokenAddressMap = {
   [ChainId.MAINNET]: {},
   [ChainId.ARBITRUM_TESTNET_V3]: {},
   [ChainId.SOKOL]: {},
-  [ChainId.XDAI]: {}
+  [ChainId.XDAI]: {},
+  [ChainId.MATIC]: {},
 }
 
 export function tokenListToTokenMap(list: TokenInfo[]): TokenAddressMap {

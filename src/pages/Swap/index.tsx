@@ -8,7 +8,7 @@ import Card from '../../components/Card'
 import Column, { AutoColumn } from '../../components/Column'
 import ConfirmSwapModal from '../../components/swap/ConfirmSwapModal'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
-import { SwapPoolTabs } from '../../components/NavigationTabs'
+// import { SwapPoolTabs } from '../../components/NavigationTabs'
 import { AutoRow, RowBetween, RowFixed } from '../../components/Row'
 import AdvancedSwapDetailsDropdown from '../../components/swap/AdvancedSwapDetailsDropdown'
 import confirmPriceImpactWithoutFee from '../../components/swap/confirmPriceImpactWithoutFee'
@@ -35,15 +35,14 @@ import { TYPE } from '../../theme'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { computeTradePriceBreakdown, warningSeverity } from '../../utils/prices'
 import AppBody from '../AppBody'
-import { ClickableText } from '../Pool/styleds'
+import { ClickableText } from '../Pools/styleds'
 import Loader from '../../components/Loader'
 import { useTargetedChainIdFromUrl } from '../../hooks/useTargetedChainIdFromUrl'
 import NetworkWarningModal from '../../components/NetworkWarningModal'
 
 const RotatedRepeat = styled(Repeat)`
   transform: rotate(90deg);
-  width: 12px;
-  height: 10px;
+  width: 14px;
 `
 
 const SwitchIconContainer = styled.div`
@@ -272,7 +271,7 @@ export default function Swap() {
         onConfirm={handleConfirmTokenWarning}
       />
       <AppBody tradeDetailsOpen={!!trade}>
-        <SwapPoolTabs active={'swap'} />
+        {/* <SwapPoolTabs active={'swap'} /> */}
         <Wrapper id="swap-page">
           <ConfirmSwapModal
             isOpen={showConfirm}
@@ -289,7 +288,7 @@ export default function Swap() {
           />
 
           <AutoColumn gap="16px">
-            <AutoColumn gap="6px">
+            <AutoColumn gap="3px">
               <CurrencyInputPanel
                 label={independentField === Field.OUTPUT && !showWrap && trade ? 'From (estimated)' : 'From'}
                 value={formattedAmounts[Field.INPUT]}
@@ -302,15 +301,14 @@ export default function Swap() {
                 id="swap-currency-input"
               />
               <SwitchIconContainer>
-                <SwitchTokensAmountsContainer>
+                <SwitchTokensAmountsContainer
+                  onClick={() => {
+                    setApprovalSubmitted(false) // reset 2 step UI for approvals
+                    onSwitchTokens()
+                  }}
+                >
                   <ArrowWrapper clickable>
-                    <RotatedRepeat
-                      onClick={() => {
-                        setApprovalSubmitted(false) // reset 2 step UI for approvals
-                        onSwitchTokens()
-                      }}
-                      color={theme.text4}
-                    />
+                    <RotatedRepeat color={theme.text4} />
                   </ArrowWrapper>
                 </SwitchTokensAmountsContainer>
               </SwitchIconContainer>
