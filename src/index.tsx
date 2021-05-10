@@ -1,6 +1,3 @@
-// should always be imported and executed first
-import './set-xdai-addresses'
-
 import { createWeb3ReactRoot, Web3ReactProvider } from '@web3-react/core'
 import '@fontsource/montserrat/400.css'
 import '@fontsource/montserrat/500.css'
@@ -19,6 +16,7 @@ import MulticallUpdater from './state/multicall/updater'
 import FeesUpdater from './state/fees/updater'
 import TransactionUpdater from './state/transactions/updater'
 import UserUpdater from './state/user/updater'
+import TokenIconsUpdater from './state/token-icons/updater'
 import TokenListUpdater from './state/lists/updater'
 import ThemeProvider, { FixedGlobalStyle, ThemedGlobalStyle } from './theme'
 import getLibrary from './utils/getLibrary'
@@ -42,6 +40,7 @@ function Updaters() {
       <MulticallUpdater />
       <FeesUpdater />
       <TokenListUpdater />
+      <TokenIconsUpdater />
     </>
   )
 }

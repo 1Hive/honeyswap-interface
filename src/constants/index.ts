@@ -1,5 +1,5 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
-import { ChainId, JSBI, Percent, WETH, WSPOA, DXD, WXDAI, Token, Currency } from 'dxswap-sdk'
+import { ChainId, JSBI, Percent, CurrencyAmount, WETH, WSPOA, DXD, WXDAI, Token, Currency, WMATIC } from 'dxswap-sdk'
 import { tokens } from './tokens'
 import { authereum, injected, walletConnect } from '../connectors'
 
@@ -95,6 +95,10 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     STAKE,
     AGAVE,
     BAO
+  ],
+  [ChainId.MATIC]: [
+    WETH[ChainId.MATIC],
+    WMATIC[ChainId.MATIC]
   ]
 }
 
@@ -105,7 +109,8 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.RINKEBY]: [],
   [ChainId.ARBITRUM_TESTNET_V3]: [],
   [ChainId.SOKOL]: [],
-  [ChainId.XDAI]: [DXD[ChainId.XDAI], WETH[ChainId.XDAI], USDC[ChainId.XDAI]]
+  [ChainId.XDAI]: [DXD[ChainId.XDAI], WETH[ChainId.XDAI], USDC[ChainId.XDAI]],
+  [ChainId.MATIC]: [WETH[ChainId.MATIC]]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -114,7 +119,8 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
   [ChainId.ARBITRUM_TESTNET_V3]: [WETH[ChainId.ARBITRUM_TESTNET_V3]],
   [ChainId.SOKOL]: [Token.WSPOA[ChainId.SOKOL]],
-  [ChainId.XDAI]: [WXDAI[ChainId.XDAI], DXD[ChainId.XDAI], WETH[ChainId.XDAI], USDC[ChainId.XDAI], STAKE]
+  [ChainId.XDAI]: [WXDAI[ChainId.XDAI], DXD[ChainId.XDAI], WETH[ChainId.XDAI], USDC[ChainId.XDAI], STAKE],
+  [ChainId.MATIC]: [WMATIC[ChainId.MATIC], WETH[ChainId.MATIC]]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
@@ -200,6 +206,8 @@ export const MIN_ETH: JSBI = JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(16))
 
 export const DEFAULT_TOKEN_LIST = tokens
 
+export const ZERO_USD = CurrencyAmount.usd('0')
+
 interface NetworkDetails {
   chainId: string
   chainName: string
@@ -236,6 +244,18 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
     },
     rpcUrls: ['https://rpc.xdaichain.com/'],
     blockExplorerUrls: ['https://blockscout.com/xdai/mainnet'],
+    metamaskAddable: true
+  },
+  [ChainId.MATIC]: {
+    chainId: `0x${ChainId.MATIC.toString(16)}`,
+    chainName: 'Matic',
+    nativeCurrency: {
+      name: Currency.MATIC.name || 'Matic',
+      symbol: Currency.MATIC.symbol || 'MATIC',
+      decimals: Currency.MATIC.decimals || 18
+    },
+    rpcUrls: ['https://rpc-mainnet.maticvigil.com/'],
+    blockExplorerUrls: ['https://explorer.matic.network/'],
     metamaskAddable: true
   }
 }

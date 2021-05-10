@@ -4,7 +4,7 @@ import { AddressZero } from '@ethersproject/constants'
 import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { BigNumber } from '@ethersproject/bignumber'
 import { abi as IDXswapRouterABI } from 'dxswap-periphery/build/IDXswapRouter.json'
-import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, RoutablePlatform } from 'dxswap-sdk'
+import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, Pair, RoutablePlatform } from 'dxswap-sdk'
 import { TokenAddressMap } from '../state/lists/hooks'
 
 // returns the checksummed address if the address is valid, otherwise returns false
@@ -21,7 +21,8 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   4: 'rinkeby.',
   [ChainId.ARBITRUM_TESTNET_V3]: '',
   [ChainId.SOKOL]: '',
-  [ChainId.XDAI]: ''
+  [ChainId.XDAI]: '',
+  [ChainId.MATIC]: ''
 }
 
 const getExplorerPrefix = (chainId: ChainId) => {
@@ -32,6 +33,8 @@ const getExplorerPrefix = (chainId: ChainId) => {
       return 'https://blockscout.com/poa/sokol'
     case ChainId.XDAI:
       return 'https://blockscout.com/xdai/mainnet'
+    case ChainId.MATIC:
+      return 'https://explorer-mainnet.maticvigil.com'
     default:
       return `https://${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[1]}etherscan.io`
   }
@@ -76,8 +79,9 @@ export function shortenAddress(address: string, chars = 4): string {
 }
 
 // add 10%
-export function calculateGasMargin(value: BigNumber): BigNumber {
-  return value.mul(BigNumber.from(10000).add(BigNumber.from(1000))).div(BigNumber.from(10000))
+export function calculateGasMargin(value: BigNumber, blockGasLimit: BigNumber): BigNumber {
+  const gasWithMargin = value.mul(BigNumber.from(10000).add(BigNumber.from(1000))).div(BigNumber.from(10000))
+  return gasWithMargin.gt(blockGasLimit) ? blockGasLimit : gasWithMargin
 }
 
 // converts a basis points value to a sdk percent
@@ -136,4 +140,9 @@ export function escapeRegExp(string: string): string {
 export function isTokenOnList(defaultTokens: TokenAddressMap, currency: Currency): boolean {
   if (Currency.isNative(currency)) return true
   return Boolean(currency instanceof Token && defaultTokens[currency.chainId]?.[currency.address])
+}
+
+export function isPairOnList(pairs: Pair[], pair?: Pair): boolean {
+  if (!pair) return false
+  return !!pairs.find(loopedPair => loopedPair.equals(pair))
 }
