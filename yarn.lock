@@ -6000,9 +6000,9 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-"dxswap-core@git://github.com/danivega1912/dxswap-core#develop":
+"dxswap-core@git://github.com/1Hive/dxswap-core#master":
   version "0.3.7"
-  resolved "git://github.com/danivega1912/dxswap-core#083ea3f0b493982e771c2cd43114ec1a835d4d06"
+  resolved "git://github.com/1Hive/dxswap-core#ddc73095a015c3e96f94de52a876cffc4ca7d41b"
   dependencies:
     typescript "^3.9.5"
 
@@ -6018,9 +6018,9 @@ duplexify@^3.4.2, duplexify@^3.6.0:
   dependencies:
     typescript "^3.9.5"
 
-"dxswap-periphery@git://github.com/danivega1912/dxswap-periphery#develop":
-  version "0.3.8"
-  resolved "git://github.com/danivega1912/dxswap-periphery#d6a621a8c44ad0f15961a39107ff49f60bd1bc0d"
+"dxswap-periphery@git://github.com/1Hive/dxswap-periphery#master":
+  version "0.3.7"
+  resolved "git://github.com/1Hive/dxswap-periphery#7b6e54d607446c5a91389d727e4127214dab2e0f"
   dependencies:
     dxswap-core "git://github.com/levelkdev/dxswap-core.git#v0.3.1"
 
@@ -6030,9 +6030,9 @@ duplexify@^3.4.2, duplexify@^3.6.0:
   dependencies:
     dxswap-core "git://github.com/levelkdev/dxswap-core.git#v0.3.1"
 
-"dxswap-sdk@git://github.com/danivega1912/dxswap-sdk#develop":
+"dxswap-sdk@git://github.com/1Hive/honeyswap-sdk#master":
   version "0.8.0"
-  resolved "git://github.com/danivega1912/dxswap-sdk#d78b2a64df6e286b4935b7848f9fd945f56d5478"
+  resolved "git://github.com/1Hive/honeyswap-sdk#ce98cf5ea520eaa0ce0397cd7935dc446c658d8b"
   dependencies:
     "@makerdao/multicall" "^0.11.0"
     big.js "^5.2.2"
