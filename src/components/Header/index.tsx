@@ -1,11 +1,12 @@
-import React, { useCallback } from 'react'
-import { Box, Flex, Text } from 'rebass'
+import React from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 
 import styled from 'styled-components'
 
-import Logo from '../../assets/svg/swapr.svg'
-import LogoDark from '../../assets/svg/swapr_white.svg'
+import Logo from '../../assets/svg/logo.svg'
+import LogoDark from '../../assets/svg/logo_white.svg'
+import Wordmark from '../../assets/svg/wordmark.svg'
+import WordmarkDark from '../../assets/svg/wordmark_white.svg'
 import { useActiveWeb3React } from '../../hooks'
 import { useDarkModeManager } from '../../state/user/hooks'
 import { useNativeCurrencyBalances } from '../../state/wallet/hooks'
@@ -15,10 +16,8 @@ import Settings from '../Settings'
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
 import { useTranslation } from 'react-i18next'
-import { transparentize } from 'polished'
-import { ExternalLink, TYPE } from '../../theme'
+import { TYPE } from '../../theme'
 import MobileOptions from './MobileOptions'
-import Badge from '../Badge'
 import { useNativeCurrency } from '../../hooks/useNativeCurrency'
 
 const HeaderFrame = styled.div`
@@ -142,7 +141,7 @@ const Title = styled.a`
   align-items: center;
   pointer-events: auto;
   justify-self: flex-start;
-  margin-right: 35px;
+  margin-right: 0px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     justify-self: center;
   `};
@@ -152,6 +151,14 @@ const Title = styled.a`
   :hover {
     cursor: pointer;
   }
+`
+
+const TitleText = styled(Row)`
+  width: fit-content;
+  white-space: nowrap;
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    display: none;
+  `};
 `
 
 const DXswapIcon = styled.div`
@@ -188,57 +195,14 @@ export const StyledNavLink = styled(NavLink).attrs({
     display: none;
   `};
 `
-
-const StyledNavLinkWithBadge = styled.a`
-  position: relative;
-  margin: 0px 12px;
-  cursor: not-allowed;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19.5px;
-  color: ${({ theme }) => transparentize(0.6, theme.text5)};
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-    display: none;
-  `};
-`
-
-const AbsoluteComingSoonBadgeFlex = styled(Flex)`
-  position: absolute;
-  top: 20px;
-`
-
-const StyledExternalLink = styled(ExternalLink).attrs({
-  activeClassName
-})<{ isActive?: boolean }>`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: left;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: ${({ theme }) => theme.text5};
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19.5px;
-  width: fit-content;
-  text-decoration: none !important;
-  margin: 0 12px;
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-    display: none;
-  `};
-`
-
 function Header({ history }: { history: any }) {
-  const { account, chainId } = useActiveWeb3React()
+  const { account } = useActiveWeb3React()
   const { t } = useTranslation()
 
   const nativeCurrency = useNativeCurrency()
   const userNativeCurrencyBalances = useNativeCurrencyBalances(account ? [account] : [])
   const userNativeCurrencyBalance = userNativeCurrencyBalances?.[account || '']
   const [isDark] = useDarkModeManager()
-
-  const handleDisabledAnchorClick = useCallback(event => {
-    event.preventDefault()
-  }, [])
 
   return (
     <HeaderFrame>
@@ -247,10 +211,13 @@ function Header({ history }: { history: any }) {
           <DXswapIcon>
             <img src={isDark ? LogoDark : Logo} alt="logo" />
           </DXswapIcon>
+          <TitleText>
+              <img style={{ marginLeft: '4px', marginTop: '4px' }} src={isDark ? WordmarkDark : Wordmark} alt="logo" />
+            </TitleText>
         </Title>
         <HeaderLinks>
           <StyledNavLink id={`swap-nav-link`} to={'/swap'} isActive={() => history.location.pathname.includes('/swap')}>
-            {t('swap')}
+            {t('Swap')}
           </StyledNavLink>
           <StyledNavLink
             id={`pool-nav-link`}
@@ -264,20 +231,6 @@ function Header({ history }: { history: any }) {
           >
             {t('pool')}
           </StyledNavLink>
-          <StyledNavLinkWithBadge href="/#" onClick={handleDisabledAnchorClick}>
-            <span>{t('governance')}</span>
-            <AbsoluteComingSoonBadgeFlex justifyContent="center" width="100%">
-              <Box>
-                <Badge label="COMING SOON" />
-              </Box>
-            </AbsoluteComingSoonBadgeFlex>
-          </StyledNavLinkWithBadge>
-          <StyledExternalLink id={`stake-nav-link`} href={`https://dxstats.eth.link/#/?chainId=${chainId}`}>
-            Charts{' '}
-            <Text ml="4px" fontSize="11px">
-              ↗
-            </Text>
-          </StyledExternalLink>
           <MobileSettingsWrap>
             <Settings />
           </MobileSettingsWrap>

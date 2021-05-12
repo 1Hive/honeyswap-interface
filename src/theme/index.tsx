@@ -35,55 +35,129 @@ const mediaWidthTemplates: { [width in keyof typeof MEDIA_WIDTHS]: typeof css } 
 const white = '#FFFFFF'
 const black = '#000000'
 
+// export function colors(darkMode: boolean): Colors {
+//   return {
+//     // base
+//     white,
+//     black,
+
+//     // text
+//     text1: darkMode ? '#FFFFFF' : '#14131D',
+//     text2: darkMode ? '#EBE9F8' : '#464366',
+//     text3: darkMode ? '#DDDAF8' : '#8E89C6',
+//     text4: darkMode ? '#C0BAF6' : '#A7A0E4',
+//     text5: darkMode ? '#8780BF' : '#C0BAF6',
+
+//     // backgrounds / greys
+//     bg1: darkMode ? '#191A24' : '#FFFFFF',
+//     bg1And2: darkMode ? '#1D202F' : '#FFFFFF',
+//     bg2: darkMode ? '#2A2F42' : '#EBE9F8',
+//     bg3: darkMode ? '#3E4259' : '#DDDAF8',
+//     bg4: darkMode ? '#686E94' : '#C0BBE9',
+//     bg5: darkMode ? '#9096BE' : '#7873A4',
+
+//     //specialty colors
+//     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
+//     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
+
+//     //primary colors
+//     primary1: darkMode ? '#2E17F2' : '#551a8b',
+//     primary2: darkMode ? '#3680E7' : '#F9F5FF',
+//     primary3: darkMode ? '#4D8FEA' : '#D4C2FC',
+//     primary4: darkMode ? '#376bad70' : '#998FC7',
+//     primary5: darkMode ? '#153d6f70' : '#D6D3D9',
+
+//     // color text
+//     primaryText1: darkMode ? '#6da8ff' : '#551a8b',
+
+//     // secondary colors
+//     secondary1: darkMode ? '#2172E5' : '#551a8b',
+//     secondary2: darkMode ? '#17000b26' : '#998FC7',
+//     secondary3: darkMode ? '#17000b26' : '#D4C2FC',
+
+//     // other
+//     red1: '#F02E51',
+//     red2: '#F82D3A',
+//     green1: '#27AE60',
+//     yellow1: '#FFE270',
+//     yellow2: '#F3841E',
+//     blue1: '#2172E5',
+
+//     // dont wanna forget these blue yet
+//     // blue4: darkMode ? '#153d6f70' : '#C4D9F8',
+//     // blue5: darkMode ? '#153d6f70' : '#EBF4FF',
+
+//     // new UI refactor colors
+//     mainPurple: '#2E17F2',
+//     purpleBase: '#101016',
+//     purpleOverlay: '#111018',
+//     purple2: '#C0BAF6',
+//     purple3: '#8780BF',
+//     purple4: '#685EC6',
+//     purple5: '#464366',
+//     boxShadow: '#0A0A0F',
+
+//     // darkest // dark 1.1
+//     darkest: '#161721',
+//     dark1: '#191824',
+//     dark2: '#2A2F42'
+//   }
+// }
+
 export function colors(darkMode: boolean): Colors {
   return {
     // base
     white,
     black,
 
+    // gradient colors
+    grd1: darkMode ? '#394F50' : '#FFC3AB',
+    grd2: darkMode ? '#484E45' : '#FAFAE2',
+    grd3: darkMode ? '#394F50' : '#CBF3EF',
+
     // text
-    text1: darkMode ? '#FFFFFF' : '#14131D',
-    text2: darkMode ? '#EBE9F8' : '#464366',
-    text3: darkMode ? '#DDDAF8' : '#8E89C6',
-    text4: darkMode ? '#C0BAF6' : '#A7A0E4',
-    text5: darkMode ? '#8780BF' : '#C0BAF6',
+    text1: darkMode ? '#FFFFFF' : '#000000',
+    text2: darkMode ? '#C3C5CB' : '#565A69',
+    text3: darkMode ? '#6C7284' : '#888D9B',
+    text4: darkMode ? '#565A69' : '#C3C5CB',
+    text5: darkMode ? '#c3c5cb' : '#EDEEF2',
 
     // backgrounds / greys
-    bg1: darkMode ? '#191A24' : '#FFFFFF',
-    bg1And2: darkMode ? '#1D202F' : '#FFFFFF',
-    bg2: darkMode ? '#2A2F42' : '#EBE9F8',
-    bg3: darkMode ? '#3E4259' : '#DDDAF8',
-    bg4: darkMode ? '#686E94' : '#C0BBE9',
-    bg5: darkMode ? '#9096BE' : '#7873A4',
+    bg1: darkMode ? '#212429' : '#FFFFFF',
+    bg1And2: darkMode ? '#212429' : '#FFFFFF',
+    bg2: darkMode ? '#2C2F36' : '#F7F8FA',
+    bg3: darkMode ? '#40444F' : '#EDEEF2',
+    bg4: darkMode ? '#565A69' : '#CED0D9',
+    bg5: darkMode ? '#6C7284' : '#888D9B',
 
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
 
     //primary colors
-    primary1: darkMode ? '#2E17F2' : '#551a8b',
-    primary2: darkMode ? '#3680E7' : '#F9F5FF',
-    primary3: darkMode ? '#4D8FEA' : '#D4C2FC',
-    primary4: darkMode ? '#376bad70' : '#998FC7',
-    primary5: darkMode ? '#153d6f70' : '#D6D3D9',
+    primary1: darkMode ? '#40444f' : '#7CE0D6',
+    primary2: darkMode ? '#45d3c5' : '#7CE0D6',
+    primary3: darkMode ? '#97e7de' : '#7CE0D6',
+    primary4: darkMode ? '#CBF3EF' : '#7CE0D6',
+    primary5: darkMode ? '#CBF3EF' : '#7CE0D6',
 
     // color text
-    primaryText1: darkMode ? '#6da8ff' : '#551a8b',
+    primaryText1: darkMode ? 'rgba(44, 52, 55, 0.8)' : '#ffff',
 
     // secondary colors
-    secondary1: darkMode ? '#2172E5' : '#551a8b',
-    secondary2: darkMode ? '#17000b26' : '#998FC7',
-    secondary3: darkMode ? '#17000b26' : '#D4C2FC',
+    secondary1: darkMode ? '#30cfbf' : '#7CE0D6',
+    secondary2: darkMode ? '#17000b26' : '#7CE0D6',
+    secondary3: darkMode ? '#17000b26' : '#7CE0D6',
 
     // other
-    red1: '#F02E51',
+    red1: '#FF6871',
     red2: '#F82D3A',
     green1: '#27AE60',
     yellow1: '#FFE270',
     yellow2: '#F3841E',
     blue1: '#2172E5',
 
-    // dont wanna forget these blue yet
+        // dont wanna forget these blue yet
     // blue4: darkMode ? '#153d6f70' : '#C4D9F8',
     // blue5: darkMode ? '#153d6f70' : '#EBF4FF',
 
@@ -99,8 +173,12 @@ export function colors(darkMode: boolean): Colors {
 
     // darkest // dark 1.1
     darkest: '#161721',
-    dark1: '#191824',
+    dark1: '#212429',
     dark2: '#2A2F42'
+
+    // dont wanna forget these blue yet
+    // blue4: darkMode ? '#153d6f70' : '#C4D9F8',
+    // blue5: darkMode ? '#153d6f70' : '#EBF4FF',
   }
 }
 
@@ -228,21 +306,20 @@ a {
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: ${({ theme }) => theme.text1};
-  background-color: ${({ theme }) => theme.bg1};
+  background-color: ${({ theme }) => theme.grd1};
+  background: linear-gradient(111.63deg, ${({ theme }) => theme.grd1} 0%, ${({ theme }) => theme.grd2} 49.48%, ${({
+  theme
+}) => theme.grd3} 100%);
 }
-
 body {
   min-height: 100vh;
-  background-position: 0 -20vh;
+  background-position: 0 -30vh;
   background-repeat: no-repeat;
   background-image: ${({ theme }) =>
-    `radial-gradient(80vw 100vh at 50vw 0vh, ${transparentize(0.7, theme.text5)} 0%, ${theme.bg1} 100%)`};
-  ${({ theme }) => theme.mediaWidth.upToMedium`
-    background-position: 0 -10vh;
-    background-image: radial-gradient(100vw 50vh at 50vw 50vh, ${transparentize(0.7, theme.text5)} 0%, ${
-    theme.bg1
-  } 100%);
-  `};
+    `radial-gradient(50% 50% at 50% 50%, ${transparentize(0.9, theme.primary1)} 0%, ${transparentize(
+      1,
+      theme.bg1
+    )} 100%)`};
 }
 
 .react-datepicker-wrapper {
