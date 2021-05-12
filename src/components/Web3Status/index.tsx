@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { darken, transparentize } from 'polished'
 import React, { useMemo } from 'react'

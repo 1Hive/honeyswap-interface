@@ -100,7 +100,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false, border }: Min
             <AutoColumn gap="4px">
               <FixedHeightRow>
                 <TYPE.body color="text4" fontSize="15px" lineHeight="19px">
-                  Your pool's share:
+                  Your pool&apos;s share:
                 </TYPE.body>
                 <TYPE.body color="text4" fontSize="15px" lineHeight="19px">
                   {poolTokenPercentage ? poolTokenPercentage.toFixed(6) + '%' : '-'}
