@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const GitRevisionPlugin = require('git-revision-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')

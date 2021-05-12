@@ -34,6 +34,7 @@ export default function Updater(): null {
   const dispatch = useDispatch<AppDispatch>()
   const state = useSelector<AppState, AppState['transactions']>(state => state.transactions)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const transactions = chainId ? state[chainId] ?? {} : {}
 
   // show popup on confirm

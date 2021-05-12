@@ -83,11 +83,13 @@ export default createReducer(initialState, builder =>
 
       state.lastUpdateVersionTimestamp = currentTimestamp()
     })
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .addCase(updateUserDarkMode, (state, action) => {
       // TODO: fix this once light theme goes live
       state.userDarkMode = true // action.payload.userDarkMode
       state.timestamp = currentTimestamp()
     })
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .addCase(updateMatchesDarkMode, (state, action) => {
       // TODO: fix this once light theme goes live
       state.matchesDarkMode = true // action.payload.matchesDarkMode
