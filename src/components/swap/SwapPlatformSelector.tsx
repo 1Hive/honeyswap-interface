@@ -22,7 +22,6 @@ const ROUTABLE_PLATFORM_LOGO: { [routablePaltformName: string]: ReactNode } = {
   [RoutablePlatform.HONEYSWAP.name]: <img width={16} height={16} src={HoneyswapLogo} alt="honeyswap" />,
   [RoutablePlatform.BAOSWAP.name]: <img width={16} height={16} src={BaoswapLogo} alt="baoswap" />,
   [RoutablePlatform.LEVINSWAP.name]: <img width={16} height={16} src={LevinswapLogo} alt="levinswap" />
-
 }
 
 export interface SwapPlatformSelectorProps {

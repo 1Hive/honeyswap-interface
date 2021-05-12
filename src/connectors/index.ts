@@ -16,7 +16,14 @@ export const network = new CustomNetworkConnector({
 })
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [ChainId.MAINNET, ChainId.RINKEBY, ChainId.ARBITRUM_TESTNET_V3, ChainId.SOKOL, ChainId.XDAI, ChainId.MATIC]
+  supportedChainIds: [
+    ChainId.MAINNET,
+    ChainId.RINKEBY,
+    ChainId.ARBITRUM_TESTNET_V3,
+    ChainId.SOKOL,
+    ChainId.XDAI,
+    ChainId.MATIC
+  ]
 })
 
 // mainnet only

@@ -146,7 +146,7 @@ function newTransactionsFirst(a: TransactionDetails, b: TransactionDetails) {
 function Web3StatusInner() {
   const { t } = useTranslation()
   const { account, error } = useWeb3React()
-  
+
   const { chainId: networkConnectorChainId } = useActiveWeb3React()
 
   const { ENSName } = useENSName(account ?? undefined)

@@ -96,10 +96,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     AGAVE,
     BAO
   ],
-  [ChainId.MATIC]: [
-    WETH[ChainId.MATIC],
-    WMATIC[ChainId.MATIC]
-  ]
+  [ChainId.MATIC]: [WETH[ChainId.MATIC], WMATIC[ChainId.MATIC]]
 }
 
 // used for display in the default list when adding liquidity (native currency is already shown
