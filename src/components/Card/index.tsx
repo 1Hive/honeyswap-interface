@@ -33,7 +33,7 @@ export const PinkCard = styled(Card)`
 `
 
 export const DarkCard = styled(Card)<{ selectable?: boolean }>`
-  background-image: linear-gradient(180deg, rgba(41, 38, 67, 0) 0%, rgba(68, 65, 99, 0.5) 100%);
+  background-image: linear-gradient(180deg, rgba(44, 47, 54, 1) 100%, rgba(44, 47, 54, 1) 100%);
   position: relative;
   cursor: ${props => (props.selectable ? 'pointer' : 'auto')};
   z-index: 0;

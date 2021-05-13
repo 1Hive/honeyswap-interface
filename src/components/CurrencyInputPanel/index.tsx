@@ -91,16 +91,17 @@ const StyledTokenName = styled.span<{ active?: boolean }>`
 `
 
 const StyledBalanceMax = styled.button`
-  font-size: 11px;
-  line-height: 13px;
+  font-size: 0.875rem;
+  font-weight: 500;
   letter-spacing: 0.08em;
   cursor: pointer;
-  margin-right: 4px;
+  margin-right: 10px;
   color: ${({ theme }) => theme.purple3};
   text-decoration: underline;
   outline: none;
-  background: transparent;
-  border: none;
+  border: 1px solid rgb(203, 243, 239);
+  background-color: rgb(203, 243, 239);
+  border-radius: 0.5rem;
 `
 
 const UppercaseHelper = styled.span`

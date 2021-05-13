@@ -60,7 +60,7 @@ export const ButtonPrimary = styled(Base)`
     background-color: ${({ theme }) => darken(0.1, theme.primary1)};
   }
   &:disabled {
-    background-color: ${({ theme }) => theme.purple5};
+    background-color: ${({ theme }) => theme.primary1};
     color: ${({ theme }) => transparentize(0.28, theme.purpleBase)};
     cursor: not-allowed;
     box-shadow: none;
