@@ -122,9 +122,9 @@ const Web3StatusConnected = styled(Web3StatusGeneric)<{ pending?: boolean }>`
 `
 
 const Web3StatusNetwork = styled(Web3StatusGeneric)<{ pending?: boolean }>`
-  background-color: ${({ theme }) => theme.dark1};
+  background-color: ${({ theme }) => theme.bg1};
   padding: 0px 18px 0px 14px;
-  border: 1px solid ${({ theme }) => theme.dark1};
+  border: 1px solid ${({ theme }) => theme.bg1};
 `
 
 const Text = styled.p<{ fontSize?: number }>`
@@ -195,9 +195,9 @@ function Web3StatusInner() {
             <IconWrapper size={20}>
               <img src={ChainLogo[networkConnectorChainId]} alt={''} />
             </IconWrapper>
-            <TYPE.white ml="8px" mr={!!!account ? '4px' : '0px'} fontWeight={700} fontSize="12px">
+            <TYPE.modeColor ml="8px" mr={!!!account ? '4px' : '0px'} fontWeight={700} fontSize="12px">
               {ChainLabel[networkConnectorChainId]}
-            </TYPE.white>
+            </TYPE.modeColor>
             {!!!account && <ChevronDown size={16} />}
           </Web3StatusNetwork>
         </NetworkSwitcherPopover>

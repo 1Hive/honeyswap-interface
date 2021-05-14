@@ -25,6 +25,7 @@ export interface Colors {
   bg3: Color
   bg4: Color
   bg5: Color
+  bg6: Color
 
   modalBG: Color
   advancedBG: Color
@@ -61,7 +62,7 @@ export interface Colors {
   purple5: Color
   boxShadow: Color
 
-  // darkest // dark1.1
+  // darkest
   darkest: Color
   dark1: Color
   dark2: Color
