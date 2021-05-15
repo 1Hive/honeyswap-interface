@@ -8,12 +8,12 @@ export const defaultSubgraphClient = new ApolloClient({
 
 export const subgraphClients: { [chainId in ChainId]?: ApolloClient<NormalizedCacheObject> | undefined } = {
   [ChainId.MAINNET]: defaultSubgraphClient,
-  [ChainId.RINKEBY]: new ApolloClient({
-    uri: 'https://api.thegraph.com/subgraphs/name/luzzif/swapr_rinkeby',
+  [ChainId.MATIC]: new ApolloClient({
+    uri: 'https://api.thegraph.com/subgraphs/name/1hive/honeyswap-polygon',
     cache: new InMemoryCache()
   }),
   [ChainId.XDAI]: new ApolloClient({
-    uri: 'https://api.thegraph.com/subgraphs/name/luzzif/swapr-xdai',
+    uri: 'https://api.thegraph.com/subgraphs/name/1hive/honeyswap-xdai',
     cache: new InMemoryCache()
   })
 }
