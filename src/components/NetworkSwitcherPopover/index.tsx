@@ -75,15 +75,6 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
             />
             <Option
               onClick={() => {
-                selectNetwork(ChainId.ARBITRUM_TESTNET_V3)
-              }}
-              header={'Arbitrum'}
-              logoSrc={ArbitrumLogo}
-              disabled={true}
-              clickable={false}
-            />
-            <Option
-              onClick={() => {
                 selectNetwork(ChainId.MATIC)
               }}
               header={'Matic'}
