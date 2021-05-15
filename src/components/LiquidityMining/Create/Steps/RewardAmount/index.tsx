@@ -30,7 +30,7 @@ const StyledNumericalInput = styled(NumericalInput)`
   text-transform: uppercase;
   padding-left: 8px;
   padding-right: 8px;
-  background-color: ${props => props.theme.dark1};
+  background-color: ${props => props.theme.bg1};
 `
 
 const RewardInputLogo = styled(CurrencyLogo)`

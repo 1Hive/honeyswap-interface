@@ -11,7 +11,7 @@ import DoubleCurrencyLogo from '../../components/DoubleLogo'
 
 const LightCardWrap = styled(Card)`
   background: linear-gradient(113.18deg, rgba(255, 255, 255, 0.35) -0.1%, rgba(0, 0, 0, 0) 98.9%),
-    ${({ theme }) => theme.dark1};
+    ${({ theme }) => theme.bg1};
   background-blend-mode: overlay, normal;
   padding: 0.8rem;
   width: calc(25% - 6px);

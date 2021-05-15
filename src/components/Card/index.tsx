@@ -32,14 +32,18 @@ export const PinkCard = styled(Card)`
   font-weight: 500;
 `
 
+// background-image: linear-gradient(180deg, ${props => props.theme.bg1} 100%, ${props => props.theme.bg1} 100%);
+// background-image: linear-gradient(180deg, rgba(44, 47, 54, 1) 100%, rgba(44, 47, 54, 1) 100%);  
+// background-image: linear-gradient(180deg, rgb(247, 248, 250) 100%, rgb(247, 248, 250) 100%);  
+
 export const DarkCard = styled(Card)<{ selectable?: boolean }>`
-  background-image: linear-gradient(180deg, rgba(44, 47, 54, 1) 100%, rgba(44, 47, 54, 1) 100%);
+  background-image: linear-gradient(180deg, ${props => props.theme.bg2} 100%, ${props => props.theme.bg2} 100%);
   position: relative;
   cursor: ${props => (props.selectable ? 'pointer' : 'auto')};
   z-index: 0;
   position: relative;
   ::before {
-    background-color: ${props => props.theme.darkest};
+    background-color: ${props => props.theme.bg6};
     content: '';
     z-index: -1;
     top: 1px;
@@ -70,8 +74,8 @@ export const BlueCard = ({ children, ...rest }: CardProps) => {
 
 export const GradientCard = styled(Card)<{ selectable?: boolean; active?: boolean }>`
   background: linear-gradient(113.18deg, rgba(255, 255, 255, 0.35) -0.1%, rgba(0, 0, 0, 0) 98.9%),
-    ${({ theme }) => theme.dark1};
-  background-color: ${({ theme }) => theme.dark1};
+    ${({ theme }) => theme.bg1};
+  background-color: ${({ theme }) => theme.bg1};
   background-blend-mode: overlay, normal;
   padding: 0.8rem;
   padding: 24px 30px;
@@ -101,7 +105,7 @@ export const GradientCard = styled(Card)<{ selectable?: boolean; active?: boolea
         bottom: 0;
         left: 0;
         right: 0;
-        background: linear-gradient(110.34deg, #ffffff 0.16%, rgba(0, 0, 0, 0) 139.17%), ${({ theme }) => theme.dark1};
+        background: linear-gradient(110.34deg, #ffffff 0.16%, rgba(0, 0, 0, 0) 139.17%), ${({ theme }) => theme.bg1};
         background-blend-mode: overlay, normal;
         transition: 0.3s ease opacity;
         opacity: 0;

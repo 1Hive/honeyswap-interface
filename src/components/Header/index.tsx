@@ -122,7 +122,7 @@ const AccountElement = styled.div<{ active: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${({ theme }) => theme.dark1};
+  background-color: ${({ theme }) => theme.bg1};
   border: solid 2px transparent;
   box-sizing: border-box;
   color: ${({ theme }) => theme.purple2};
@@ -141,7 +141,7 @@ const Title = styled.a`
   align-items: center;
   pointer-events: auto;
   justify-self: flex-start;
-  margin-right: 0px;
+  margin-right: 30px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     justify-self: center;
   `};
@@ -212,8 +212,8 @@ function Header({ history }: { history: any }) {
             <img src={isDark ? LogoDark : Logo} alt="logo" />
           </DXswapIcon>
           <TitleText>
-            <img style={{ marginLeft: '4px', marginTop: '4px' }} src={isDark ? WordmarkDark : Wordmark} alt="logo" />
-          </TitleText>
+              <img style={{ marginLeft: '4px', marginTop: '4px' }} src={isDark ? WordmarkDark : Wordmark} alt="logo" />
+            </TitleText>
         </Title>
         <HeaderLinks>
           <StyledNavLink id={`swap-nav-link`} to={'/swap'} isActive={() => history.location.pathname.includes('/swap')}>
@@ -243,7 +243,7 @@ function Header({ history }: { history: any }) {
         <HeaderElement>
           <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
             {account && userNativeCurrencyBalance ? (
-              <TYPE.white
+              <TYPE.black
                 style={{ flexShrink: 0 }}
                 ml="18px"
                 mr="12px"
@@ -253,7 +253,7 @@ function Header({ history }: { history: any }) {
                 letterSpacing="0.08em"
               >
                 {userNativeCurrencyBalance?.toSignificant(4)} {nativeCurrency.symbol}
-              </TYPE.white>
+              </TYPE.black>
             ) : null}
             <Web3Status />
           </AccountElement>

@@ -35,79 +35,11 @@ const mediaWidthTemplates: { [width in keyof typeof MEDIA_WIDTHS]: typeof css } 
 const white = '#FFFFFF'
 const black = '#000000'
 
-// export function colors(darkMode: boolean): Colors {
-//   return {
-//     // base
-//     white,
-//     black,
-
-//     // text
-//     text1: darkMode ? '#FFFFFF' : '#14131D',
-//     text2: darkMode ? '#EBE9F8' : '#464366',
-//     text3: darkMode ? '#DDDAF8' : '#8E89C6',
-//     text4: darkMode ? '#C0BAF6' : '#A7A0E4',
-//     text5: darkMode ? '#8780BF' : '#C0BAF6',
-
-//     // backgrounds / greys
-//     bg1: darkMode ? '#191A24' : '#FFFFFF',
-//     bg1And2: darkMode ? '#1D202F' : '#FFFFFF',
-//     bg2: darkMode ? '#2A2F42' : '#EBE9F8',
-//     bg3: darkMode ? '#3E4259' : '#DDDAF8',
-//     bg4: darkMode ? '#686E94' : '#C0BBE9',
-//     bg5: darkMode ? '#9096BE' : '#7873A4',
-
-//     //specialty colors
-//     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
-//     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
-
-//     //primary colors
-//     primary1: darkMode ? '#2E17F2' : '#551a8b',
-//     primary2: darkMode ? '#3680E7' : '#F9F5FF',
-//     primary3: darkMode ? '#4D8FEA' : '#D4C2FC',
-//     primary4: darkMode ? '#376bad70' : '#998FC7',
-//     primary5: darkMode ? '#153d6f70' : '#D6D3D9',
-
-//     // color text
-//     primaryText1: darkMode ? '#6da8ff' : '#551a8b',
-
-//     // secondary colors
-//     secondary1: darkMode ? '#2172E5' : '#551a8b',
-//     secondary2: darkMode ? '#17000b26' : '#998FC7',
-//     secondary3: darkMode ? '#17000b26' : '#D4C2FC',
-
-//     // other
-//     red1: '#F02E51',
-//     red2: '#F82D3A',
-//     green1: '#27AE60',
-//     yellow1: '#FFE270',
-//     yellow2: '#F3841E',
-//     blue1: '#2172E5',
-
-//     // dont wanna forget these blue yet
-//     // blue4: darkMode ? '#153d6f70' : '#C4D9F8',
-//     // blue5: darkMode ? '#153d6f70' : '#EBF4FF',
-
-//     // new UI refactor colors
-//     mainPurple: '#2E17F2',
-//     purpleBase: '#101016',
-//     purpleOverlay: '#111018',
-//     purple2: '#C0BAF6',
-//     purple3: '#8780BF',
-//     purple4: '#685EC6',
-//     purple5: '#464366',
-//     boxShadow: '#0A0A0F',
-
-//     // darkest // dark 1.1
-//     darkest: '#161721',
-//     dark1: '#191824',
-//     dark2: '#2A2F42'
-//   }
-// }
-
 export function colors(darkMode: boolean): Colors {
   return {
     // base
-    white,
+    //white,
+    white: darkMode ? white : black,
     black,
 
     // gradient colors
@@ -120,7 +52,7 @@ export function colors(darkMode: boolean): Colors {
     text2: darkMode ? '#C3C5CB' : '#565A69',
     text3: darkMode ? '#6C7284' : '#888D9B',
     text4: darkMode ? '#565A69' : '#C3C5CB',
-    text5: darkMode ? '#c3c5cb' : '#EDEEF2',
+    text5: darkMode ? '#c3c5cb' : '#888d9b',
 
     // backgrounds / greys
     bg1: darkMode ? '#212429' : '#FFFFFF',
@@ -129,6 +61,8 @@ export function colors(darkMode: boolean): Colors {
     bg3: darkMode ? '#40444F' : '#EDEEF2',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#6C7284' : '#888D9B',
+    bg6: darkMode ? '#212429' : '#888D9B',
+
 
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
@@ -157,7 +91,7 @@ export function colors(darkMode: boolean): Colors {
     yellow2: '#F3841E',
     blue1: '#2172E5',
 
-    // dont wanna forget these blue yet
+        // dont wanna forget these blue yet
     // blue4: darkMode ? '#153d6f70' : '#C4D9F8',
     // blue5: darkMode ? '#153d6f70' : '#EBF4FF',
 
@@ -234,6 +168,9 @@ export const TYPE = {
   },
   white(props: TextProps) {
     return <TextWrapper fontWeight={500} color={'white'} {...props} />
+  },
+  modeColor(props: TextProps) {
+    return <TextWrapper fontWeight={500} color={'yellow2'} {...props} />
   },
   body(props: TextProps) {
     return <TextWrapper fontWeight={400} fontSize={16} color={'text5'} {...props} />
@@ -331,14 +268,14 @@ body {
   border: solid 1px ${props => props.theme.bg5} !important;
   border-radius: 8px !important;
   color: ${props => props.theme.text4} !important;
-  background-color: ${props => props.theme.dark1} !important;
+  background-color: ${props => props.theme.bg1} !important;
   background: linear-gradient(113.18deg, rgba(255, 255, 255, 0.35) -0.1%, rgba(0, 0, 0, 0) 98.9%),
-  ${({ theme }) => theme.dark1} !important;
+  ${({ theme }) => theme.bg1} !important;
   background-blend-mode: overlay, normal !important;
 }
 
 .react-datepicker__triangle {
-  border-bottom-color: ${props => props.theme.dark1} !important;
+  border-bottom-color: ${props => props.theme.bg1} !important;
 }
 
 .react-datepicker__header {

@@ -11,7 +11,7 @@ export const BodyWrapper = styled(DarkCard)<{ tradeDetailsOpen?: boolean }>`
   transition: box-shadow 0.3s ease;
   box-shadow: 0px 6px 14px 0px #000000 10%;
   ::before {
-    background: ${props => props.theme.dark1};
+    background: ${props => props.theme.bg1};
   }
 `
 

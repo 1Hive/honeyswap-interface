@@ -19,7 +19,7 @@ const StyledLogo = styled(Logo)<{ size: string }>`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   border-radius: ${({ size }) => size};
-  border: solid 1px ${props => props.theme.white};
+  border: solid 1px ${props => props.theme.bg1};
   position: absolute;
   top: 0;
   bottom: 0;
@@ -33,7 +33,7 @@ const Wrapper = styled.div<{ size: string; marginRight: number; marginLeft: numb
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   border-radius: ${({ size }) => size};
-  background-color: ${props => (props.loading ? 'transparent' : props.theme.white)};
+  background-color: ${props => (props.loading ? 'transparent' : props.theme.bg1)};
   position: relative;
 `
 
