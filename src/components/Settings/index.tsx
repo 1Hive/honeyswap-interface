@@ -316,11 +316,7 @@ export default function SettingsTab() {
                             Toggle Dark Mode
                           </TYPE.body>
                         </RowFixed>
-                        <Toggle 
-                          id="toggle-dark-mode-button"
-                          isActive={darkMode} 
-                          toggle={toggleDarkMode}
-                        />
+                        <Toggle id="toggle-dark-mode-button" isActive={darkMode} toggle={toggleDarkMode} />
                       </RowBetween>
                     }
                   </AutoColumn>
