@@ -32,10 +32,6 @@ export const PinkCard = styled(Card)`
   font-weight: 500;
 `
 
-// background-image: linear-gradient(180deg, ${props => props.theme.bg1} 100%, ${props => props.theme.bg1} 100%);
-// background-image: linear-gradient(180deg, rgba(44, 47, 54, 1) 100%, rgba(44, 47, 54, 1) 100%);
-// background-image: linear-gradient(180deg, rgb(247, 248, 250) 100%, rgb(247, 248, 250) 100%);
-
 export const DarkCard = styled(Card)<{ selectable?: boolean }>`
   background-image: linear-gradient(180deg, ${props => props.theme.bg2} 100%, ${props => props.theme.bg2} 100%);
   position: relative;

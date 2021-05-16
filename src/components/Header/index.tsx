@@ -212,8 +212,8 @@ function Header({ history }: { history: any }) {
             <img src={isDark ? LogoDark : Logo} alt="logo" />
           </DXswapIcon>
           <TitleText>
-            <img style={{ marginLeft: '4px', marginTop: '4px' }} src={isDark ? WordmarkDark : Wordmark} alt="logo" />
-          </TitleText>
+              <img style={{ marginLeft: '4px', marginTop: '4px' }} src={isDark ? WordmarkDark : Wordmark} alt="logo" />
+            </TitleText>
         </Title>
         <HeaderLinks>
           <StyledNavLink id={`swap-nav-link`} to={'/swap'} isActive={() => history.location.pathname.includes('/swap')}>

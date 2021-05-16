@@ -197,7 +197,7 @@ const CloseTextButton = styled(LinkStyledButton)`
   text-decoration: underline;
 `
 
-const CODE_LINK = 'https://github.com/levelkdev/dxswap-dapp'
+const CODE_LINK = 'https://github.com/1Hive/honeyswap-interface'
 
 export default function SettingsTab() {
   const open = useModalOpen(ApplicationModal.SETTINGS)
@@ -324,7 +324,7 @@ export default function SettingsTab() {
                 <FlyoutBottomAligner>
                   <MenuFlyoutBottom>
                     <MenuFlyoutBottomItem>
-                      <MenuItem id="link" href="https://dxdao.eth.link/" rel="noopener noreferrer" target="_blank">
+                      <MenuItem id="link" href="https://1hive.org/" rel="noopener noreferrer" target="_blank">
                         <Info size={14} />
                         About
                       </MenuItem>
@@ -342,12 +342,12 @@ export default function SettingsTab() {
                       </InfoBadge>
                     </MenuFlyoutBottomItem>
 
-                    <MenuBanner id="link" href="https://dxdao.eth.link/" rel="noopener noreferrer" target="_blank">
-                      <TYPE.body fontWeight={700} fontSize="8px" letterSpacing="3px" color="text1" marginBottom="4px">
-                        A DXDAO PRODUCT
+                    <MenuBanner id="link" href="https://1hive.org/" rel="noopener noreferrer" target="_blank">
+                      <TYPE.body fontWeight={700} fontSize="10px" letterSpacing="3px" color="text1" marginBottom="4px">
+                        Built by Bees
                       </TYPE.body>
-                      <TYPE.body fontWeight={500} fontSize="8px" letterSpacing="3px" color="text1">
-                        DXDAO.ETH
+                      <TYPE.body fontWeight={500} fontSize="10px" letterSpacing="3px" color="text1">
+                        1Hive.org 
                       </TYPE.body>
                       <img src={DxDao} alt="dxdao" />
                     </MenuBanner>
