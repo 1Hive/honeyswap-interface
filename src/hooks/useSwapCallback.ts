@@ -189,7 +189,7 @@ export function useSwapCallback(
             const platformName = trade.platform.name
 
             const base = `Swap ${inputAmount} ${inputSymbol} for ${outputAmount} ${outputSymbol} ${
-              platformName !== RoutablePlatform.SWAPR.name ? `on ${platformName}` : ''
+              platformName !== RoutablePlatform.HONEYSWAP.name ? `on ${platformName}` : ''
             }`
             const withRecipient =
               recipient === account

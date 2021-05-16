@@ -23,7 +23,7 @@ export enum PairState {
 
 export function usePairs(
   currencies: [Currency | undefined, Currency | undefined][],
-  platform: RoutablePlatform = RoutablePlatform.SWAPR
+  platform: RoutablePlatform = RoutablePlatform.HONEYSWAP
 ): [PairState, Pair | null][] {
   const { chainId } = useActiveWeb3React()
 
@@ -62,7 +62,7 @@ export function usePairs(
       const { reserve0, reserve1 } = reserves
       const [token0, token1] = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA]
       const swapFee = swapFees?.[Pair.getAddress(token0, token1, platform)]?.fee
-      if (!swapFee && platform === RoutablePlatform.SWAPR) return [PairState.LOADING, null]
+      if (!swapFee && platform === RoutablePlatform.HONEYSWAP) return [PairState.LOADING, null]
       return [
         PairState.EXISTS,
         new Pair(
