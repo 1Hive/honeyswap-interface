@@ -6002,19 +6002,19 @@ duplexify@^3.4.2, duplexify@^3.6.0:
 
 "dxswap-core@https://github.com/1Hive/dxswap-core.git", "dxswap-core@https://github.com/1Hive/dxswap-core.git#master":
   version "0.3.7"
-  resolved "https://github.com/1Hive/dxswap-core.git#afb1add7980533da636eb8478bc21a8123fce63e"
+  resolved "https://github.com/1Hive/dxswap-core.git#bdf591bf9d21d3943bbe43a9805daf6924e2e65e"
   dependencies:
     typescript "^3.9.5"
 
 "dxswap-periphery@https://github.com/1Hive/dxswap-periphery.git", "dxswap-periphery@https://github.com/1Hive/dxswap-periphery.git#master":
   version "0.3.7"
-  resolved "https://github.com/1Hive/dxswap-periphery.git#4364459df6a3530af7b195cf5995723564f2ff29"
+  resolved "https://github.com/1Hive/dxswap-periphery.git#c7d15b4961779c6af035929177bcab9c1356c221"
   dependencies:
     dxswap-core "https://github.com/1Hive/dxswap-core.git"
 
 "dxswap-sdk@https://github.com/1Hive/honeyswap-sdk.git":
   version "0.8.0"
-  resolved "https://github.com/1Hive/honeyswap-sdk.git#44dbe45963d9d1d15f1aa784fd83bf2cc914218e"
+  resolved "https://github.com/1Hive/honeyswap-sdk.git#bfd0e3467337fe575173f2d0d2e7efd5c8234f3b"
   dependencies:
     "@makerdao/multicall" "^0.11.0"
     big.js "^5.2.2"
