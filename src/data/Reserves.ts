@@ -26,7 +26,6 @@ export function usePairs(
   platform: RoutablePlatform = RoutablePlatform.HONEYSWAP
 ): [PairState, Pair | null][] {
   const { chainId } = useActiveWeb3React()
-
   const tokens = useMemo(
     () =>
       currencies.map(([currencyA, currencyB]) => [
@@ -61,8 +60,14 @@ export function usePairs(
       if (!reserves) return [PairState.NOT_EXISTS, null]
       const { reserve0, reserve1 } = reserves
       const [token0, token1] = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA]
-      const swapFee = swapFees?.[Pair.getAddress(token0, token1, platform)]?.fee
-      if (!swapFee && platform === RoutablePlatform.HONEYSWAP) return [PairState.LOADING, null]
+      const swapFee =
+        swapFees &&
+        swapFees[Pair.getAddress(token0, token1, platform)] &&
+        swapFees[Pair.getAddress(token0, token1, platform)].fee
+          ? swapFees[Pair.getAddress(token0, token1, platform)].fee
+          : // default to the default platform swap fee (defined in the SDK and 0.25% for Swaps)
+            // in case the "real" swap fee is not ready to be queried (https://github.com/levelkdev/dxswap-dapp/issues/150)
+            platform.defaultSwapFee
       return [
         PairState.EXISTS,
         new Pair(
