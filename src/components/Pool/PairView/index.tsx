@@ -7,11 +7,9 @@ import styled from 'styled-components'
 import FullPositionCard from '../../PositionCard'
 import { RowBetween } from '../../Row'
 import { ButtonGrey } from '../../Button'
-import { useLiquidityMiningFeatureFlag } from '../../../hooks/useLiquidityMiningFeatureFlag'
 import Skeleton from 'react-loading-skeleton'
 import { usePair24hVolumeUSD } from '../../../hooks/usePairVolume24hUSD'
 import { usePairLiquidityUSD } from '../../../hooks/usePairLiquidityUSD'
-import LiquidityMiningCampaigns from './LiquidityMiningCampaigns'
 import { useActiveWeb3React } from '../../../hooks'
 import { commify } from 'ethers/lib/utils'
 
@@ -52,7 +50,6 @@ function PairView({ loading, pair }: PairViewProps) {
   const { account } = useActiveWeb3React()
   const { loading: volumeLoading, volume24hUSD } = usePair24hVolumeUSD(pair)
   const { loading: liquidityLoading, liquidityUSD } = usePairLiquidityUSD(pair)
-  const liquidityMiningEnabled = useLiquidityMiningFeatureFlag()
 
   const overallLoading = loading || volumeLoading || liquidityLoading
 
@@ -94,7 +91,6 @@ function PairView({ loading, pair }: PairViewProps) {
           </RowBetween>
         </Flex>
       </StyledDarkCard>
-      {liquidityMiningEnabled && <LiquidityMiningCampaigns pair={pair || undefined} />}
     </>
   )
 }

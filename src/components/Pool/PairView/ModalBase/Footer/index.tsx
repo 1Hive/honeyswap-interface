@@ -2,7 +2,7 @@ import { Pair } from 'dxswap-sdk'
 import React from 'react'
 import { Box, Flex, Text } from 'rebass'
 import { ApprovalState } from '../../../../../hooks/useApproveCallback'
-import { Dots } from '../../../../../pages/Pools/styleds'
+import { Dots } from '../../../../../pages/Pool/styleds'
 import { ButtonError, ButtonPrimary } from '../../../../Button'
 
 interface ConfirmStakingModalFooterProps {
