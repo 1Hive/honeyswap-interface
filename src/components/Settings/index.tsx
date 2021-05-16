@@ -347,7 +347,7 @@ export default function SettingsTab() {
                         Built by Bees
                       </TYPE.body>
                       <TYPE.body fontWeight={500} fontSize="10px" letterSpacing="3px" color="text1">
-                        1Hive.org 
+                        1Hive.org
                       </TYPE.body>
                       <img src={DxDao} alt="dxdao" />
                     </MenuBanner>
