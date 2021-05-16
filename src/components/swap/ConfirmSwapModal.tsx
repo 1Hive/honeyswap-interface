@@ -80,7 +80,7 @@ export default function ConfirmSwapModal({
   const pendingText = `Swapping ${trade?.inputAmount?.toSignificant(6)} ${
     trade?.inputAmount?.currency?.symbol
   } for ${trade?.outputAmount?.toSignificant(6)} ${trade?.outputAmount?.currency?.symbol} ${
-    trade?.platform.name !== RoutablePlatform.SWAPR.name ? `on ${trade?.platform.name}` : ''
+    trade?.platform.name !== RoutablePlatform.HONEYSWAP.name ? `on ${trade?.platform.name}` : ''
   }`
 
   const confirmationContent = useCallback(

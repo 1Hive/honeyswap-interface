@@ -12,7 +12,7 @@ import { useActiveWeb3React } from './index'
 function useAllCommonPairs(
   currencyA?: Currency,
   currencyB?: Currency,
-  platform: RoutablePlatform = RoutablePlatform.SWAPR
+  platform: RoutablePlatform = RoutablePlatform.HONEYSWAP
 ): Pair[] {
   const { chainId } = useActiveWeb3React()
 
@@ -74,7 +74,7 @@ function useAllCommonPairs(
 export function useTradeExactIn(
   currencyAmountIn?: CurrencyAmount,
   currencyOut?: Currency,
-  platform: RoutablePlatform = RoutablePlatform.SWAPR
+  platform: RoutablePlatform = RoutablePlatform.HONEYSWAP
 ): Trade | undefined {
   const { chainId } = useActiveWeb3React()
   const allowedPairs = useAllCommonPairs(currencyAmountIn?.currency, currencyOut, platform)
@@ -95,7 +95,7 @@ export function useTradeExactIn(
 export function useTradeExactOut(
   currencyIn?: Currency,
   currencyAmountOut?: CurrencyAmount,
-  platform: RoutablePlatform = RoutablePlatform.SWAPR
+  platform: RoutablePlatform = RoutablePlatform.HONEYSWAP
 ): Trade | undefined {
   const { chainId } = useActiveWeb3React()
   const allowedPairs = useAllCommonPairs(currencyIn, currencyAmountOut?.currency, platform)

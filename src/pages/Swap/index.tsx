@@ -330,7 +330,7 @@ export default function Swap() {
                   <TYPE.body fontSize="11px" lineHeight="15px" fontWeight="500">
                     Best price found on{' '}
                     <span style={{ color: 'white', fontWeight: 700 }}>{bestPricedTrade?.platform.name}</span>.
-                    {trade.platform.name !== RoutablePlatform.SWAPR.name ? (
+                    {trade.platform.name !== RoutablePlatform.HONEYSWAP.name ? (
                       <>
                         {' '}
                         Swap with <span style={{ color: 'white', fontWeight: 700 }}>NO additional fees</span>
