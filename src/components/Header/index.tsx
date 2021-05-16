@@ -3,7 +3,7 @@ import { NavLink, withRouter } from 'react-router-dom'
 
 import styled from 'styled-components'
 
-import Logo from '../../assets/svg/logo.svg'
+import Logo from '../../assets/svg/honeyswap-logo.svg'
 import LogoDark from '../../assets/svg/logo_white.svg'
 import Wordmark from '../../assets/svg/wordmark.svg'
 import WordmarkDark from '../../assets/svg/wordmark_white.svg'
@@ -14,9 +14,10 @@ import { useNativeCurrencyBalances } from '../../state/wallet/hooks'
 import Settings from '../Settings'
 
 import Row, { RowFixed } from '../Row'
+import { Text } from 'rebass'
 import Web3Status from '../Web3Status'
 import { useTranslation } from 'react-i18next'
-import { TYPE } from '../../theme'
+import { ExternalLink, TYPE } from '../../theme'
 import MobileOptions from './MobileOptions'
 import { useNativeCurrency } from '../../hooks/useNativeCurrency'
 
@@ -195,6 +196,27 @@ export const StyledNavLink = styled(NavLink).attrs({
     display: none;
   `};
 `
+
+const StyledExternalLink = styled(ExternalLink).attrs({
+  activeClassName
+})<{ isActive?: boolean }>`
+  ${({ theme }) => theme.flexRowNoWrap}
+  align-items: left;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: ${({ theme }) => theme.text5};
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.5px;
+  width: fit-content;
+  text-decoration: none !important;
+  margin: 0 12px;
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    display: none;
+  `};
+`
+
 function Header({ history }: { history: any }) {
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
@@ -221,9 +243,9 @@ function Header({ history }: { history: any }) {
           </StyledNavLink>
           <StyledNavLink
             id={`pool-nav-link`}
-            to={'/pools'}
+            to={'/pool'}
             isActive={() =>
-              history.location.pathname.includes('/pools') ||
+              history.location.pathname.includes('/pool') ||
               history.location.pathname.includes('/add') ||
               history.location.pathname.includes('/remove') ||
               history.location.pathname.includes('/create')
@@ -231,6 +253,12 @@ function Header({ history }: { history: any }) {
           >
             {t('pool')}
           </StyledNavLink>
+          <StyledExternalLink id={`stake-nav-link`} href={`https://info.honeyswap.org/`}>
+            Charts{' '}
+            <Text ml="4px" fontSize="11px">
+              ↗
+            </Text>
+          </StyledExternalLink>
           <MobileSettingsWrap>
             <Settings />
           </MobileSettingsWrap>

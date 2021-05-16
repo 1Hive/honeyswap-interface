@@ -20,7 +20,6 @@ import Row, { RowBetween, RowFixed } from '../Row'
 import Toggle from '../Toggle'
 import TransactionSettings from '../TransactionSettings'
 import border8pxRadius from '../../assets/images/border-8px-radius.png'
-import DxDao from '../../assets/svg/dxdao.svg'
 import { useTransition, animated } from 'react-spring'
 import { version } from '../../../package.json'
 
@@ -349,7 +348,6 @@ export default function SettingsTab() {
                       <TYPE.body fontWeight={500} fontSize="10px" letterSpacing="3px" color="text1">
                         1Hive.org
                       </TYPE.body>
-                      <img src={DxDao} alt="dxdao" />
                     </MenuBanner>
                   </MenuFlyoutBottom>
                 </FlyoutBottomAligner>

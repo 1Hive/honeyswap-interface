@@ -19,7 +19,7 @@ import { useTokenBalance } from '../../state/wallet/hooks'
 import { TYPE } from '../../theme'
 import { currencyId } from '../../utils/currencyId'
 import AppBody from '../AppBody'
-import { Dots } from '../Pools/styleds'
+import { Dots } from '../Pool/styleds'
 
 enum Fields {
   TOKEN0 = 0,
@@ -185,7 +185,7 @@ export default function PoolFinder() {
         )}
 
         {hasPosition && (
-          <Link to="/pools">
+          <Link to="/pool">
             <ButtonPrimary>Manage this pool</ButtonPrimary>
           </Link>
         )}
