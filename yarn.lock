@@ -6001,8 +6001,8 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     stream-shift "^1.0.0"
 
 "dxswap-core@https://github.com/1Hive/dxswap-core.git", "dxswap-core@https://github.com/1Hive/dxswap-core.git#master":
-  version "0.3.7"
-  resolved "https://github.com/1Hive/dxswap-core.git#9d38d7887b38abd20f1aa8e478ac4a322ab616f0"
+  version "0.3.6"
+  resolved "https://github.com/1Hive/dxswap-core.git#9f726f8c4a73cc80359d9568c70c4875a4c4b0c1"
   dependencies:
     typescript "^3.9.5"
 
@@ -6014,7 +6014,7 @@ duplexify@^3.4.2, duplexify@^3.6.0:
 
 "dxswap-sdk@https://github.com/1Hive/honeyswap-sdk.git":
   version "0.8.0"
-  resolved "https://github.com/1Hive/honeyswap-sdk.git#2706cc60a356114d5de70b10e9247b40358f3d2f"
+  resolved "https://github.com/1Hive/honeyswap-sdk.git#999228e74d899263b432a1a22267452f9035ba0b"
   dependencies:
     "@makerdao/multicall" "^0.11.0"
     big.js "^5.2.2"
