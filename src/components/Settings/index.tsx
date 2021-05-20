@@ -255,7 +255,7 @@ export default function SettingsTab() {
           </AutoColumn>
         </ModalContentWrapper>
       </Modal>
-      <StyledMenuIcon onClick={toggle} id="open-settings-dialog-button"></StyledMenuIcon>
+      <StyledMenuIcon onClick={toggle} id={darkMode ? 'open-settings-dialog-button' : 'no'}></StyledMenuIcon>
       {expertMode && (
         <EmojiWrapper onClick={toggle}>
           <span role="img" aria-label="wizard-icon">
