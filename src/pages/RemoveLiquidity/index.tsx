@@ -397,7 +397,7 @@ export default function RemoveLiquidity({
       <>
         <RowBetween>
           <Text color={theme.text2} fontWeight={500} fontSize={16}>
-            {'DXS ' + currencyA?.symbol + '/' + currencyB?.symbol} Burned
+            {'HS ' + currencyA?.symbol + '/' + currencyB?.symbol} Burned
           </Text>
           <RowFixed>
             <DoubleCurrencyLogo marginRight={6} currency0={currencyA} currency1={currencyB} />
