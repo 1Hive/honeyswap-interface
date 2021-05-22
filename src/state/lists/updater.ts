@@ -10,7 +10,7 @@ export default function Updater() {
 
   useEffect(() => {
     if (chainId)
-      Fetcher.fetchDxDaoTokenList(chainId, library)
+      Fetcher.fetchDxDaoTokenList(chainId)
         .then((tokenList: TokenList) => {
           if (tokenList) dispatch(setTokenList(tokenList))
         })
