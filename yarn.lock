@@ -6000,7 +6000,7 @@ duplexify@^3.4.2, duplexify@^3.6.0:
 
 "dxswap-core@https://github.com/1Hive/dxswap-core.git", "dxswap-core@https://github.com/1Hive/dxswap-core.git#master":
   version "0.3.6"
-  resolved "https://github.com/1Hive/dxswap-core.git#9f726f8c4a73cc80359d9568c70c4875a4c4b0c1"
+  resolved "https://github.com/1Hive/dxswap-core.git#5fc22e0655d9574590fe56527e1651cecd118891"
   dependencies:
     typescript "^3.9.5"
 
