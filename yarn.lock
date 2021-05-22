@@ -6006,13 +6006,13 @@ duplexify@^3.4.2, duplexify@^3.6.0:
 
 "dxswap-periphery@https://github.com/1Hive/dxswap-periphery.git", "dxswap-periphery@https://github.com/1Hive/dxswap-periphery.git#master":
   version "0.3.7"
-  resolved "https://github.com/1Hive/dxswap-periphery.git#12d46ea4c092aaf29aa36e47ca23c5965e7f6506"
+  resolved "https://github.com/1Hive/dxswap-periphery.git#83b1ca09a4f1fc6cc66745d8afbcad132c44b71d"
   dependencies:
     dxswap-core "https://github.com/1Hive/dxswap-core.git"
 
 "dxswap-sdk@https://github.com/1Hive/honeyswap-sdk.git":
   version "0.8.0"
-  resolved "https://github.com/1Hive/honeyswap-sdk.git#3df7546274bc3d952a3ed857e924ce4587bb0417"
+  resolved "https://github.com/1Hive/honeyswap-sdk.git#0985310daa0b316eb87b2a28290ed40863395238"
   dependencies:
     "@makerdao/multicall" "^0.11.0"
     big.js "^5.2.2"
