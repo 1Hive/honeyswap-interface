@@ -209,7 +209,7 @@ export function useURLWarningToggle(): () => void {
  * @param tokenB the other token
  */
 export function toDXSwapLiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
-  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'DXD', 'DXswap')
+  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'HNS', 'HoneySwap')
 }
 
 /**
