@@ -308,7 +308,7 @@ export default function SettingsTab() {
                         }
                       />
                     </RowBetween>
-                      {/* <RowBetween>
+                    {/* <RowBetween>
                         <RowFixed>
                           <TYPE.body fontWeight={500} fontSize="12px" lineHeight="15px">
                             Toggle Dark Mode
