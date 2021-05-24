@@ -18,7 +18,7 @@ import AccountDetails from '../AccountDetails'
 import Modal from '../Modal'
 import Option from './Option'
 import PendingView from './PendingView'
-import DxDao from '../../assets/svg/dxdao.svg'
+import BeeLogo from '../../assets/svg/logo.svg'
 
 const CloseIcon = styled.div`
   position: absolute;
@@ -85,6 +85,10 @@ const Blurb = styled.div`
   align-items: center;
   justify-content: center;
   background: ${({ theme }) => theme.bg1};
+  background-image: url(${BeeLogo});
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center center;
   height: 76px;
   position: relative;
   overflow: hidden;
@@ -336,14 +340,11 @@ export default function WalletModal({
             <OptionGrid>{getOptions()}</OptionGrid>
           )}
         </ContentWrapper>
-        <Blurb as="a" href="https://dxdao.eth.link/" rel="noopener noreferrer" target="_blank">
+        <Blurb as="a" href="https://wiki.1hive.org/" rel="noopener noreferrer" target="_blank">
           <TYPE.body fontWeight={700} fontSize="10px" color="text1" letterSpacing="3px" marginBottom="8px">
-            A DXDAO PRODUCT
+            A 1HIVE PRODUCT
           </TYPE.body>
-          <TYPE.body fontWeight={600} fontSize="8px" color="text5" letterSpacing="2px">
-            DXDAO.ETH
-          </TYPE.body>
-          <img src={DxDao} alt="dxdao" />
+          {/* <img src={BeeLogo} alt="1Hive" style={{ opacity: '50%' }} /> */}
         </Blurb>
       </UpperSection>
     )
