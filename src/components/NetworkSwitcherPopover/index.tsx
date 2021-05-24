@@ -7,7 +7,7 @@ import { useModalOpen, useCloseModals, useAddPopup } from '../../state/applicati
 
 import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import XDAILogo from '../../assets/images/xdai-stake-logo.png'
-import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
+import MaticLogo from '../../assets/images/matic-logo.png'
 import Popover from '../Popover'
 import { useActiveWeb3React } from '../../hooks'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
@@ -78,7 +78,7 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
                 selectNetwork(ChainId.MATIC)
               }}
               header={'Matic'}
-              logoSrc={ArbitrumLogo}
+              logoSrc={MaticLogo}
             />
           </OptionGrid>
         }
