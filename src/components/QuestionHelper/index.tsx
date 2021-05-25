@@ -8,7 +8,7 @@ const QuestionWrapper = styled.div`
   align-items: center;
   justify-content: center;
   background: none;
-  color: ${({ theme }) => theme.purple3};
+  color: ${({ theme }) => theme.white};
   transition: opacity 0.3s ease;
   width: 16px;
   height: 16px;
