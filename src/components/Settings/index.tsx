@@ -211,7 +211,7 @@ export default function SettingsTab() {
   const [userSlippageTolerance, setUserslippageTolerance] = useUserSlippageTolerance()
   const [ttl, setTtl] = useUserTransactionTTL()
   const [expertMode, toggleExpertMode] = useExpertModeManager()
-  const [darkMode, toggleDarkMode] = useDarkModeManager()
+  const [darkMode] = useDarkModeManager()
 
   // show confirmation view before turning on
   const [showConfirmation, setShowConfirmation] = useState(false)
@@ -308,16 +308,14 @@ export default function SettingsTab() {
                         }
                       />
                     </RowBetween>
-                    {
-                      <RowBetween>
+                    {/* <RowBetween>
                         <RowFixed>
                           <TYPE.body fontWeight={500} fontSize="12px" lineHeight="15px">
                             Toggle Dark Mode
                           </TYPE.body>
                         </RowFixed>
                         <Toggle id="toggle-dark-mode-button" isActive={darkMode} toggle={toggleDarkMode} />
-                      </RowBetween>
-                    }
+                      </RowBetween> */}
                   </AutoColumn>
                 </MenuFlyout>
                 <FlyoutBottomAligner>
