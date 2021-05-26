@@ -253,7 +253,8 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
       symbol: Currency.MATIC.symbol || 'MATIC',
       decimals: Currency.MATIC.decimals || 18
     },
-    rpcUrls: [`https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`],
+    // rpcUrls: [`https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`],
+    rpcUrls: ['https://rpc-mainnet.matic.quiknode.pro/'],
     blockExplorerUrls: ['https://explorer.matic.network/'],
     metamaskAddable: true
   }

@@ -11,20 +11,14 @@ export const network = new CustomNetworkConnector({
   urls: {
     [ChainId.MAINNET]: `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
     [ChainId.XDAI]: 'https://rpc.xdaichain.com/',
-    [ChainId.MATIC]: `https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`
+    // [ChainId.MATIC]: `https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`
+    [ChainId.MATIC]: 'https://rpc-mainnet.matic.quiknode.pro/'
   },
   defaultChainId: ChainId.MAINNET
 })
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [
-    ChainId.MAINNET,
-    ChainId.RINKEBY,
-    ChainId.ARBITRUM_TESTNET_V3,
-    ChainId.SOKOL,
-    ChainId.XDAI,
-    ChainId.MATIC
-  ]
+  supportedChainIds: [ChainId.RINKEBY, ChainId.SOKOL, ChainId.XDAI, ChainId.MATIC]
 })
 
 // mainnet only
