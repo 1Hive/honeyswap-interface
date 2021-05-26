@@ -219,6 +219,8 @@ interface NetworkDetails {
   metamaskAddable?: boolean
 }
 
+export const MATIC_PROJECT_ID = '917500540ed6561baeb650de48df44949ed21baf'
+
 export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
   [ChainId.MAINNET]: {
     chainId: `0x${ChainId.MAINNET.toString(16)}`,
@@ -251,7 +253,7 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
       symbol: Currency.MATIC.symbol || 'MATIC',
       decimals: Currency.MATIC.decimals || 18
     },
-    rpcUrls: ['https://rpc-mainnet.maticvigil.com/'],
+    rpcUrls: [`https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`],
     blockExplorerUrls: ['https://explorer.matic.network/'],
     metamaskAddable: true
   }
