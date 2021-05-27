@@ -100,7 +100,7 @@ const StyledBalanceMax = styled.button`
   text-decoration: underline;
   outline: none;
   border: 1px solid ${({ theme }) => theme.yellow1};
-  background-color: ${({ theme }) => theme.yellow1}; 
+  background-color: ${({ theme }) => theme.yellow1};
   border-radius: 0.5rem;
 `
 
