@@ -5,25 +5,20 @@ import { CustomNetworkConnector } from './CustomNetworkConnector'
 import { ChainId } from 'dxswap-sdk'
 
 export const INFURA_PROJECT_ID = '0ebf4dd05d6740f482938b8a80860d13'
+export const MATIC_PROJECT_ID = '917500540ed6561baeb650de48df44949ed21baf'
 
 export const network = new CustomNetworkConnector({
   urls: {
     [ChainId.MAINNET]: `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
     [ChainId.XDAI]: 'https://rpc.xdaichain.com/',
-    [ChainId.MATIC]: 'https://rpc-mainnet.maticvigil.com/'
+    // [ChainId.MATIC]: `https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`
+    [ChainId.MATIC]: 'https://rpc-mainnet.matic.quiknode.pro/'
   },
   defaultChainId: ChainId.MAINNET
 })
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [
-    ChainId.MAINNET,
-    ChainId.RINKEBY,
-    ChainId.ARBITRUM_TESTNET_V3,
-    ChainId.SOKOL,
-    ChainId.XDAI,
-    ChainId.MATIC
-  ]
+  supportedChainIds: [ChainId.RINKEBY, ChainId.SOKOL, ChainId.XDAI, ChainId.MATIC]
 })
 
 // mainnet only

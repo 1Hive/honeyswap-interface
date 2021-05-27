@@ -5,7 +5,7 @@ import Option from './Option'
 import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useCloseModals, useAddPopup } from '../../state/application/hooks'
 
-import EthereumLogo from '../../assets/images/ethereum-logo.png'
+// import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import XDAILogo from '../../assets/images/xdai-stake-logo.png'
 import MaticLogo from '../../assets/images/matic-logo.png'
 import Popover from '../Popover'
@@ -59,13 +59,13 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
       <Popover
         content={
           <OptionGrid>
-            <Option
+            {/* <Option
               onClick={() => {
                 selectNetwork(ChainId.MAINNET)
               }}
               header={'Ethereum'}
               logoSrc={EthereumLogo}
-            />
+            /> */}
             <Option
               onClick={() => {
                 selectNetwork(ChainId.XDAI)
