@@ -3544,6 +3544,8 @@ asn1@~0.2.3:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.4.tgz#8d2475dfab553bb33e77b54e59e880bb8ce23136"
   integrity sha512-jxwzQpLQjSmWXgwaCZE9Nz+glAG01yF1QnWgbhGwHI5A6FRIEY6IVqtHhIepHqI7/kyEyQEagBC5mBEFlIYvdg==
+  dependencies:
+    safer-buffer "~2.1.0"
 
 assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
@@ -6012,7 +6014,7 @@ duplexify@^3.4.2, duplexify@^3.6.0:
 
 "dxswap-sdk@https://github.com/1Hive/honeyswap-sdk.git":
   version "0.8.0"
-  resolved "https://github.com/1Hive/honeyswap-sdk.git#0985310daa0b316eb87b2a28290ed40863395238"
+  resolved "https://github.com/1Hive/honeyswap-sdk.git#b6d418966a789e61e34044cb8e6bad6d850708c0"
   dependencies:
     "@makerdao/multicall" "^0.11.0"
     big.js "^5.2.2"
