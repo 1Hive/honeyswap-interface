@@ -79,7 +79,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false, border }: Min
           <AutoColumn gap="12px">
             <FixedHeightRow>
               <RowFixed>
-                <TYPE.body color="text4" fontSize="15px" lineHeight="19px">
+                <TYPE.body color="text5" fontSize="15px" lineHeight="19px">
                   Your position
                 </TYPE.body>
               </RowFixed>
@@ -99,20 +99,20 @@ export function MinimalPositionCard({ pair, showUnwrapped = false, border }: Min
             </FixedHeightRow>
             <AutoColumn gap="4px">
               <FixedHeightRow>
-                <TYPE.body color="text4" fontSize="15px" lineHeight="19px">
+                <TYPE.body color="text5" fontSize="15px" lineHeight="19px">
                   Your pool&apos;s share:
                 </TYPE.body>
-                <TYPE.body color="text4" fontSize="15px" lineHeight="19px">
+                <TYPE.body color="text5" fontSize="15px" lineHeight="19px">
                   {poolTokenPercentage ? poolTokenPercentage.toFixed(6) + '%' : '-'}
                 </TYPE.body>
               </FixedHeightRow>
               <FixedHeightRow>
-                <TYPE.body color="text4" fontSize="15px" lineHeight="19px">
+                <TYPE.body color="text5" fontSize="15px" lineHeight="19px">
                   {currency0 ? currency0.symbol : <Skeleton width="36px" />}:
                 </TYPE.body>
                 {token0Deposited ? (
                   <RowFixed>
-                    <TYPE.body color="text4" fontSize="14px" lineHeight="17px" marginLeft={'6px'}>
+                    <TYPE.body color="text5" fontSize="14px" lineHeight="17px" marginLeft={'6px'}>
                       {token0Deposited?.toSignificant(6)}
                     </TYPE.body>
                   </RowFixed>
@@ -121,12 +121,12 @@ export function MinimalPositionCard({ pair, showUnwrapped = false, border }: Min
                 )}
               </FixedHeightRow>
               <FixedHeightRow>
-                <TYPE.body color="text4" fontSize="15px" lineHeight="19px">
+                <TYPE.body color="text5" fontSize="15px" lineHeight="19px">
                   {currency1 ? currency1.symbol : <Skeleton width="36px" />}:
                 </TYPE.body>
                 {token1Deposited ? (
                   <RowFixed>
-                    <TYPE.body color="text4" fontSize="15px" lineHeight="19px" marginLeft={'6px'}>
+                    <TYPE.body color="text5" fontSize="15px" lineHeight="19px" marginLeft={'6px'}>
                       {token1Deposited?.toSignificant(6)}
                     </TYPE.body>
                   </RowFixed>
@@ -198,11 +198,11 @@ export default function FullPositionCard({ pair, border }: FullPositionCardProps
             </TYPE.body>
           </FixedHeightRow>
           <FixedHeightRow marginTop="12px">
-            <TYPE.body color="text4" fontWeight="500" fontSize="14px" lineHeight="17px">
+            <TYPE.body color="text5" fontWeight="500" fontSize="14px" lineHeight="17px">
               Your pool tokens:
             </TYPE.body>
             <RowFixed>
-              <TYPE.body color="text4" fontWeight="500" fontSize="14px" lineHeight="17px" marginRight="8px">
+              <TYPE.body color="text5" fontWeight="500" fontSize="14px" lineHeight="17px" marginRight="8px">
                 {userPoolBalance ? userPoolBalance.toSignificant(4) : <Skeleton width="50px" />}
               </TYPE.body>
               <DoubleCurrencyLogo loading={!!!userPoolBalance} size={16} currency0={currency0} currency1={currency1} />
@@ -210,12 +210,12 @@ export default function FullPositionCard({ pair, border }: FullPositionCardProps
           </FixedHeightRow>
           <FixedHeightRow>
             <RowFixed>
-              <TYPE.body color="text4" fontWeight="500" fontSize="14px" lineHeight="17px">
+              <TYPE.body color="text5" fontWeight="500" fontSize="14px" lineHeight="17px">
                 Pooled {currency0 ? `${currency0.symbol}:` : <Skeleton width="24px" />}
               </TYPE.body>
             </RowFixed>
             <RowFixed>
-              <TYPE.body color="text4" fontWeight="500" fontSize="14px" lineHeight="17px" marginRight="8px">
+              <TYPE.body color="text5" fontWeight="500" fontSize="14px" lineHeight="17px" marginRight="8px">
                 {token0Deposited ? token0Deposited.toSignificant(6) : <Skeleton width="50px" />}
               </TYPE.body>
               <CurrencyLogo loading={!!!currency0} size="16px" currency={currency0} />
@@ -224,12 +224,12 @@ export default function FullPositionCard({ pair, border }: FullPositionCardProps
 
           <FixedHeightRow>
             <RowFixed>
-              <TYPE.body color="text4" fontWeight="500" fontSize="14px" lineHeight="17px">
+              <TYPE.body color="text5" fontWeight="500" fontSize="14px" lineHeight="17px">
                 Pooled {currency1 ? `${currency1.symbol}:` : <Skeleton width="24px" />}
               </TYPE.body>
             </RowFixed>
             <RowFixed>
-              <TYPE.body color="text4" fontWeight="500" fontSize="14px" lineHeight="17px" marginRight="8px">
+              <TYPE.body color="text5" fontWeight="500" fontSize="14px" lineHeight="17px" marginRight="8px">
                 {token1Deposited ? token1Deposited.toSignificant(6) : <Skeleton width="50px" />}
               </TYPE.body>
               <CurrencyLogo loading={!!!currency1} size="16px" currency={currency1} />
@@ -237,18 +237,18 @@ export default function FullPositionCard({ pair, border }: FullPositionCardProps
           </FixedHeightRow>
 
           <FixedHeightRow>
-            <TYPE.body color="text4" fontWeight="500" fontSize="14px" lineHeight="17px">
+            <TYPE.body color="text5" fontWeight="500" fontSize="14px" lineHeight="17px">
               Your pool share:
             </TYPE.body>
-            <TYPE.body color="text4" fontWeight="500" fontSize="14px" lineHeight="17px">
+            <TYPE.body color="text5" fontWeight="500" fontSize="14px" lineHeight="17px">
               {poolTokenPercentage ? poolTokenPercentage.toFixed(2) + '%' : <Skeleton width="50px" />}
             </TYPE.body>
           </FixedHeightRow>
           <FixedHeightRow>
-            <TYPE.body color="text4" fontWeight="500" fontSize="14px" lineHeight="17px">
+            <TYPE.body color="text5" fontWeight="500" fontSize="14px" lineHeight="17px">
               Swap fee:
             </TYPE.body>
-            <TYPE.body color="text4" fontWeight="500" fontSize="14px" lineHeight="17px">
+            <TYPE.body color="text5" fontWeight="500" fontSize="14px" lineHeight="17px">
               {pair ? (
                 new Percent(JSBI.BigInt(pair.swapFee.toString()), JSBI.BigInt(10000)).toSignificant(3) + '%'
               ) : (

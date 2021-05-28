@@ -12,6 +12,8 @@ export default function Updater() {
     if (library && chainId)
       Promise.all([Fetcher.fetchAllSwapFees(chainId, {}, library), Fetcher.fetchProtocolFee(chainId, library)])
         .then(([swapFees, protocolFee]) => {
+          console.log('swapFees: ', swapFees)
+          console.log('protocolFee: ', protocolFee)
           if (swapFees) dispatch(setSwapFees({ swapFees }))
           if (protocolFee)
             dispatch(

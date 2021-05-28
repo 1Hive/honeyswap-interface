@@ -22,16 +22,17 @@ import NetworkSwitcherPopover from '../NetworkSwitcherPopover'
 import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import XDAILogo from '../../assets/images/xdai-stake-logo.png'
 import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
+import MaticLogo from '../../assets/images/matic-logo.png'
 import { ChainId } from 'dxswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
 
 const ChainLogo: any = {
-  [ChainId.MAINNET]: EthereumLogo,
+  // [ChainId.MAINNET]: EthereumLogo,
   [ChainId.RINKEBY]: EthereumLogo,
   [ChainId.ARBITRUM_TESTNET_V3]: ArbitrumLogo,
   [ChainId.SOKOL]: '',
   [ChainId.XDAI]: XDAILogo,
-  [ChainId.MATIC]: ''
+  [ChainId.MATIC]: MaticLogo
 }
 
 const ChainLabel: any = {
@@ -69,6 +70,7 @@ const Web3StatusGeneric = styled(ButtonSecondary)`
   }
 `
 const Web3StatusError = styled(Web3StatusGeneric)`
+  transform: scale(1.12);
   background-color: ${({ theme }) => theme.red1};
   border: 1px solid ${({ theme }) => theme.red1};
   color: ${({ theme }) => theme.white};

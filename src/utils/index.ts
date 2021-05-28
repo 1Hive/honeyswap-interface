@@ -126,7 +126,7 @@ export function getRouterContract(
   account?: string
 ): Contract {
   return getContract(
-    platform.routerAddress[chainId ? chainId : ChainId.MAINNET] as string,
+    platform.routerAddress[chainId ? chainId : ChainId.XDAI] as string,
     IDXswapRouterABI,
     library,
     account

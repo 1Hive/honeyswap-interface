@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import PoaLogo from '../../assets/images/poa-logo.png'
 import XDAILogo from '../../assets/images/xdai-logo.png'
+import MaticLogo from '../../assets/images/matic-logo.png'
 import DXDLogo from '../../assets/svg/dxd.svg'
 import { useActiveWeb3React } from '../../hooks'
 import useHttpLocations from '../../hooks/useHttpLocations'
@@ -43,7 +44,7 @@ const NATIVE_CURRENCY_LOGO: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: EthereumLogo,
   [ChainId.SOKOL]: PoaLogo,
   [ChainId.XDAI]: XDAILogo,
-  [ChainId.MATIC]: XDAILogo
+  [ChainId.MATIC]: MaticLogo
 }
 
 export default function CurrencyLogo({
@@ -64,7 +65,7 @@ export default function CurrencyLogo({
   marginLeft?: number
 }) {
   const { chainId } = useActiveWeb3React()
-  const nativeCurrencyLogo = NATIVE_CURRENCY_LOGO[(chainId as ChainId) || ChainId.MAINNET]
+  const nativeCurrencyLogo = NATIVE_CURRENCY_LOGO[(chainId as ChainId) || ChainId.XDAI]
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
 
   const srcs: string[] = useMemo(() => {

@@ -5,9 +5,9 @@ import Option from './Option'
 import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useCloseModals, useAddPopup } from '../../state/application/hooks'
 
-import EthereumLogo from '../../assets/images/ethereum-logo.png'
+// import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import XDAILogo from '../../assets/images/xdai-stake-logo.png'
-import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
+import MaticLogo from '../../assets/images/matic-logo.png'
 import Popover from '../Popover'
 import { useActiveWeb3React } from '../../hooks'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
@@ -61,13 +61,6 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
           <OptionGrid>
             <Option
               onClick={() => {
-                selectNetwork(ChainId.MAINNET)
-              }}
-              header={'Ethereum'}
-              logoSrc={EthereumLogo}
-            />
-            <Option
-              onClick={() => {
                 selectNetwork(ChainId.XDAI)
               }}
               header={'xDai'}
@@ -78,7 +71,7 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
                 selectNetwork(ChainId.MATIC)
               }}
               header={'Matic'}
-              logoSrc={ArbitrumLogo}
+              logoSrc={MaticLogo}
             />
           </OptionGrid>
         }

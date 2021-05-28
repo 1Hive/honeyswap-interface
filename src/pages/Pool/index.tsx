@@ -145,12 +145,12 @@ export default function Pool() {
         {account && chainId && (
           <>
             <ButtonWithLink
-              link={`https://dxstats.eth.link/#/account/${account}?chainId=${chainId}`}
+              link={`https://info.honeyswap.org/account/${account}?chainId=${chainId}`}
               text={'ACCOUNT ANALYTICS AND ACCRUED FEES'}
               marginTop="32px"
             />
             <TYPE.body
-              color="text4"
+              color="text5"
               textAlign="center"
               fontWeight="500"
               fontSize="14px"
@@ -158,7 +158,7 @@ export default function Pool() {
               marginTop="32px"
             >
               Dont see a pool you joined?{' '}
-              <StyledInternalLink color="text5" id="import-pool-link" to="/find">
+              <StyledInternalLink color="text1" id="import-pool-link" to="/find">
                 Import it.
               </StyledInternalLink>
             </TYPE.body>
@@ -179,8 +179,7 @@ export default function Pool() {
                   the pool.
                   <br /> Fees are added to the pool, accrue in real time and can be claimed by withdrawing your
                   liquidity.
-                  <br /> The swap fee value is decided by DXdao and liquidity providers, it can be between 0% and 10%
-                  and it uses 0.25% as default value that is assigned when the pair is created.
+                  <br /> Another 0.05% is converted to Honey and sent to the common pool periodically.
                 </TYPE.body>
               </RowBetween>
               {/*<RowBetween>*/}

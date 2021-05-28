@@ -21,7 +21,7 @@ const PopoverContainer = styled.div<{ show: boolean }>`
   border-radius: 8px;
   border-image: url(${border8pxRadius}) 8;
   box-shadow: 0px 0px 8px ${({ theme }) => transparentize(0.84, theme.black)};
-  color: ${({ theme }) => theme.purple3};
+  color: ${({ theme }) => theme.text5};
   font-size: 12px;
 `
 

@@ -29,9 +29,9 @@ export function usePairReserveNativeCurrency(pair?: Pair): { loading: boolean; r
 
   return useMemo(() => {
     if (loading)
-      return { loading: true, reserveNativeCurrency: CurrencyAmount.nativeCurrency('0', chainId || ChainId.MAINNET) }
+      return { loading: true, reserveNativeCurrency: CurrencyAmount.nativeCurrency('0', chainId || ChainId.XDAI) }
     if (!data || error || !chainId)
-      return { loading: false, reserveNativeCurrency: CurrencyAmount.nativeCurrency('0', chainId || ChainId.MAINNET) }
+      return { loading: false, reserveNativeCurrency: CurrencyAmount.nativeCurrency('0', chainId || ChainId.XDAI) }
     return {
       loading: false,
       reserveNativeCurrency: CurrencyAmount.nativeCurrency(
