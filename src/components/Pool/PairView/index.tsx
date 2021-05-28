@@ -23,7 +23,7 @@ const DataText = styled.div`
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
-  color: ${props => props.theme.purple2};
+  color: ${props => props.theme.yellow1};
 `
 
 interface DataRowProps {

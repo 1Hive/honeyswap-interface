@@ -36,7 +36,7 @@ const ChainLogo: any = {
 }
 
 const ChainLabel: any = {
-  [ChainId.MAINNET]: 'Ethereum',
+  [ChainId.MAINNET]: 'Choose network',
   [ChainId.RINKEBY]: 'Rinkeby',
   [ChainId.ARBITRUM_TESTNET_V3]: 'Arbitrum',
   [ChainId.SOKOL]: 'Sokol',
@@ -119,7 +119,7 @@ const Web3StatusConnected = styled(Web3StatusGeneric)<{ pending?: boolean }>`
   :hover,
   :focus {
     border: none;
-    background-color: ${({ pending, theme }) => (pending ? theme.primary1 : transparentize(0.1, theme.purple3))};
+    background-color: ${({ pending, theme }) => (pending ? theme.primary1 : transparentize(0.1, theme.yellow1))};
   }
 `
 

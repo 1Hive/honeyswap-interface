@@ -8,7 +8,7 @@ import CurrencyLogo from '../CurrencyLogo'
 
 const StyledChevronRight = styled(ChevronRight)`
   height: 17px;
-  color: ${props => props.theme.purple3};
+  color: ${props => props.theme.yellow1};
 `
 
 export default memo(function SwapRoute({ trade }: { trade: Trade }) {

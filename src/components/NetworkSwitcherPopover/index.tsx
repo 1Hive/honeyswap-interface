@@ -70,7 +70,7 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
               onClick={() => {
                 selectNetwork(ChainId.MATIC)
               }}
-              header={'Matic'}
+              header={'Polygon'}
               logoSrc={MaticLogo}
             />
           </OptionGrid>

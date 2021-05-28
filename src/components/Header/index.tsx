@@ -126,7 +126,7 @@ const AccountElement = styled.div<{ active: boolean }>`
   background-color: ${({ theme }) => theme.bg1};
   border: solid 2px transparent;
   box-sizing: border-box;
-  color: ${({ theme }) => theme.purple2};
+  color: ${({ theme }) => theme.yellow1};
   border-radius: 8px;
   white-space: nowrap;
   width: 100%;

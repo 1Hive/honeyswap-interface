@@ -9,7 +9,7 @@ import border8pxRadius from '../../assets/images/border-8px-radius.png'
 const AdvancedDetailsFooter = styled.div<{ show: boolean }>`
   width: calc(100% - 20px);
   max-width: 400px;
-  color: ${({ theme }) => theme.purple3};
+  color: ${({ theme }) => theme.yellow1};
   background-color: ${({ theme }) => theme.bg1};
   box-shadow: 0px 40px 36px -24px rgba(0, 0, 0, 0.32);
   z-index: -1;
