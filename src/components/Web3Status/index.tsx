@@ -27,7 +27,7 @@ import { ChainId } from 'dxswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
 
 const ChainLogo: any = {
-  [ChainId.MAINNET]: EthereumLogo,
+  // [ChainId.MAINNET]: EthereumLogo,
   [ChainId.RINKEBY]: EthereumLogo,
   [ChainId.ARBITRUM_TESTNET_V3]: ArbitrumLogo,
   [ChainId.SOKOL]: '',

@@ -150,7 +150,7 @@ export default function Pool() {
               marginTop="32px"
             />
             <TYPE.body
-              color="text4"
+              color="text5"
               textAlign="center"
               fontWeight="500"
               fontSize="14px"
@@ -158,7 +158,7 @@ export default function Pool() {
               marginTop="32px"
             >
               Dont see a pool you joined?{' '}
-              <StyledInternalLink color="text5" id="import-pool-link" to="/find">
+              <StyledInternalLink color="text1" id="import-pool-link" to="/find">
                 Import it.
               </StyledInternalLink>
             </TYPE.body>
