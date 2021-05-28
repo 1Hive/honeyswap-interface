@@ -59,13 +59,6 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
       <Popover
         content={
           <OptionGrid>
-            {/* <Option
-              onClick={() => {
-                selectNetwork(ChainId.MAINNET)
-              }}
-              header={'Ethereum'}
-              logoSrc={EthereumLogo}
-            /> */}
             <Option
               onClick={() => {
                 selectNetwork(ChainId.XDAI)

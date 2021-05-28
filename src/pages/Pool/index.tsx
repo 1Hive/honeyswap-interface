@@ -179,8 +179,7 @@ export default function Pool() {
                   the pool.
                   <br /> Fees are added to the pool, accrue in real time and can be claimed by withdrawing your
                   liquidity.
-                  <br /> The swap fee value is decided by DXdao and liquidity providers, it can be between 0% and 10%
-                  and it uses 0.25% as default value that is assigned when the pair is created.
+                  <br /> Another 0.05% is converted to Honey and sent to the common pool periodically.
                 </TYPE.body>
               </RowBetween>
               {/*<RowBetween>*/}
