@@ -217,7 +217,7 @@ export default function AccountDetails({
           <CloseColor />
         </CloseIcon>
         <HeaderRow>
-          <TYPE.body fontWeight={500} fontSize={20} color={'text4'}>
+          <TYPE.body fontWeight={500} fontSize={20} color={'white'}>
             Account
           </TYPE.body>
         </HeaderRow>

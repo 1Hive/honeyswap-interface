@@ -70,7 +70,7 @@ export const StyledBalanceMaxMini = styled.button`
   outline: none;
   border: none;
   background: transparent;
-  color: ${({ theme }) => theme.purple3};
+  color: ${({ theme }) => theme.yellow1};
   display: flex;
   align-items: center;
   padding: 0;
