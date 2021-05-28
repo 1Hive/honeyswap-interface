@@ -72,7 +72,7 @@ export function colors(darkMode: boolean): Colors {
     primary2: darkMode ? '#45d3c5' : '#7CE0D6',
     primary3: darkMode ? '#97e7de' : '#7CE0D6',
     primary4: darkMode ? '#CBF3EF' : '#7CE0D6',
-    primary5: darkMode ? '#CBF3EF' : '#7CE0D6',
+    primary5: darkMode ? '#FFE270' : '#7CE0D6',
 
     // color text
     primaryText1: darkMode ? 'rgba(44, 52, 55, 0.8)' : '#ffff',
