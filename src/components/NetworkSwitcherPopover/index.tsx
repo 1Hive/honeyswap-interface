@@ -5,7 +5,7 @@ import Option from './Option'
 import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useCloseModals, useAddPopup } from '../../state/application/hooks'
 
-// import EthereumLogo from '../../assets/images/ethereum-logo.png'
+import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
 import XDAILogo from '../../assets/images/xdai-stake-logo.png'
 import MaticLogo from '../../assets/images/matic-logo.png'
 import Popover from '../Popover'
@@ -72,6 +72,15 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
               }}
               header={'Polygon'}
               logoSrc={MaticLogo}
+            />
+            <Option
+              onClick={() => {
+                selectNetwork(ChainId.ARBITRUM_TESTNET_V3)
+              }}
+              header={'Arbitrum'}
+              logoSrc={ArbitrumLogo}
+              disabled={true}
+              clickable={false}
             />
           </OptionGrid>
         }

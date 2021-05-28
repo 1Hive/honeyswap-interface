@@ -2,7 +2,7 @@
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { darken, transparentize } from 'polished'
 import React, { useMemo } from 'react'
-import { ChevronDown } from 'react-feather'
+import { Activity, ChevronDown } from 'react-feather'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { NetworkContextName } from '../../constants'
@@ -70,7 +70,6 @@ const Web3StatusGeneric = styled(ButtonSecondary)`
   }
 `
 const Web3StatusError = styled(Web3StatusGeneric)`
-  transform: scale(1.12);
   background-color: ${({ theme }) => theme.red1};
   border: 1px solid ${({ theme }) => theme.red1};
   color: ${({ theme }) => theme.white};
@@ -94,7 +93,6 @@ const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
   transition: background-color 0.3s ease;
   padding: 9px 0px 9px 14px;
   outline: none;
-
   :hover,
   :focus {
     outline: none;
@@ -115,18 +113,17 @@ const Web3StatusConnected = styled(Web3StatusGeneric)<{ pending?: boolean }>`
   letter-spacing: 0.08em;
   transition: background-color 0.3s ease;
   padding: 9px 14px;
-
   :hover,
   :focus {
     border: none;
-    background-color: ${({ pending, theme }) => (pending ? theme.primary1 : transparentize(0.1, theme.yellow1))};
+    background-color: ${({ pending, theme }) => (pending ? theme.primary1 : transparentize(0.1, theme.purple3))};
   }
 `
 
 const Web3StatusNetwork = styled(Web3StatusGeneric)<{ pending?: boolean }>`
-  background-color: ${({ theme }) => theme.bg1};
+  background-color: ${({ theme }) => theme.dark1};
   padding: 0px 18px 0px 14px;
-  border: 1px solid ${({ theme }) => theme.bg1};
+  border: 1px solid ${({ theme }) => theme.dark1};
 `
 
 const Text = styled.p<{ fontSize?: number }>`
@@ -135,10 +132,15 @@ const Text = styled.p<{ fontSize?: number }>`
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0 0.5rem 0 0.25rem;
-  font-size: 12px;
+  font-size: 1rem;
   width: fit-content;
   font-weight: 500;
   ${({ fontSize }) => (fontSize ? `font-size:${fontSize}px` : '')};
+`
+
+const NetworkIcon = styled(Activity)`
+  width: 5px;
+  height: 5px;
 `
 
 // we want the latest one to come first, so return negative if a is after b
@@ -149,7 +151,6 @@ function newTransactionsFirst(a: TransactionDetails, b: TransactionDetails) {
 function Web3StatusInner() {
   const { t } = useTranslation()
   const { account, error } = useWeb3React()
-
   const { chainId: networkConnectorChainId } = useActiveWeb3React()
 
   const { ENSName } = useENSName(account ?? undefined)
@@ -170,6 +171,7 @@ function Web3StatusInner() {
   if (error) {
     return (
       <Web3StatusError onClick={toggleWalletModal}>
+        <NetworkIcon />
         <Text>{error instanceof UnsupportedChainIdError ? 'Wrong Network' : 'Error'}</Text>
       </Web3StatusError>
     )
@@ -197,9 +199,9 @@ function Web3StatusInner() {
             <IconWrapper size={20}>
               <img src={ChainLogo[networkConnectorChainId]} alt={''} />
             </IconWrapper>
-            <TYPE.modeColor ml="8px" mr={!!!account ? '4px' : '0px'} fontWeight={700} fontSize="12px">
+            <TYPE.white ml="8px" mr={!!!account ? '4px' : '0px'} fontWeight={700} fontSize="12px">
               {ChainLabel[networkConnectorChainId]}
-            </TYPE.modeColor>
+            </TYPE.white>
             {!!!account && <ChevronDown size={16} />}
           </Web3StatusNetwork>
         </NetworkSwitcherPopover>
