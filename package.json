@@ -102,7 +102,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
-    "build-test": "http-server build"
+    "build-test": "http-server build",
+    "lint": "eslint . --ext .ts,.tsx --fix"
   },
   "eslintConfig": {
     "extends": "react-app",
