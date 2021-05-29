@@ -44,7 +44,7 @@ export function colors(darkMode: boolean): Colors {
 
     // gradient colors
     grd1: darkMode ? '#394F50' : '#FFC3AB',
-    grd2: darkMode ? '#484E45' : '#FAFAE2',
+    grd2: darkMode ? '#212429' : '#FAFAE2',
     grd3: darkMode ? '#394F50' : '#CBF3EF',
 
     // text
@@ -69,18 +69,18 @@ export function colors(darkMode: boolean): Colors {
 
     //primary colors
     primary1: darkMode ? '#40444f' : '#7CE0D6',
-    primary2: darkMode ? '#45d3c5' : '#7CE0D6',
-    primary3: darkMode ? '#97e7de' : '#7CE0D6',
-    primary4: darkMode ? '#CBF3EF' : '#7CE0D6',
+    primary2: darkMode ? '#FFE270' : '#7CE0D6',
+    primary3: darkMode ? '#FFE270' : '#7CE0D6',
+    primary4: darkMode ? '#FFE270' : '#7CE0D6',
     primary5: darkMode ? '#FFE270' : '#7CE0D6',
 
     // color text
     primaryText1: darkMode ? 'rgba(44, 52, 55, 0.8)' : '#ffff',
 
     // secondary colors
-    secondary1: darkMode ? '#30cfbf' : '#7CE0D6',
-    secondary2: darkMode ? '#17000b26' : '#7CE0D6',
-    secondary3: darkMode ? '#17000b26' : '#7CE0D6',
+    secondary1: darkMode ? '#FFE270' : '#7CE0D6',
+    secondary2: darkMode ? '#FFE270' : '#7CE0D6',
+    secondary3: darkMode ? '#FFE270' : '#7CE0D6',
 
     // other
     red1: '#FF6871',
@@ -98,10 +98,10 @@ export function colors(darkMode: boolean): Colors {
     mainPurple: '#2E17F2',
     purpleBase: '#101016',
     purpleOverlay: '#111018',
-    purple2: '#C0BAF6',
-    purple3: '#8780BF',
-    purple4: '#685EC6',
-    purple5: '#464366',
+    purple2: '#FFE270',
+    purple3: '#FFE270',
+    purple4: '#FFE270',
+    purple5: '#FFE270',
     boxShadow: '#0A0A0F',
 
     // darkest // dark 1.1

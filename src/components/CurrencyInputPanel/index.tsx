@@ -96,10 +96,11 @@ const StyledBalanceMax = styled.button`
   letter-spacing: 0.08em;
   cursor: pointer;
   margin-right: 10px;
-  color: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.primary1};
+  text-decoration: underline;
   outline: none;
-  border: 1px solid ${({ theme }) => theme.yellow1};
-  background-color: ${({ theme }) => theme.yellow1};
+  border: 1px solid ${({ theme }) => theme.primary2};
+  background-color: ${({ theme }) => theme.primary2};
   border-radius: 0.5rem;
 `
 
