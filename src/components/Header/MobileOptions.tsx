@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { ApplicationModal } from '../../state/application/actions'
 import { useCloseModals, useModalOpen, useToggleMobileMenu } from '../../state/application/hooks'
@@ -43,12 +43,6 @@ const StyledNavLink = styled(NavLink).attrs({
     color: ${({ theme }) => theme.white};
   }
 `
-
-const DisabledNavLink = styled(StyledNavLink)<{ isActive?: boolean }>`
-  color: ${({ theme }) => transparentize(0.6, theme.text5)} !important;
-  font-weight: 400 !important;
-`
-
 const StyledExternalLink = styled(ExternalLink)`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;
@@ -60,6 +54,7 @@ const StyledExternalLink = styled(ExternalLink)`
   font-weight: 400;
   font-size: 16px;
   line-height: 19.5px;
+  height: 36px;
 
   :hover,
   :focus {
@@ -79,10 +74,6 @@ export default function MobileOptions({ history }: { history: any }) {
   const closeModals = useCloseModals()
   const { t } = useTranslation()
   useOnClickOutside(node, open ? toggle : undefined)
-
-  const handleDisabledAnchorClick = useCallback(event => {
-    event.preventDefault()
-  }, [])
 
   return (
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451
@@ -116,12 +107,12 @@ export default function MobileOptions({ history }: { history: any }) {
             </StyledNavLink>
           </Box>
           <Box>
-            <DisabledNavLink to="/#" onClick={handleDisabledAnchorClick}>
-              {t('governance')} (coming soon)
-            </DisabledNavLink>
+            <StyledExternalLink id={`stake-nav-link`} href={'https://1hive.org/'}>
+              Governance <span style={{ fontSize: '11px' }}>↗</span>
+            </StyledExternalLink>
           </Box>
           <Box>
-            <StyledExternalLink id={`stake-nav-link`} href={'https://dxstats.eth.link/'}>
+            <StyledExternalLink id={`stake-nav-link`} href={'https://info.honeyswap.org/'}>
               Charts <span style={{ fontSize: '11px' }}>↗</span>
             </StyledExternalLink>
           </Box>
