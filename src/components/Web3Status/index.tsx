@@ -72,6 +72,8 @@ const Web3StatusGeneric = styled(ButtonSecondary)`
 const Web3StatusError = styled(Web3StatusGeneric)`
   background-color: ${({ theme }) => theme.red1};
   border: 1px solid ${({ theme }) => theme.red1};
+  padding-top: 5px;
+  padding-bottom: 5px;
   margin-right: 10px;
   margin-left: 10px;
   color: ${({ theme }) => theme.white};
@@ -141,8 +143,8 @@ const Text = styled.p<{ fontSize?: number }>`
 `
 
 const NetworkIcon = styled(Activity)`
-  width: 5px;
-  height: 5px;
+  width: 15px;
+  height: 15px;
 `
 
 // we want the latest one to come first, so return negative if a is after b
