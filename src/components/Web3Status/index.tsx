@@ -72,6 +72,8 @@ const Web3StatusGeneric = styled(ButtonSecondary)`
 const Web3StatusError = styled(Web3StatusGeneric)`
   background-color: ${({ theme }) => theme.red1};
   border: 1px solid ${({ theme }) => theme.red1};
+  margin-right: 10px;
+  margin-left: 10px;
   color: ${({ theme }) => theme.white};
   font-weight: 500;
   :hover,

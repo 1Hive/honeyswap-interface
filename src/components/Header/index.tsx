@@ -21,6 +21,8 @@ import { ExternalLink, TYPE } from '../../theme'
 import MobileOptions from './MobileOptions'
 import { useNativeCurrency } from '../../hooks/useNativeCurrency'
 
+import { useWeb3React } from '@web3-react/core'
+
 const HeaderFrame = styled.div`
   display: grid;
   grid-template-columns: 1fr 120px;
@@ -119,11 +121,11 @@ const HeaderLinks = styled(Row)`
   `};
 `
 
-const AccountElement = styled.div<{ active: boolean }>`
+const AccountElement = styled.div<{ active: boolean, networkError: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${({ theme }) => theme.bg1};
+  background-color: ${props => props.networkError ? 'transparent' : ({ theme }) => theme.bg1};
   border: solid 2px transparent;
   box-sizing: border-box;
   color: ${({ theme }) => theme.yellow1};
@@ -220,6 +222,7 @@ const StyledExternalLink = styled(ExternalLink).attrs({
 function Header({ history }: { history: any }) {
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
+  const { error } = useWeb3React()
 
   const nativeCurrency = useNativeCurrency()
   const userNativeCurrencyBalances = useNativeCurrencyBalances(account ? [account] : [])
@@ -275,7 +278,7 @@ function Header({ history }: { history: any }) {
       </HeaderRow>
       <HeaderControls>
         <HeaderElement>
-          <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
+          <AccountElement active={!!account} style={{ pointerEvents: 'auto' }} networkError={!!error}>
             {account && userNativeCurrencyBalance ? (
               <TYPE.black
                 style={{ flexShrink: 0 }}
@@ -288,7 +291,7 @@ function Header({ history }: { history: any }) {
               >
                 {userNativeCurrencyBalance?.toSignificant(4)} {nativeCurrency.symbol}
               </TYPE.black>
-            ) : null}
+            ) : null }
             <Web3Status />
           </AccountElement>
         </HeaderElement>
