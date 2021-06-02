@@ -104,7 +104,7 @@ export default function AddLiquidity({
     [dependentField]: noLiquidity ? otherTypedValue : parsedAmounts[dependentField]?.toSignificant(6) ?? ''
   }
 
-  const { protocolFee } = calculateProtocolFee(pair, parsedAmounts[independentField])
+  const { protocolFee } = calculateProtocolFee(pair, parsedAmounts[independentField], chainId)
   const swapFee = pair ? new Percent(JSBI.BigInt(pair.swapFee.toString()), JSBI.BigInt(10000)) : undefined
 
   // get the max amounts user can add

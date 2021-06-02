@@ -64,7 +64,14 @@ export function calculateProtocolFee(
   amount?: CurrencyAmount,
   chainId?: number
 ): { protocolFee?: Fraction; protocolFeeAmount?: CurrencyAmount } {
-  const protocolFee = pair ? new Percent(pair.swapFee, _100).divide(pair.protocolFeeDenominator) : undefined
+  let protocolFee
+
+  // xDai has a fixed protocol fee of 0.05%
+  if (chainId === 100) {
+    protocolFee = pair ? new Percent('5', _10000) : undefined
+  } else if (chainId === 137) {
+    protocolFee = pair ? new Percent(pair.swapFee, _100).divide(pair.protocolFeeDenominator) : undefined
+  }
 
   // the amount of the input that accrues to LPs
   const protocolFeeAmount =
