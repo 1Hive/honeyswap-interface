@@ -13,7 +13,7 @@ type ChainTokenList = {
 export const DAI: { [key: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET,
-    '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+    '0x6b175474e89094c44da98b954eedeac495271d0f',
     18,
     'DAI',
     'Dai Stablecoin'
@@ -23,10 +23,10 @@ export const DAI: { [key: number]: Token } = {
 }
 
 export const USDC: { [key: number]: Token } = {
-  [ChainId.MAINNET]: new Token(ChainId.MAINNET, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 6, 'USDC', 'USD//C'),
+  [ChainId.MAINNET]: new Token(ChainId.MAINNET, '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', 6, 'USDC', 'USD//C'),
   [ChainId.XDAI]: new Token(
     ChainId.XDAI,
-    '0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83',
+    '0xddafbb505ad214d7b80b1f830fccc89b60fb7a83',
     6,
     'USDC',
     'USD//C from Ethereum'
@@ -38,7 +38,7 @@ export const USDT: { [key: number]: Token } = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, '0xdAC17F958D2ee523a2206206994597C13D831ec7', 6, 'USDT', 'Tether USD'),
   [ChainId.XDAI]: new Token(
     ChainId.XDAI,
-    '0x4ECaBa5870353805a9F068101A40E0f32ed605C6',
+    '0x4ecaba5870353805a9f068101a40e0f32ed605c6',
     6,
     'USDT',
     'Tether USD from Ethereum'
