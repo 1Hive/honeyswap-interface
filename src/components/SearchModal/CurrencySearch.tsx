@@ -31,7 +31,7 @@ interface CurrencySearchProps {
 const Wrapper = styled.div`
   width: 100%;
 
-  background: ${({ theme }) => transparentize(0.45, theme.bg2)};
+  background: ${({ theme }) => transparentize(0, theme.bg2)};
 `
 
 export function CurrencySearch({

@@ -61,7 +61,7 @@ export const ButtonPrimary = styled(Base)`
   }
   &:disabled {
     background-color: ${({ theme }) => theme.primary1};
-    color: ${({ theme }) => transparentize(0.28, theme.purpleBase)};
+    color: ${({ theme }) => transparentize(0.15, theme.purpleBase)};
     cursor: not-allowed;
     box-shadow: none;
     outline: none;
@@ -125,7 +125,7 @@ export const ButtonOutlined = styled(Base)`
   border: 8px solid;
   border-radius: 8px;
   border-image: url(${border8pxRadius}) 8;
-  background-color: ${({ theme }) => transparentize(0.28, theme.purpleBase)};
+  background-color: ${({ theme }) => transparentize(0.15, theme.purpleBase)};
   color: ${({ theme }) => theme.text1};
   text-transform: initial;
   cursor: pointer;

@@ -28,7 +28,7 @@ interface PairSearchProps {
 const Wrapper = styled.div`
   width: 100%;
 
-  background: ${({ theme }) => transparentize(0.45, theme.bg2)};
+  background: ${({ theme }) => transparentize(0.25, theme.bg2)};
 `
 
 export function PairSearch({ selectedPair, onPairSelect, onDismiss, isOpen, filterPairs }: PairSearchProps) {
