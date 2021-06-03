@@ -60,7 +60,7 @@ const ContentWrapper = styled.div`
 
 const UpperSection = styled.div`
   position: relative;
-  background-color: ${({ theme }) => transparentize(0.45, theme.bg2)};
+  background-color: ${({ theme }) => transparentize(0, theme.bg2)};
 
   h5 {
     margin: 0;
@@ -323,7 +323,7 @@ export default function WalletModal({
           </HeaderRow>
         ) : (
           <HeaderRow>
-            <TYPE.body fontWeight={500} fontSize={20} color="text4">
+            <TYPE.body fontWeight={400} fontSize={20} color="text2">
               Connect to a wallet
             </TYPE.body>
           </HeaderRow>

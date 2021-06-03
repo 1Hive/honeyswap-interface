@@ -100,7 +100,7 @@ const MenuContainer = styled.div`
 const MenuFlyout = styled.div`
   min-width: 322px;
   max-width: 322px;
-  background: ${({ theme }) => transparentize(0.45, theme.bg2)};
+  background: ${({ theme }) => transparentize(0.25, theme.bg2)};
   border-radius: 8px;
   backdrop-filter: blur(16px);
   border-radius: 8px;
@@ -116,7 +116,7 @@ const MenuFlyout = styled.div`
 
 const MenuFlyoutBottom = styled.div`
   width: 215px;
-  background: ${({ theme }) => transparentize(0.45, theme.bg2)};
+  background: ${({ theme }) => transparentize(0.25, theme.bg2)};
   backdrop-filter: blur(16px);
   border: 8px solid;
   border-radius: 8px;
@@ -175,7 +175,7 @@ const ModalContentWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 26px 0;
-  background-color: ${({ theme }) => transparentize(0.45, theme.bg2)};
+  background-color: ${({ theme }) => transparentize(0.25, theme.bg2)};
 `
 const MenuItem = styled(ExternalLink)`
   width: 50%;

@@ -16,7 +16,7 @@ const WarningContainer = styled.div`
 `
 
 const OuterContainer = styled.div`
-  background: ${({ theme }) => transparentize(0.45, theme.bg2)};
+  background: ${({ theme }) => transparentize(0.25, theme.bg2)};
 `
 
 const UpperSectionContainer = styled.div`

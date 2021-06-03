@@ -16,11 +16,11 @@ const PopoverContainer = styled.div<{ show: boolean }>`
 
   padding: 8px;
   backdrop-filter: blur(16px);
-  background-color: ${({ theme }) => transparentize(0.6, theme.purpleBase)};
+  background-color: ${({ theme }) => transparentize(0, theme.purpleBase)};
   border: 8px solid;
   border-radius: 8px;
   border-image: url(${border8pxRadius}) 8;
-  box-shadow: 0px 0px 8px ${({ theme }) => transparentize(0.84, theme.black)};
+  box-shadow: 0px 0px 8px ${({ theme }) => transparentize(0, theme.black)};
   color: ${({ theme }) => theme.text5};
   font-size: 12px;
 `
