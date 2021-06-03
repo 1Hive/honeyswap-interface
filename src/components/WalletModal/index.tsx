@@ -195,9 +195,8 @@ export default function WalletModal({
       SUPPORTED_WALLETS['WALLET_CONNECT'].connector = walletConnectMATIC
     } else if (chainId === ChainId.XDAI) {
       SUPPORTED_WALLETS['WALLET_CONNECT'].connector = walletConnectXDAI
-    } else {
-      delete SUPPORTED_WALLETS['WALLET_CONNECT']
     }
+    console.log(SUPPORTED_WALLETS['WALLET_CONNECT'].connector)
     return Object.keys(SUPPORTED_WALLETS).map(key => {
       const option = SUPPORTED_WALLETS[key]
       // check for mobile options
