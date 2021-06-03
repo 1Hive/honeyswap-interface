@@ -1,7 +1,7 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { ChainId, JSBI, Percent, CurrencyAmount, WETH, WSPOA, WXDAI, Token, Currency, WMATIC } from 'dxswap-sdk'
 import { tokens } from './tokens'
-import { authereum, injected, walletConnect } from '../connectors'
+import { injected, walletConnectMATIC, walletConnectXDAI } from '../connectors'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -184,20 +184,20 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#E8831D'
   },
-  WALLET_CONNECT: {
-    connector: walletConnect,
-    name: 'WalletConnect',
+  WALLET_CONNECT_XDAI: {
+    connector: walletConnectXDAI,
+    name: 'WalletConnect for xDai',
     iconName: 'wallet-connect.svg',
     description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
     href: null,
     color: '#4196FC',
     mobile: true
   },
-  AUTHEREUM: {
-    connector: authereum,
-    name: 'Authereum',
-    iconName: 'authereum.svg',
-    description: 'Connect using Authereum.',
+  WALLET_CONNECT_MATIC: {
+    connector: walletConnectMATIC,
+    name: 'WalletConnect for Polygon',
+    iconName: 'wallet-connect.svg',
+    description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
     href: null,
     color: '#4196FC',
     mobile: true
