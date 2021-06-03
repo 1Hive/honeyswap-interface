@@ -129,7 +129,7 @@ export function CurrencySearch({
 
   return (
     <Wrapper>
-      <Column style={{ width: '100%', height: '100%', flex: '1 1' }}>
+      <Column style={{ width: '100%', height: '100%' }}>
         <PaddedColumn gap="16px">
           <RowBetween>
             <TYPE.body fontWeight={500} fontSize={16}>
