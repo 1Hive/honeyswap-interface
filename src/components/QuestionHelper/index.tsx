@@ -9,24 +9,22 @@ const QuestionWrapper = styled.div`
   justify-content: center;
   background: none;
   color: ${({ theme }) => theme.yellow1};
-  transition: opacity 0.3s ease;
   width: 16px;
   height: 16px;
 
   :hover,
   :focus {
-    opacity: 0.7;
+    opacity: 1;
   }
 `
 
 const LightQuestionWrapper = styled.div`
   background-color: none;
   color: ${({ theme }) => theme.purple3};
-  transition: opacity 0.3s ease;
 
   :hover,
   :focus {
-    opacity: 0.7;
+    opacity: 1;
   }
 `
 
