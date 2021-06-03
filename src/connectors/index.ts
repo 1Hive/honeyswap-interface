@@ -21,10 +21,19 @@ export const injected = new InjectedConnector({
   supportedChainIds: [ChainId.RINKEBY, ChainId.SOKOL, ChainId.XDAI, ChainId.MATIC]
 })
 
-// mainnet only
-export const walletConnect = new WalletConnectConnector({
+// xdai only
+export const walletConnectXDAI = new WalletConnectConnector({
   rpc: {
-    100: 'https://rpc.xdaichain.com/',
+    100: 'https://rpc.xdaichain.com/'
+  },
+  bridge: 'https://bridge.walletconnect.org',
+  qrcode: true,
+  pollingInterval: 15000
+})
+
+// polygon only
+export const walletConnectMATIC = new WalletConnectConnector({
+  rpc: {
     137: 'https://rpc-mainnet.matic.quiknode.pro'
   },
   bridge: 'https://bridge.walletconnect.org',
