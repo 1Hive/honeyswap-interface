@@ -128,7 +128,7 @@ export function CurrencySearch({
   )
 
   return (
-    <Wrapper style={{ marginTop: '4rem' }}>
+    <Wrapper>
       <Column style={{ width: '100%', height: '100%' }}>
         <PaddedColumn gap="16px">
           <RowBetween>

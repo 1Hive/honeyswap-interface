@@ -31,7 +31,7 @@ export default function CurrencySearchModal({
   )
 
   return (
-    <Modal isOpen={isOpen} onDismiss={onDismiss}>
+    <Modal isOpen={isOpen} onDismiss={onDismiss} maxHeight={70}>
       <CurrencySearch
         isOpen={isOpen}
         onDismiss={onDismiss}
