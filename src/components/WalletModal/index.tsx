@@ -14,13 +14,11 @@ import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useWalletModalToggle } from '../../state/application/hooks'
 import { TYPE } from '../../theme'
 import AccountDetails from '../AccountDetails'
-import { walletConnectXDAI, walletConnectMATIC } from '../../connectors'
 
 import Modal from '../Modal'
 import Option from './Option'
 import PendingView from './PendingView'
 import BeeLogo from '../../assets/svg/logo.svg'
-import { ChainId } from 'dxswap-sdk'
 
 const CloseIcon = styled.div`
   position: absolute;
@@ -133,7 +131,7 @@ export default function WalletModal({
   ENSName?: string
 }) {
   // important that these are destructed from the account-specific web3-react context
-  const { chainId, active, account, connector, activate, error } = useWeb3React()
+  const { active, account, connector, activate, error } = useWeb3React()
   const [walletView, setWalletView] = useState(WALLET_VIEWS.ACCOUNT)
 
   const [pendingWallet, setPendingWallet] = useState<AbstractConnector | undefined>()
@@ -191,11 +189,7 @@ export default function WalletModal({
   // get wallets user can switch too, depending on device/browser
   function getOptions() {
     const isMetamask = window.ethereum && window.ethereum.isMetaMask
-    if (chainId === ChainId.MATIC) {
-      SUPPORTED_WALLETS['WALLET_CONNECT'].connector = walletConnectMATIC
-    } else if (chainId === ChainId.XDAI) {
-      SUPPORTED_WALLETS['WALLET_CONNECT'].connector = walletConnectXDAI
-    }
+
     return Object.keys(SUPPORTED_WALLETS).map(key => {
       const option = SUPPORTED_WALLETS[key]
       // check for mobile options
