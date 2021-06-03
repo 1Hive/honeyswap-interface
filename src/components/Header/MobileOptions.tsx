@@ -112,6 +112,11 @@ export default function MobileOptions({ history }: { history: any }) {
             </StyledExternalLink>
           </Box>
           <Box>
+            <StyledExternalLink id={`stake-nav-link`} href={'https://1hive.io/'}>
+              Farms <span style={{ fontSize: '11px' }}>↗</span>
+            </StyledExternalLink>
+          </Box>
+          <Box>
             <StyledExternalLink id={`stake-nav-link`} href={'https://info.honeyswap.org/'}>
               Charts <span style={{ fontSize: '11px' }}>↗</span>
             </StyledExternalLink>
