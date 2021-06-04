@@ -94,7 +94,7 @@ export default function MobileOptions({ history }: { history: any }) {
           <Box>
             <StyledNavLink
               id={`pool-nav-link`}
-              to={'/pools'}
+              to={'/pool'}
               onClick={closeModals}
               isActive={() =>
                 history.location.pathname.includes('/pools') ||
