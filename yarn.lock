@@ -6011,8 +6011,8 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     dxswap-core "https://github.com/1Hive/dxswap-core.git"
 
 "dxswap-sdk@https://github.com/1Hive/honeyswap-sdk.git":
-  version "0.9.0"
-  resolved "https://github.com/1Hive/honeyswap-sdk.git#8c5029569db45f338661fde1182e3cf2fb80d77d"
+  version "0.9.1"
+  resolved "https://github.com/1Hive/honeyswap-sdk.git#66de8ec45419f776bb76e6c12873cbbbc8e3ba7a"
   dependencies:
     "@makerdao/multicall" "^0.11.0"
     big.js "^5.2.2"
