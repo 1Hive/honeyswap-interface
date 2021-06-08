@@ -14,7 +14,7 @@ export const network = new CustomNetworkConnector({
     // [ChainId.MATIC]: `https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`
     [ChainId.MATIC]: 'https://rpc-mainnet.matic.quiknode.pro/'
   },
-  defaultChainId: ChainId.MAINNET
+  defaultChainId: ChainId.XDAI
 })
 
 export const injected = new InjectedConnector({
