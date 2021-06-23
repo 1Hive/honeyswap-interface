@@ -36,7 +36,7 @@ export const walletConnectMATIC = new WalletConnectConnector({
   rpc: {
     137: 'https://rpc-mainnet.matic.quiknode.pro'
   },
-  bridge: 'https://bridge.walletconnect.org',
+  bridge: 'https://polygon.bridge.walletconnect.org',
   qrcode: true,
   pollingInterval: 15000
 })
