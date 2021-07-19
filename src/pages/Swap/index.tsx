@@ -256,7 +256,7 @@ export default function Swap() {
     [onCurrencySelection]
   )
 
-  const FEE_MESSAGE_CURRENCIES_CODE = ["WETH", "ETH"]
+  const FEE_MESSAGE_CURRENCIES_CODE = ["ETH"]
 
   const inputCurrency = currencies[Field.INPUT]?.symbol || ""
   const outputCurrency = currencies[Field.OUTPUT]?.symbol || ""
