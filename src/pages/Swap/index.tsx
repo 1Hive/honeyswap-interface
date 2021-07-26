@@ -41,6 +41,7 @@ import { useTargetedChainIdFromUrl } from '../../hooks/useTargetedChainIdFromUrl
 import NetworkWarningModal from '../../components/NetworkWarningModal'
 import BeeEth from '../../assets/svg/bee-eth.svg'
 
+
 const RotatedRepeat = styled(Repeat)`
   transform: rotate(90deg);
   width: 14px;
@@ -258,16 +259,19 @@ export default function Swap() {
 
   const FEE_MESSAGE_CURRENCIES_CODE = ["ETH"]
 
+
   const inputCurrency = currencies[Field.INPUT]?.symbol || ""
   const outputCurrency = currencies[Field.OUTPUT]?.symbol || ""
-  
+
   let currencyMessage = ""
+  console.log(chainId === 137)
+  if (chainId === 137) {
   if (FEE_MESSAGE_CURRENCIES_CODE.includes(inputCurrency)) { 
     currencyMessage = inputCurrency
   } else if (FEE_MESSAGE_CURRENCIES_CODE.includes(outputCurrency)) {
     currencyMessage = outputCurrency
   }
-  
+  }
   return (
     <>
       <NetworkWarningModal
