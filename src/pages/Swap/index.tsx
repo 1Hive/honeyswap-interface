@@ -264,7 +264,6 @@ export default function Swap() {
   const outputCurrency = currencies[Field.OUTPUT]?.symbol || ""
 
   let currencyMessage = ""
-  console.log(chainId === 137)
   if (chainId === 137) {
   if (FEE_MESSAGE_CURRENCIES_CODE.includes(inputCurrency)) { 
     currencyMessage = inputCurrency
