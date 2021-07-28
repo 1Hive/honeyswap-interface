@@ -39,6 +39,8 @@ import { ClickableText } from '../Pool/styleds'
 import Loader from '../../components/Loader'
 import { useTargetedChainIdFromUrl } from '../../hooks/useTargetedChainIdFromUrl'
 import NetworkWarningModal from '../../components/NetworkWarningModal'
+import BeeEth from '../../assets/svg/bee-eth.svg'
+
 
 const RotatedRepeat = styled(Repeat)`
   transform: rotate(90deg);
@@ -255,6 +257,20 @@ export default function Swap() {
     [onCurrencySelection]
   )
 
+  const FEE_MESSAGE_CURRENCIES_CODE = ["ETH"]
+
+
+  const inputCurrency = currencies[Field.INPUT]?.symbol || ""
+  const outputCurrency = currencies[Field.OUTPUT]?.symbol || ""
+
+  let currencyMessage = ""
+  if (chainId === 137) {
+  if (FEE_MESSAGE_CURRENCIES_CODE.includes(inputCurrency)) { 
+    currencyMessage = inputCurrency
+  } else if (FEE_MESSAGE_CURRENCIES_CODE.includes(outputCurrency)) {
+    currencyMessage = outputCurrency
+  }
+  }
   return (
     <>
       <NetworkWarningModal
@@ -322,6 +338,14 @@ export default function Swap() {
                 otherCurrency={currencies[Field.INPUT]}
                 id="swap-currency-output"
               />
+              {currencyMessage && (
+                <AutoColumn gap="3px" justify={'center'}>
+                  <div style={{display: "flex", border: "1px solid", borderRadius:"7px", borderColor: "white", padding:"4px", margin: "5px 0"}}>
+                    <img src={BeeEth} alt="" style={{marginRight:"3px"}}/>
+                    <h5 style={{textAlign:'center'}}>{`Trades with ${currencyMessage} token have a fee of only 0.15%`}</h5>
+                  </div>
+                </AutoColumn>
+              )}
             </AutoColumn>
 
             {!showWrap && (
