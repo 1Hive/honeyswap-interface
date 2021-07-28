@@ -145,7 +145,7 @@ export default function Pool() {
         {account && chainId && (
           <>
             <ButtonWithLink
-              link={`https://info.honeyswap.org/account/${account}chainId=${chainId}`}
+              link={`https://info.honeyswap.org/#/account/${account}?chainId=${chainId}`}
               text={'ACCOUNT ANALYTICS AND ACCRUED FEES'}
               marginTop="32px"
             />
