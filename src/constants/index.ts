@@ -1,7 +1,7 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { ChainId, JSBI, Percent, CurrencyAmount, WETH, WSPOA, WXDAI, Token, Currency, WMATIC } from 'dxswap-sdk'
 import { tokens } from './tokens'
-import { injected, walletConnectMATIC, walletConnectXDAI } from '../connectors'
+import { injected, walletConnectMATIC, walletConnectXDAI, walletlink } from '../connectors'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -183,6 +183,14 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Easy-to-use browser extension.',
     href: null,
     color: '#E8831D'
+  },
+  WALLET_LINK: {
+    connector: walletlink,
+    name: 'Coinbase Wallet',
+    iconName: 'coinbaseWalletIcon.svg',
+    description: 'Use Coinbase Wallet app on mobile device',
+    href: null,
+    color: '#315CF5'
   },
   WALLET_CONNECT_XDAI: {
     connector: walletConnectXDAI,

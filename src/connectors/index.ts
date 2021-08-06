@@ -3,6 +3,7 @@ import { AuthereumConnector } from '@web3-react/authereum-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { CustomNetworkConnector } from './CustomNetworkConnector'
 import { ChainId } from 'dxswap-sdk'
+import { WalletLinkConnector } from '@web3-react/walletlink-connector'
 
 export const INFURA_PROJECT_ID = '0ebf4dd05d6740f482938b8a80860d13'
 export const MATIC_PROJECT_ID = '917500540ed6561baeb650de48df44949ed21baf'
@@ -19,6 +20,12 @@ export const network = new CustomNetworkConnector({
 
 export const injected = new InjectedConnector({
   supportedChainIds: [ChainId.RINKEBY, ChainId.SOKOL, ChainId.XDAI, ChainId.MATIC]
+})
+
+export const walletlink = new WalletLinkConnector({
+  supportedChainIds: [ChainId.MAINNET, ChainId.RINKEBY, ChainId.XDAI, ChainId.MATIC],
+  url: 'https://rpc.xdaichain.com/',
+  appName: 'Honeyswap'
 })
 
 // xdai only
