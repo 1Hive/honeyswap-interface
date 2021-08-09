@@ -86,6 +86,9 @@ export const BAO = new Token(
 
 export const AGAVE = new Token(ChainId.XDAI, '0x3a97704a1b25F08aa230ae53B352e2e72ef52843', 18, 'AGVE', 'Agave token')
 
+export const SURF = new Token(ChainId.MATIC, '0x1e42edbe5376e717c1b22904c59e406426e8173f', 18, 'SURF', 'SURF.Finance')
+export const WAVE = new Token(ChainId.MATIC, '0x4de7fea447b837d7e77848a4b6c0662a64a84e14', 18, 'WAVE', 'WAVE Token')
+
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.MAINNET]: [
@@ -115,7 +118,9 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     HONEY[ChainId.MATIC],
     DAI[ChainId.MATIC],
     USDC[ChainId.MATIC],
-    USDT[ChainId.MATIC]
+    USDT[ChainId.MATIC],
+    SURF,
+    WAVE
   ]
 }
 
