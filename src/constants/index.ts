@@ -281,7 +281,7 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
       symbol: Currency.XDAI.symbol || 'xDAI',
       decimals: Currency.XDAI.decimals || 18
     },
-    rpcUrls: ['https://rpc.xdaichain.com/'],
+    rpcUrls: ['https://poa-xdai.gateway.pokt.network/v1/lb/61140fc659501900341babff'],
     blockExplorerUrls: ['https://blockscout.com/xdai/mainnet'],
     metamaskAddable: true
   },
@@ -294,7 +294,7 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
       decimals: Currency.MATIC.decimals || 18
     },
     // rpcUrls: [`https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`],
-    rpcUrls: ['https://rpc-mainnet.matic.quiknode.pro/'],
+    rpcUrls: ['https://poly-mainnet.gateway.pokt.network/v1/lb/61141e8259501900341bb3e2'],
     blockExplorerUrls: ['https://explorer.matic.network/'],
     metamaskAddable: true
   }
