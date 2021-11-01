@@ -2985,14 +2985,14 @@
     "@web3-react/types" "^6.0.7"
     tiny-invariant "^1.0.6"
 
-"@web3-react/walletlink-connector@^6.2.5":
-  version "6.2.5"
-  resolved "https://registry.yarnpkg.com/@web3-react/walletlink-connector/-/walletlink-connector-6.2.5.tgz#103231432555496c73d07019a0ab0bb08c5ccfe8"
-  integrity sha512-8Wx+4TqMPZw5kGzraxRLbsLA9mUOYxLJk8QvNzuuFQ8/YpHhL58mQGnHx30KReXTJpMG4TZGE4yCLp3Bd+jVfQ==
+"@web3-react/walletlink-connector@^6.2.7":
+  version "6.2.7"
+  resolved "https://registry.yarnpkg.com/@web3-react/walletlink-connector/-/walletlink-connector-6.2.7.tgz#f8c63556d1ddd569b88e0f27390b362e60dece3f"
+  integrity sha512-FW/+03XpDLFT3ZCJZzAV5pgqKnbDWkqy85bOyA4iHDMkWAo1Y1yz7M6y9GkYTipzKHO2IEn5zbP7XXwOzOxLZA==
   dependencies:
     "@web3-react/abstract-connector" "^6.0.7"
     "@web3-react/types" "^6.0.7"
-    walletlink "^2.1.10"
+    walletlink "^2.1.11"
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
@@ -13730,7 +13730,7 @@ safe-regex@^1.1.0:
   dependencies:
     ret "~0.1.10"
 
-"safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0", safer-buffer@^2.0.2, safer-buffer@^2.1.0:
+"safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
@@ -15710,10 +15710,10 @@ walker@^1.0.7, walker@~1.0.5:
   dependencies:
     makeerror "1.0.x"
 
-walletlink@^2.1.10:
-  version "2.1.10"
-  resolved "https://registry.yarnpkg.com/walletlink/-/walletlink-2.1.10.tgz#f69b816bc1aacc11fb4f0385419e3ef7ef322058"
-  integrity sha512-ndX2yaa8KDzlxiuiLmrA4pJlD4CXjyCoxm4FqaeGqv/ez3WfwIRa+ZjSDpi7odHiz6sTgi/L6zy16fiocWfHJA==
+walletlink@^2.1.11:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/walletlink/-/walletlink-2.2.6.tgz#cfea3ba94e5ea33e87b0a2f31151a77ee1a59d72"
+  integrity sha512-4TF1kkpo9aq1QlfKv6jTCEsV8Rc+1RIuXn2EtsTJt9/H02fG3oy7k49sqB4gXZ9CWN48yoXnmSwq1GdkvfYGjw==
   dependencies:
     "@metamask/safe-event-emitter" "2.0.0"
     bind-decorator "^1.0.11"
