@@ -31,7 +31,7 @@ export const walletConnectXDAI = new WalletConnectConnector({
   rpc: {
     100: 'https://poa-xdai.gateway.pokt.network/v1/lb/61140fc659501900341babff'
   },
-  bridge: 'https://bridge.walletconnect.org',
+  bridge: 'https://walletconnect-relay.minerva.digital',
   qrcode: true,
   pollingInterval: 15000
 })
