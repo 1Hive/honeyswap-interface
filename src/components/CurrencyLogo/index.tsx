@@ -13,9 +13,6 @@ import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
 
-const getTokenLogoURL = (address: string) =>
-  `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${address}/logo.png`
-
 const StyledLogo = styled(Logo)<{ size: string }>`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
@@ -73,7 +70,7 @@ export default function CurrencyLogo({
     if (currency instanceof Token) {
       if (Token.isNativeWrapper(currency)) return [nativeCurrencyLogo]
       if (chainId && DXD[chainId] && DXD[chainId].address === currency.address) return [DXDLogo]
-      return [getTokenLogoURL(currency.address), Fetcher.getCachedTokenLogo(currency), ...uriLocations]
+      return [...uriLocations, Fetcher.getCachedTokenLogo(currency)]
     }
     return []
   }, [chainId, currency, nativeCurrencyLogo, uriLocations])
