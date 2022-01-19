@@ -1,5 +1,5 @@
-import { SafeAppConnector, useSafeAppConnection } from '@gnosis.pm/safe-apps-web3-react'
 import React from 'react'
+import { SafeAppConnector, useSafeAppConnection } from '@gnosis.pm/safe-apps-web3-react'
 
 const safeMultisigConnector = new SafeAppConnector()
 
