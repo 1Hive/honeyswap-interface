@@ -8,6 +8,7 @@ import { NetworkContextName } from '../../constants'
 import Loader from '../Loader'
 import { network } from '../../connectors'
 import { useTargetedChainIdFromUrl } from '../../hooks/useTargetedChainIdFromUrl'
+import GnosisManager from './GnosisManager'
 
 const MessageWrapper = styled.div`
   display: flex;
@@ -77,5 +78,10 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
     ) : null
   }
 
-  return children
+  return (
+    <>
+      <GnosisManager />
+      {children}
+    </>
+  )
 }
