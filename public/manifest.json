@@ -1,6 +1,8 @@
 {
-  "short_name": "Swapr",
-  "name": "Swapr",
+  "short_name": "Honeyswap",
+  "name": "Honeyswap",
+  "iconPath": "./images/512x512_App_Icon.png",
+  "description": "Decentralized exchange built by 1Hive DAO",
   "icons": [
     {
       "src": "./images/192x192_App_Icon.png",
