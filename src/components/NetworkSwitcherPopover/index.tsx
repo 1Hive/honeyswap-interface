@@ -7,7 +7,7 @@ import { useModalOpen, useCloseModals, useAddPopup } from '../../state/applicati
 
 import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
 import GnosisLogo from '../../assets/images/gnosis-chain-logo.png'
-import MaticLogo from '../../assets/images/matic-logo.png'
+import PolygonLogo from '../../assets/images/polygon-logo.png'
 import Popover from '../Popover'
 import { useActiveWeb3React } from '../../hooks'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
@@ -71,7 +71,7 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
                 selectNetwork(ChainId.MATIC)
               }}
               header={'Polygon'}
-              logoSrc={MaticLogo}
+              logoSrc={PolygonLogo}
             />
             <Option
               onClick={() => {

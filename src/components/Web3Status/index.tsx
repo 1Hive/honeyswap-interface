@@ -22,7 +22,7 @@ import NetworkSwitcherPopover from '../NetworkSwitcherPopover'
 import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import GnosisLogo from '../../assets/images/gnosis-chain-logo.png'
 import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
-import MaticLogo from '../../assets/images/matic-logo.png'
+import PolygonLogo from '../../assets/images/polygon-logo.png'
 import { ChainId } from 'dxswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
 
@@ -32,7 +32,7 @@ const ChainLogo: any = {
   [ChainId.ARBITRUM_TESTNET_V3]: ArbitrumLogo,
   [ChainId.SOKOL]: '',
   [ChainId.XDAI]: GnosisLogo,
-  [ChainId.MATIC]: MaticLogo
+  [ChainId.MATIC]: PolygonLogo
 }
 
 const ChainLabel: any = {
@@ -41,7 +41,7 @@ const ChainLabel: any = {
   [ChainId.ARBITRUM_TESTNET_V3]: 'Arbitrum',
   [ChainId.SOKOL]: 'Sokol',
   [ChainId.XDAI]: 'Gnosis Chain',
-  [ChainId.MATIC]: 'Matic'
+  [ChainId.MATIC]: 'Polygon'
 }
 
 const IconWrapper = styled.div<{ size?: number | null }>`
@@ -51,6 +51,7 @@ const IconWrapper = styled.div<{ size?: number | null }>`
   & > img,
   span {
     height: ${({ size }) => (size ? size + 'px' : '30px')};
+    border-radius: 50%;
   }
   ${({ theme }) => theme.mediaWidth.upToMedium`
     align-items: center;
