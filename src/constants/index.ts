@@ -199,7 +199,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
   },
   WALLET_CONNECT_XDAI: {
     connector: walletConnectXDAI,
-    name: 'WalletConnect for xDai',
+    name: 'WalletConnect for Gnosis Chain',
     iconName: 'wallet-connect.svg',
     description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
     href: null,
@@ -275,7 +275,7 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
   },
   [ChainId.XDAI]: {
     chainId: `0x${ChainId.XDAI.toString(16)}`,
-    chainName: 'xDAI',
+    chainName: 'Gnosis Chain',
     nativeCurrency: {
       name: Currency.XDAI.name || 'xDAI',
       symbol: Currency.XDAI.symbol || 'xDAI',

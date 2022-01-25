@@ -6,7 +6,7 @@ import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useCloseModals, useAddPopup } from '../../state/application/hooks'
 
 import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
-import XDAILogo from '../../assets/images/xdai-stake-logo.png'
+import GnosisLogo from '../../assets/images/gnosis-chain-logo.png'
 import MaticLogo from '../../assets/images/matic-logo.png'
 import Popover from '../Popover'
 import { useActiveWeb3React } from '../../hooks'
@@ -63,8 +63,8 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
               onClick={() => {
                 selectNetwork(ChainId.XDAI)
               }}
-              header={'xDai'}
-              logoSrc={XDAILogo}
+              header={'Gnosis Chain'}
+              logoSrc={GnosisLogo}
             />
             <Option
               onClick={() => {

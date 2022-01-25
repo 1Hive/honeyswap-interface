@@ -20,7 +20,7 @@ import WalletModal from '../WalletModal'
 import NetworkSwitcherPopover from '../NetworkSwitcherPopover'
 
 import EthereumLogo from '../../assets/images/ethereum-logo.png'
-import XDAILogo from '../../assets/images/xdai-stake-logo.png'
+import GnosisLogo from '../../assets/images/gnosis-chain-logo.png'
 import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
 import MaticLogo from '../../assets/images/matic-logo.png'
 import { ChainId } from 'dxswap-sdk'
@@ -31,7 +31,7 @@ const ChainLogo: any = {
   [ChainId.RINKEBY]: EthereumLogo,
   [ChainId.ARBITRUM_TESTNET_V3]: ArbitrumLogo,
   [ChainId.SOKOL]: '',
-  [ChainId.XDAI]: XDAILogo,
+  [ChainId.XDAI]: GnosisLogo,
   [ChainId.MATIC]: MaticLogo
 }
 
@@ -40,7 +40,7 @@ const ChainLabel: any = {
   [ChainId.RINKEBY]: 'Rinkeby',
   [ChainId.ARBITRUM_TESTNET_V3]: 'Arbitrum',
   [ChainId.SOKOL]: 'Sokol',
-  [ChainId.XDAI]: 'xDai',
+  [ChainId.XDAI]: 'Gnosis Chain',
   [ChainId.MATIC]: 'Matic'
 }
 
