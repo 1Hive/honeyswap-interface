@@ -104,6 +104,14 @@ export const TEC = new Token(
   'Token Engineering Commons'
 )
 
+export const GNO = new Token(
+  ChainId.XDAI,
+  '0x9c58bacc331c9aa871afd802db6379a98e80cedb',
+  18,
+  'GNO',
+  'Gnosis Token from Ethereum'
+)
+
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.MAINNET]: [
@@ -123,11 +131,10 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDT[ChainId.XDAI],
     WBTC[ChainId.XDAI],
     HONEY[ChainId.XDAI],
-    STAKE,
     AGAVE,
-    BAO,
     GIV,
-    TEC
+    TEC,
+    GNO
   ],
   [ChainId.MATIC]: [
     WETH[ChainId.MATIC],
