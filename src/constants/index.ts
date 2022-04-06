@@ -89,6 +89,29 @@ export const AGAVE = new Token(ChainId.XDAI, '0x3a97704a1b25F08aa230ae53B352e2e7
 export const SURF = new Token(ChainId.MATIC, '0x1e42edbe5376e717c1b22904c59e406426e8173f', 18, 'SURF', 'SURF.Finance')
 export const WAVE = new Token(ChainId.MATIC, '0x4de7fea447b837d7e77848a4b6c0662a64a84e14', 18, 'WAVE', 'WAVE Token')
 
+export const GIV = new Token(
+  ChainId.XDAI,
+  '0x4f4f9b8d5b4d0dc10506e5551b0513b61fd59e75',
+  18,
+  'GIV',
+  'Giveth from Mainnet'
+)
+export const TEC = new Token(
+  ChainId.XDAI,
+  '0x5df8339c5e282ee48c0c7ce8a7d01a73d38b3b27',
+  18,
+  'TEC',
+  'Token Engineering Commons'
+)
+
+export const GNO = new Token(
+  ChainId.XDAI,
+  '0x9c58bacc331c9aa871afd802db6379a98e80cedb',
+  18,
+  'GNO',
+  'Gnosis Token from Ethereum'
+)
+
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.MAINNET]: [
@@ -108,9 +131,10 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDT[ChainId.XDAI],
     WBTC[ChainId.XDAI],
     HONEY[ChainId.XDAI],
-    STAKE,
     AGAVE,
-    BAO
+    GIV,
+    TEC,
+    GNO
   ],
   [ChainId.MATIC]: [
     WETH[ChainId.MATIC],
