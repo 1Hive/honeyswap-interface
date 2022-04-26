@@ -4,6 +4,9 @@ import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { CustomNetworkConnector } from './CustomNetworkConnector'
 import { ChainId } from 'dxswap-sdk'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
+//UD test
+import UAuth from '@uauth/js'
+import { UAuthConnector } from '@uauth/web3-react'
 
 export const INFURA_PROJECT_ID = '0ebf4dd05d6740f482938b8a80860d13'
 
@@ -32,8 +35,7 @@ export const walletConnectXDAI = new WalletConnectConnector({
     100: 'https://poa-xdai.gateway.pokt.network/v1/lb/61140fc659501900341babff'
   },
   bridge: 'https://walletconnect-relay.minerva.digital',
-  qrcode: true,
-  pollingInterval: 15000
+  qrcode: true
 })
 
 // polygon only
@@ -42,9 +44,28 @@ export const walletConnectMATIC = new WalletConnectConnector({
     137: 'https://rpc-mainnet.matic.quiknode.pro'
   },
   bridge: 'https://polygon.bridge.walletconnect.org',
-  qrcode: true,
-  pollingInterval: 15000
+  qrcode: true
 })
 
 // mainnet only
 export const authereum = new AuthereumConnector({ chainId: 1 })
+
+//UD test
+
+export const walletconnect = new WalletConnectConnector({
+  rpc: {
+    137: 'https://rpc-mainnet.matic.quiknode.pro'
+  },
+  bridge: 'https://polygon.bridge.walletconnect.org',
+  qrcode: true
+})
+
+export const walletConnectUD = new UAuthConnector({
+  uauth: new UAuth({
+    clientID: INFURA_PROJECT_ID,
+    redirectUri: 'https://app.honeyswap.org/#/swap',
+    postLogoutRedirectUri: 'https://app.honeyswap.org/#/swap',
+    scope: 'openid wallet'
+  }),
+  connectors: { injected, walletconnect }
+})
