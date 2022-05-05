@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { transparentize } from 'polished'
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
-import { injected } from '../../connectors'
+import { injected, uauth } from '../../connectors'
 import { SUPPORTED_WALLETS } from '../../constants'
 import usePrevious from '../../hooks/usePrevious'
 import { ApplicationModal } from '../../state/application/actions'
@@ -186,6 +186,15 @@ export default function WalletModal({
       })
   }
 
+  const clickHandler = async (connector: AbstractConnector | undefined) => {
+    if (connector !== uauth) {
+      tryActivation(connector)
+    } else if (connector === uauth) {
+      toggleWalletModal()
+      await activate(uauth)
+    }
+  }
+
   // get wallets user can switch too, depending on device/browser
   function getOptions() {
     const isMetamask = window.ethereum && window.ethereum.isMetaMask
@@ -253,7 +262,7 @@ export default function WalletModal({
             onClick={() => {
               option.connector === connector
                 ? setWalletView(WALLET_VIEWS.ACCOUNT)
-                : !option.href && tryActivation(option.connector)
+                : !option.href && clickHandler(option.connector)
             }}
             key={key}
             active={option.connector === connector}

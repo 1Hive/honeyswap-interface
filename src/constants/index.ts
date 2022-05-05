@@ -1,7 +1,7 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { ChainId, JSBI, Percent, CurrencyAmount, WETH, WSPOA, WXDAI, Token, Currency, WMATIC } from 'dxswap-sdk'
 import { tokens } from './tokens'
-import { injected, walletConnectMATIC, walletConnectXDAI, walletlink, walletConnectUD } from '../connectors'
+import { injected, walletConnectMATIC, walletConnectXDAI, walletlink, uauth } from '../connectors'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -240,13 +240,12 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     mobile: true
   },
   WALLET_CONNECT_UD: {
-    connector: walletConnectUD,
+    connector: uauth,
     name: 'Unstoppable Domains',
     iconName: 'default-icon-UD.png',
-    description: 'Login with Unstoppable',
+    description: 'Login with Unstoppable Domains',
     href: null,
-    color: '#4196FC',
-    mobile: true
+    color: '#4196FC'
   }
 }
 
