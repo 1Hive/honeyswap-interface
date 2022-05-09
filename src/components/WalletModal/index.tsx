@@ -186,6 +186,7 @@ export default function WalletModal({
       })
   }
 
+  //function added to avoid the pending wallet modal (it causes an error that don't let modify the input value in the UD login modal)
   const clickHandler = async (connector: AbstractConnector | undefined) => {
     if (connector !== uauth) {
       tryActivation(connector)

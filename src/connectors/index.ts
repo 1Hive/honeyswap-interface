@@ -53,6 +53,7 @@ export const walletconnect = new WalletConnectConnector({
   qrcode: true
 })
 
+//These params (ClientID & redirectUri) are obtained by following the Login Client Configuration in the UD login integration guide
 export const uauth = new UAuthConnector({
   clientID: '1227d953-276d-487a-b437-aaa90dbddc1d',
   redirectUri: 'http://localhost:3000',
