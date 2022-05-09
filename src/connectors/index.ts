@@ -54,8 +54,8 @@ export const walletconnect = new WalletConnectConnector({
 })
 
 export const uauth = new UAuthConnector({
-  clientID: 'process.env.REACT_APP_CLIENT_ID!',
-  redirectUri: 'https://app.honeyswap.org/',
+  clientID: '1227d953-276d-487a-b437-aaa90dbddc1d',
+  redirectUri: 'http://localhost:3000',
   scope: 'openid wallet',
   connectors: { injected, walletconnect }
 })
