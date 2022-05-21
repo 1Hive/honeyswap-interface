@@ -44,7 +44,7 @@
     "decimal.js-light": "^2.5.1",
     "dxswap-core": "https://github.com/1Hive/dxswap-core.git",
     "dxswap-periphery": "https://github.com/1Hive/dxswap-periphery.git",
-    "dxswap-sdk": "https://github.com/1Hive/honeyswap-sdk.git",
+    "dxswap-sdk": "https://github.com/FortressDEX/honeyswap-sdk",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",

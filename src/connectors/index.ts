@@ -50,7 +50,7 @@ export const walletConnectMATIC = new WalletConnectConnector({
 // candle only
 export const walletConnectCANDLE = new WalletConnectConnector({
   rpc: {
-    534: 'https://rpc.cndlchain.com
+    534: 'https://rpc.cndlchain.com'
   },
   bridge: 'https://polygon.bridge.walletconnect.org',
   qrcode: true,

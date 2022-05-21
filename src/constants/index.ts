@@ -345,5 +345,18 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
     rpcUrls: ['https://poly-mainnet.gateway.pokt.network/v1/lb/61141e8259501900341bb3e2'],
     blockExplorerUrls: ['https://explorer.matic.network/'],
     metamaskAddable: true
+  },
+  [ChainId.CANDLE]: {
+    chainId: `0x${ChainId.CANDLE.toString(16)}`,
+    chainName: 'Candle',
+    nativeCurrency: {
+      name: Currency.CANDLE.name || 'Candle',
+      symbol: Currency.CANDLE.symbol || 'CANDLE',
+      decimals: Currency.CANDLE.decimals || 18
+    },
+    // rpcUrls: [`https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`],
+    rpcUrls: ['https://rpc.cndlchain.com'],
+    blockExplorerUrls: ['https://candleexplorer.com/'],
+    metamaskAddable: true
   }
 }
