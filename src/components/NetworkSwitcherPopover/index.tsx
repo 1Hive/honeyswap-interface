@@ -61,9 +61,9 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
           <OptionGrid>
             <Option
               onClick={() => {
-                selectNetwork(ChainId.XDAI)
+                selectNetwork(ChainId.CANDLE)
               }}
-              header={'Gnosis Chain'}
+              header={'Candle Chain'}
               logoSrc={GnosisLogo}
             />
             <Option
