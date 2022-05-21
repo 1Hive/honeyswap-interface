@@ -22,7 +22,8 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   [ChainId.ARBITRUM_TESTNET_V3]: '',
   [ChainId.SOKOL]: '',
   [ChainId.XDAI]: '',
-  [ChainId.MATIC]: ''
+  [ChainId.MATIC]: '',
+  [ChainId.CANDLE]: ''
 }
 
 const getExplorerPrefix = (chainId: ChainId) => {
@@ -35,6 +36,8 @@ const getExplorerPrefix = (chainId: ChainId) => {
       return 'https://blockscout.com/xdai/mainnet'
     case ChainId.MATIC:
       return 'https://polygonscan.com/'
+    case ChainId.CANDLE:
+      return 'https://candleexplorer.com/'
     default:
       return `https://${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[1]}etherscan.io`
   }
