@@ -1,4 +1,4 @@
-import { ChainId } from 'dxswap-sdk'
+import { ChainId } from 'bxswap-sdk'
 import useParsedQueryString from './useParsedQueryString'
 
 export function useTargetedChainIdFromUrl(): ChainId | undefined {

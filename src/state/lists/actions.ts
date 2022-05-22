@@ -1,4 +1,4 @@
 import { createAction } from '@reduxjs/toolkit'
-import { TokenList } from 'dxswap-sdk'
+import { TokenList } from 'bxswap-sdk'
 
 export const setTokenList = createAction<TokenList>('setTokenList')

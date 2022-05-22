@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { TokenList } from 'dxswap-sdk'
+import { TokenList } from 'bxswap-sdk'
 import { setTokenList } from './actions'
 
 const initialState: TokenList = {

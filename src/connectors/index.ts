@@ -2,7 +2,7 @@ import { InjectedConnector } from '@web3-react/injected-connector'
 import { AuthereumConnector } from '@web3-react/authereum-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { CustomNetworkConnector } from './CustomNetworkConnector'
-import { ChainId } from 'dxswap-sdk'
+import { ChainId } from 'bxswap-sdk'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
 
 export const INFURA_PROJECT_ID = '0ebf4dd05d6740f482938b8a80860d13'

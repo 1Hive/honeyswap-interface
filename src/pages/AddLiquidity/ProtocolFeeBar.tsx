@@ -1,4 +1,4 @@
-import { Percent, CurrencyAmount } from 'dxswap-sdk'
+import { Percent, CurrencyAmount } from 'bxswap-sdk'
 import React, { useContext } from 'react'
 import { Text } from 'rebass'
 import { ThemeContext } from 'styled-components'

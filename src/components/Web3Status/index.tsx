@@ -23,7 +23,7 @@ import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import GnosisLogo from '../../assets/images/gnosis-chain-logo.png'
 import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
 import PolygonLogo from '../../assets/images/polygon-logo.png'
-import { ChainId } from 'dxswap-sdk'
+import { ChainId } from 'bxswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
 
 const ChainLogo: any = {

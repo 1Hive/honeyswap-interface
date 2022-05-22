@@ -1,5 +1,5 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
-import { ChainId, JSBI, Percent, CurrencyAmount, WETH, WSPOA, WXDAI, Token, Currency, WMATIC } from 'dxswap-sdk'
+import { ChainId, JSBI, Percent, CurrencyAmount, WETH, WSPOA, WXDAI, Token, Currency, WMATIC } from 'bxswap-sdk'
 import { tokens } from './tokens'
 import { injected, walletConnectMATIC, walletConnectXDAI, walletlink } from '../connectors'
 

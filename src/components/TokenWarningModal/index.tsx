@@ -1,4 +1,4 @@
-import { Token } from 'dxswap-sdk'
+import { Token } from 'bxswap-sdk'
 import { transparentize } from 'polished'
 import React, { useCallback } from 'react'
 import styled from 'styled-components'
