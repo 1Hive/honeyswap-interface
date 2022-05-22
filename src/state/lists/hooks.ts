@@ -29,7 +29,7 @@ const EMPTY_LIST: TokenAddressMap = {
   [ChainId.SOKOL]: {},
   [ChainId.XDAI]: {},
   [ChainId.MATIC]: {},
-  [ChainId.CANDLE]: {},
+  [ChainId.CANDLE]: {}
 }
 
 export function tokenListToTokenMap(list: TokenInfo[]): TokenAddressMap {

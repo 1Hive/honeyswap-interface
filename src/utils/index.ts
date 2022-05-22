@@ -23,7 +23,7 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   [ChainId.SOKOL]: '',
   [ChainId.XDAI]: '',
   [ChainId.MATIC]: '',
-  [ChainId.CANDLE]: '',
+  [ChainId.CANDLE]: ''
 }
 
 const getExplorerPrefix = (chainId: ChainId) => {

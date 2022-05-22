@@ -44,7 +44,6 @@ export default function AdvancedSwapDetailsDropdown({
         onSelectedPlatformChange={onSelectedPlatformChange}
       />
       <AdvancedSwapDetails {...rest} trade={trade ?? lastTrade ?? undefined} />
-      
     </AdvancedDetailsFooter>
   )
 }
