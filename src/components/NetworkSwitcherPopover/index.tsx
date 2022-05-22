@@ -71,7 +71,7 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
               onClick={() => {
                 selectNetwork(ChainId.XDAI)
               }}
-              header={'Candle Chain'}
+              header={'Gnosis'}
               logoSrc={GnosisLogo}
             />
             <Option
