@@ -169,6 +169,14 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDT[ChainId.MATIC],
     SURF,
     WAVE
+  ],
+  [ChainId.CANDLE]: [
+    WETH[ChainId.CANDLE],
+    WCNDL[ChainId.CANDLE],
+    HONEY[ChainId.CANDLE],
+    DAI[ChainId.CANDLE],
+    USDC[ChainId.CANDLE],
+    USDT[ChainId.CANDLE]
   ]
 }
 
