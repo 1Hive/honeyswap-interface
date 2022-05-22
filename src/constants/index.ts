@@ -188,7 +188,8 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.ARBITRUM_TESTNET_V3]: [],
   [ChainId.SOKOL]: [],
   [ChainId.XDAI]: [WETH[ChainId.XDAI], USDC[ChainId.XDAI], HONEY[ChainId.XDAI]],
-  [ChainId.MATIC]: [WETH[ChainId.MATIC], HONEY[ChainId.MATIC]]
+  [ChainId.MATIC]: [WETH[ChainId.MATIC], HONEY[ChainId.MATIC]],
+  [ChainId.CANDLE]: [WETH[ChainId.CANDLE], HONEY[ChainId.CANDLE]]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -205,6 +206,14 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     DAI[ChainId.MATIC],
     USDC[ChainId.MATIC],
     USDT[ChainId.MATIC]
+  ],
+  [ChainId.CANDLE]: [
+    WCNDL[ChainId.CANDLE],
+    WETH[ChainId.CANDLE],
+    HONEY[ChainId.CANDLE],
+    DAI[ChainId.CANDLE],
+    USDC[ChainId.CANDLE],
+    USDT[ChainId.CANDLE]
   ]
 }
 
