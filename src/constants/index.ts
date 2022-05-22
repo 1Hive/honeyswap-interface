@@ -19,7 +19,8 @@ export const DAI: { [key: number]: Token } = {
     'Dai Stablecoin'
   ),
   [ChainId.XDAI]: new Token(ChainId.XDAI, '0x44fa8e6f47987339850636f88629646662444217', 18, 'DAI', 'Dai Stablecoin'),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063', 18, 'DAI', 'Dai Stablecoin')
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063', 18, 'DAI', 'Dai Stablecoin'),
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063', 18, 'DAI', 'Dai Stablecoin')
 }
 
 export const USDC: { [key: number]: Token } = {
@@ -31,7 +32,8 @@ export const USDC: { [key: number]: Token } = {
     'USDC',
     'USD//C from Ethereum'
   ),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', 6, 'USDC', 'PoS USDC')
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', 6, 'USDC', 'PoS USDC'),
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', 6, 'USDC', 'PoS USDC')
 }
 
 export const USDT: { [key: number]: Token } = {
@@ -43,7 +45,8 @@ export const USDT: { [key: number]: Token } = {
     'USDT',
     'Tether USD from Ethereum'
   ),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', 6, 'USDT', 'PoS Tether USD')
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', 6, 'USDT', 'PoS Tether USD'),
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', 6, 'USDT', 'PoS Tether USD')
 }
 
 export const WBTC: { [key: number]: Token } = {
@@ -65,7 +68,8 @@ export const WBTC: { [key: number]: Token } = {
 
 export const HONEY: { [key: number]: Token } = {
   [ChainId.XDAI]: new Token(ChainId.XDAI, '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 18, 'HNY', 'Honey'),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey')
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey'),
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey')
 }
 
 export const STAKE = new Token(
@@ -172,7 +176,6 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ],
   [ChainId.CANDLE]: [
     WETH[ChainId.CANDLE],
-    WCNDL[ChainId.CANDLE],
     HONEY[ChainId.CANDLE],
     DAI[ChainId.CANDLE],
     USDC[ChainId.CANDLE],
@@ -208,7 +211,6 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     USDT[ChainId.MATIC]
   ],
   [ChainId.CANDLE]: [
-    WCNDL[ChainId.CANDLE],
     WETH[ChainId.CANDLE],
     HONEY[ChainId.CANDLE],
     DAI[ChainId.CANDLE],
