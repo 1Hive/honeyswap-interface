@@ -121,11 +121,11 @@ const HeaderLinks = styled(Row)`
   `};
 `
 
-const AccountElement = styled.div<{ active: boolean, networkError: boolean }>`
+const AccountElement = styled.div<{ active: boolean; networkError: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${props => props.networkError ? 'transparent' : ({ theme }) => theme.bg1};
+  background-color: ${props => (props.networkError ? 'transparent' : ({ theme }) => theme.bg1)};
   border: solid 2px transparent;
   box-sizing: border-box;
   color: ${({ theme }) => theme.yellow1};
@@ -297,7 +297,7 @@ function Header({ history }: { history: any }) {
               >
                 {userNativeCurrencyBalance?.toSignificant(4)} {nativeCurrency.symbol}
               </TYPE.black>
-            ) : null }
+            ) : null}
             <Web3Status />
           </AccountElement>
         </HeaderElement>
