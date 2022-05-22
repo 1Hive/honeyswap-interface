@@ -57,15 +57,6 @@ export const walletConnectCANDLE = new WalletConnectConnector({
   // pollingInterval: 15000
 })
 
-// candle only
-export const walletConnectCANDLE = new WalletConnectConnector({
-  rpc: {
-    534: 'https://rpc.cndlchain.com'
-  },
-  bridge: 'https://polygon.bridge.walletconnect.org',
-  qrcode: true,
-  pollingInterval: 15000
-})
 
 // mainnet only
 export const authereum = new AuthereumConnector({ chainId: 1 })
