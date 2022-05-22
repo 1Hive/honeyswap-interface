@@ -57,6 +57,5 @@ export const walletConnectCANDLE = new WalletConnectConnector({
   // pollingInterval: 15000
 })
 
-
 // mainnet only
 export const authereum = new AuthereumConnector({ chainId: 1 })
