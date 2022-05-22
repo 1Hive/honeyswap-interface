@@ -19,7 +19,8 @@ export const DAI: { [key: number]: Token } = {
     'Dai Stablecoin'
   ),
   [ChainId.XDAI]: new Token(ChainId.XDAI, '0x44fa8e6f47987339850636f88629646662444217', 18, 'DAI', 'Dai Stablecoin'),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063', 18, 'DAI', 'Dai Stablecoin')
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063', 18, 'DAI', 'Dai Stablecoin'),
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063', 18, 'DAI', 'Dai Stablecoin')
 }
 
 export const USDC: { [key: number]: Token } = {
@@ -31,7 +32,8 @@ export const USDC: { [key: number]: Token } = {
     'USDC',
     'USD//C from Ethereum'
   ),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', 6, 'USDC', 'PoS USDC')
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', 6, 'USDC', 'PoS USDC'),
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0x2791bca1f2de4661ed88a30c99a7a9449aa84174', 6, 'USDC', 'PoS USDC')
 }
 
 export const USDT: { [key: number]: Token } = {
@@ -43,7 +45,8 @@ export const USDT: { [key: number]: Token } = {
     'USDT',
     'Tether USD from Ethereum'
   ),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', 6, 'USDT', 'PoS Tether USD')
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', 6, 'USDT', 'PoS Tether USD'),
+  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', 6, 'USDT', 'PoS Tether USD')
 }
 
 export const WBTC: { [key: number]: Token } = {

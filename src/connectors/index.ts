@@ -14,7 +14,7 @@ export const network = new CustomNetworkConnector({
     [ChainId.MATIC]: 'https://poly-mainnet.gateway.pokt.network/v1/lb/61141e8259501900341bb3e2',
     [ChainId.CANDLE]: 'https://rpc.cndlchain.com',
   },
-  defaultChainId: ChainId.XDAI
+  defaultChainId: ChainId.CANDLE
 })
 
 export const injected = new InjectedConnector({
@@ -55,6 +55,16 @@ export const walletConnectCANDLE = new WalletConnectConnector({
   bridge: 'https://polygon.bridge.walletconnect.org',
   qrcode: true,
   // pollingInterval: 15000
+})
+
+// candle only
+export const walletConnectCANDLE = new WalletConnectConnector({
+  rpc: {
+    534: 'https://rpc.cndlchain.com'
+  },
+  bridge: 'https://polygon.bridge.walletconnect.org',
+  qrcode: true,
+  pollingInterval: 15000
 })
 
 // mainnet only
