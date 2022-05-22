@@ -12,7 +12,7 @@ export const network = new CustomNetworkConnector({
     [ChainId.MAINNET]: `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
     [ChainId.XDAI]: 'https://poa-xdai.gateway.pokt.network/v1/lb/61140fc659501900341babff',
     [ChainId.MATIC]: 'https://poly-mainnet.gateway.pokt.network/v1/lb/61141e8259501900341bb3e2',
-    [ChainId.CANDLE]: 'https://rpc.cndlchain.com',
+    [ChainId.CANDLE]: 'https://rpc.cndlchain.com'
   },
   defaultChainId: ChainId.CANDLE
 })
@@ -33,7 +33,7 @@ export const walletConnectXDAI = new WalletConnectConnector({
     100: 'https://poa-xdai.gateway.pokt.network/v1/lb/61140fc659501900341babff'
   },
   bridge: 'https://walletconnect-relay.minerva.digital',
-  qrcode: true,
+  qrcode: true
   // pollingInterval: 15000
 })
 
@@ -43,7 +43,7 @@ export const walletConnectMATIC = new WalletConnectConnector({
     137: 'https://rpc-mainnet.matic.quiknode.pro'
   },
   bridge: 'https://polygon.bridge.walletconnect.org',
-  qrcode: true,
+  qrcode: true
   // pollingInterval: 15000
 })
 
@@ -53,7 +53,7 @@ export const walletConnectCANDLE = new WalletConnectConnector({
     137: 'https://rpc.cndlchain.com/'
   },
   bridge: 'https://polygon.bridge.walletconnect.org',
-  qrcode: true,
+  qrcode: true
   // pollingInterval: 15000
 })
 

@@ -121,7 +121,7 @@ const HeaderLinks = styled(Row)`
   `};
 `
 
-const AccountElement = styled.div<{ active: boolean, networkError: boolean }>`
+const AccountElement = styled.div<{ active: boolean; networkError: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;

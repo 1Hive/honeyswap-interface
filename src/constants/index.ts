@@ -68,7 +68,7 @@ export const WBTC: { [key: number]: Token } = {
 
 export const HONEY: { [key: number]: Token } = {
   [ChainId.XDAI]: new Token(ChainId.XDAI, '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 18, 'HNY', 'Honey'),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey'),
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey')
 }
 
 export const STAKE = new Token(
@@ -142,7 +142,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     DAI[ChainId.MAINNET],
     USDC[ChainId.MAINNET],
     WBTC[ChainId.MAINNET],
-    USDT[ChainId.MAINNET],
+    USDT[ChainId.MAINNET]
   ],
   [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
   [ChainId.ARBITRUM_TESTNET_V3]: [WETH[ChainId.ARBITRUM_TESTNET_V3]],
@@ -173,11 +173,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     SURF,
     WAVE
   ],
-  [ChainId.CANDLE]: [
-    WETH[ChainId.CANDLE],
-    SURF,
-    WAVE
-  ]
+  [ChainId.CANDLE]: [WETH[ChainId.CANDLE], SURF, WAVE]
 }
 
 // used for display in the default list when adding liquidity (native currency is already shown
@@ -189,7 +185,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.SOKOL]: [],
   [ChainId.XDAI]: [WETH[ChainId.XDAI], USDC[ChainId.XDAI], HONEY[ChainId.XDAI]],
   [ChainId.MATIC]: [WETH[ChainId.MATIC], HONEY[ChainId.MATIC]],
-  [ChainId.CANDLE]: [WETH[ChainId.CANDLE], HONEY[ChainId.CANDLE]],
+  [ChainId.CANDLE]: [WETH[ChainId.CANDLE], HONEY[ChainId.CANDLE]]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
