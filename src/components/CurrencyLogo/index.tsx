@@ -8,6 +8,7 @@ import PoaLogo from '../../assets/images/poa-logo.png'
 import XDAILogo from '../../assets/images/xdai-logo.png'
 import MaticLogo from '../../assets/images/matic-logo.png'
 import DXDLogo from '../../assets/svg/dxd.svg'
+import CandleLogo from '../../assets/images/candle-logo.png'
 import { useActiveWeb3React } from '../../hooks'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
@@ -41,7 +42,8 @@ const NATIVE_CURRENCY_LOGO: { [chainId in ChainId]: string } = {
   [ChainId.RINKEBY]: EthereumLogo,
   [ChainId.SOKOL]: PoaLogo,
   [ChainId.XDAI]: XDAILogo,
-  [ChainId.MATIC]: MaticLogo
+  [ChainId.MATIC]: MaticLogo,
+  [ChainId.CANDLE]: CandleLogo,
 }
 
 export default function CurrencyLogo({

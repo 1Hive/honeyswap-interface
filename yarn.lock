@@ -6434,27 +6434,33 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-"dxswap-core@https://github.com/1Hive/dxswap-core.git", "dxswap-core@https://github.com/1Hive/dxswap-core.git#master":
+"dxswap-core@https://github.com/1Hive/dxswap-core.git":
   version "0.3.6"
   resolved "https://github.com/1Hive/dxswap-core.git#655aa3f7f5875b0cf022cde5499136db9fe5dc10"
   dependencies:
     typescript "^3.9.5"
 
-"dxswap-periphery@https://github.com/1Hive/dxswap-periphery.git", "dxswap-periphery@https://github.com/1Hive/dxswap-periphery.git#master":
+"dxswap-core@https://github.com/FortressDEX/dxswap-core.git", "dxswap-core@https://github.com/FortressDEX/dxswap-core.git#master":
+  version "0.3.6"
+  resolved "https://github.com/FortressDEX/dxswap-core.git#448143c2e0a14161ebbd005cb7dc1b1de6ecf170"
+  dependencies:
+    typescript "^3.9.5"
+
+"dxswap-periphery@https://github.com/FortressDEX/dxswap-periphery.git", "dxswap-periphery@https://github.com/FortressDEX/dxswap-periphery.git#master":
   version "0.3.7"
-  resolved "https://github.com/1Hive/dxswap-periphery.git#83b1ca09a4f1fc6cc66745d8afbcad132c44b71d"
+  resolved "https://github.com/FortressDEX/dxswap-periphery.git#83b1ca09a4f1fc6cc66745d8afbcad132c44b71d"
   dependencies:
     dxswap-core "https://github.com/1Hive/dxswap-core.git"
 
-"dxswap-sdk@https://github.com/1Hive/honeyswap-sdk.git":
-  version "0.9.4"
-  resolved "https://github.com/1Hive/honeyswap-sdk.git#0b7f63c7817047f4df873d0669893717d16b1f0f"
+"dxswap-sdk@https://github.com/FortressDEX/honeyswap-sdk.git":
+  version "0.9.6"
+  resolved "https://github.com/FortressDEX/honeyswap-sdk.git#109a80a67208fb3717998d0a80c3c7b7da7de722"
   dependencies:
     "@makerdao/multicall" "^0.11.0"
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"
-    dxswap-core "https://github.com/1Hive/dxswap-core.git#master"
-    dxswap-periphery "https://github.com/1Hive/dxswap-periphery.git#master"
+    dxswap-core "https://github.com/FortressDEX/dxswap-core.git#master"
+    dxswap-periphery "https://github.com/FortressDEX/dxswap-periphery.git#master"
     jsbi "^3.1.1"
     node-fetch "^2.6.1"
     tiny-invariant "^1.1.0"
