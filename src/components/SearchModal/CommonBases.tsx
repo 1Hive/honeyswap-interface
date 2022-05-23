@@ -47,7 +47,7 @@ export default function CommonBases({
             </Text>
           </RowBetween>
         </Option>
-        {(chainId ? SUGGESTED_BASES[chainId] : []).map((token: Token) => {
+        {(chainId ? SUGGESTED_BASES[chainId] : []).filter(token => token).map((token: Token) => {
           const selected = selectedCurrency instanceof Token && selectedCurrency.address === token.address
           return (
             <Option transparent onClick={() => !selected && onSelect(token)} disabled={selected} key={token.address}>
