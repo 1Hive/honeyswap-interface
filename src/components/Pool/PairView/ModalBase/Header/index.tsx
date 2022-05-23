@@ -1,4 +1,4 @@
-import { Pair, PricedTokenAmount, TokenAmount } from 'bxswap-sdk'
+import { Pair, PricedTokenAmount, TokenAmount } from 'dxswap-sdk'
 import React, { useState } from 'react'
 import { AutoColumn } from '../../../../Column'
 import CurrencyInputPanel from '../../../../CurrencyInputPanel'

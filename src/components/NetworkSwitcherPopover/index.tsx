@@ -1,5 +1,5 @@
 import React, { ReactNode, useCallback, useRef } from 'react'
-import { ChainId } from 'bxswap-sdk'
+import { ChainId } from 'dxswap-sdk'
 import styled from 'styled-components'
 import Option from './Option'
 import { ApplicationModal } from '../../state/application/actions'
@@ -8,6 +8,7 @@ import { useModalOpen, useCloseModals, useAddPopup } from '../../state/applicati
 import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
 import GnosisLogo from '../../assets/images/gnosis-chain-logo.png'
 import PolygonLogo from '../../assets/images/polygon-logo.png'
+import CandleLogo from '../../assets/images/candle-logo.png'
 import Popover from '../Popover'
 import { useActiveWeb3React } from '../../hooks'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
@@ -63,7 +64,14 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
               onClick={() => {
                 selectNetwork(ChainId.CANDLE)
               }}
-              header={'Candle Chain'}
+              header={'Candle'}
+              logoSrc={CandleLogo}
+            />
+            <Option
+              onClick={() => {
+                selectNetwork(ChainId.XDAI)
+              }}
+              header={'Gnosis'}
               logoSrc={GnosisLogo}
             />
             <Option

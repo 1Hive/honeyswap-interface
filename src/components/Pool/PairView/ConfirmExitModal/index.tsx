@@ -1,4 +1,4 @@
-import { Pair, PricedTokenAmount } from 'bxswap-sdk'
+import { Pair, PricedTokenAmount } from 'dxswap-sdk'
 import React, { useCallback } from 'react'
 import { Box, Flex } from 'rebass'
 import { TYPE } from '../../../../theme'

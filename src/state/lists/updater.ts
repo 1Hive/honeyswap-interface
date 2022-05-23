@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useActiveWeb3React } from '../../hooks'
 import { setTokenList } from './actions'
 import { useDispatch } from 'react-redux'
-import { Fetcher, TokenList } from 'bxswap-sdk'
+import { Fetcher, TokenList } from 'dxswap-sdk'
 
 export default function Updater() {
   const { chainId, library } = useActiveWeb3React()

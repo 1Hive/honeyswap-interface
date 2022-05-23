@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { ChainId } from 'bxswap-sdk'
+import { ChainId } from 'dxswap-sdk'
 import { NETWORK_DETAIL } from '../../constants'
 import { Box, Flex, Text } from 'rebass'
 import { ButtonPrimary } from '../Button'

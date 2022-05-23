@@ -1,4 +1,4 @@
-import { TokenAmount, Pair, Currency, RoutablePlatform } from 'bxswap-sdk'
+import { TokenAmount, Pair, Currency, RoutablePlatform } from 'dxswap-sdk'
 import { useMemo } from 'react'
 import { abi as IDXswapPairABI } from 'dxswap-core/build/IDXswapPair.json'
 import { Interface } from '@ethersproject/abi'

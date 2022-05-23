@@ -1,4 +1,4 @@
-import { Currency } from 'bxswap-sdk'
+import { Currency } from 'dxswap-sdk'
 import { useActiveWeb3React } from '.'
 
 export function useNativeCurrency(): Currency {

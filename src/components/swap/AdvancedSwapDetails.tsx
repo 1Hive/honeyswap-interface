@@ -1,4 +1,4 @@
-import { Trade, TradeType } from 'bxswap-sdk'
+import { Trade, TradeType } from 'dxswap-sdk'
 import React from 'react'
 import { Settings } from 'react-feather'
 import styled from 'styled-components'

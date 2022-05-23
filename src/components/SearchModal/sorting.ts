@@ -1,5 +1,5 @@
-import { Pair, Token, TokenAmount } from 'bxswap-sdk'
-import { CurrencyAmount } from 'bxswap-sdk/dist/entities/fractions/currencyAmount'
+import { Pair, Token, TokenAmount } from 'dxswap-sdk'
+import { CurrencyAmount } from 'dxswap-sdk/dist/entities/fractions/currencyAmount'
 import { useCallback, useMemo } from 'react'
 import { useActiveWeb3React } from '../../hooks'
 import { toDXSwapLiquidityToken, useTrackedTokenPairs } from '../../state/user/hooks'

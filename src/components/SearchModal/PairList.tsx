@@ -1,4 +1,4 @@
-import { Pair } from 'bxswap-sdk'
+import { Pair } from 'dxswap-sdk'
 import React, { CSSProperties, useCallback } from 'react'
 import { Box, Flex, Text } from 'rebass'
 import { useActiveWeb3React } from '../../hooks'

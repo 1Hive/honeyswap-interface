@@ -1,4 +1,4 @@
-import { ChainId } from 'bxswap-sdk'
+import { ChainId } from 'dxswap-sdk'
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { transparentize } from 'polished'

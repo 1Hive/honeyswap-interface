@@ -1,4 +1,4 @@
-import { ChainId, Currency, Token, Fetcher, DXD } from 'bxswap-sdk'
+import { ChainId, Currency, Token, Fetcher, DXD } from 'dxswap-sdk'
 import React, { ReactNode, useMemo } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import styled from 'styled-components'
@@ -8,6 +8,7 @@ import PoaLogo from '../../assets/images/poa-logo.png'
 import XDAILogo from '../../assets/images/xdai-logo.png'
 import MaticLogo from '../../assets/images/matic-logo.png'
 import DXDLogo from '../../assets/svg/dxd.svg'
+import CandleLogo from '../../assets/images/candle-logo.png'
 import { useActiveWeb3React } from '../../hooks'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
@@ -42,7 +43,7 @@ const NATIVE_CURRENCY_LOGO: { [chainId in ChainId]: string } = {
   [ChainId.SOKOL]: PoaLogo,
   [ChainId.XDAI]: XDAILogo,
   [ChainId.MATIC]: MaticLogo,
-  [ChainId.CANDLE]: MaticLogo
+  [ChainId.CANDLE]: CandleLogo
 }
 
 export default function CurrencyLogo({

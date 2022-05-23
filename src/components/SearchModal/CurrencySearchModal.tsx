@@ -1,4 +1,4 @@
-import { Currency } from 'bxswap-sdk'
+import { Currency } from 'dxswap-sdk'
 import React, { useCallback } from 'react'
 import Modal from '../Modal'
 import { CurrencySearch } from './CurrencySearch'

@@ -1,4 +1,4 @@
-import { ChainId, Currency, CurrencyAmount, Token, TokenAmount } from 'bxswap-sdk'
+import { ChainId, Currency, CurrencyAmount, Token, TokenAmount } from 'dxswap-sdk'
 
 export function wrappedCurrency(currency: Currency | undefined, chainId: ChainId | undefined): Token | undefined {
   if (!chainId || !currency || !Currency.isNative(currency)) return currency instanceof Token ? currency : undefined

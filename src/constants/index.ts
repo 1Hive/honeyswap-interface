@@ -1,7 +1,7 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
-import { ChainId, JSBI, Percent, CurrencyAmount, WETH, WSPOA, WXDAI, Token, Currency, WMATIC } from 'bxswap-sdk'
+import { ChainId, JSBI, Percent, CurrencyAmount, WETH, WSPOA, WXDAI, Token, Currency, WMATIC } from 'dxswap-sdk'
 import { tokens } from './tokens'
-import { injected, walletConnectMATIC, walletConnectXDAI, walletlink } from '../connectors'
+import { injected, walletConnectMATIC, walletConnectXDAI, walletlink, walletConnectCANDLE } from '../connectors'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -68,8 +68,7 @@ export const WBTC: { [key: number]: Token } = {
 
 export const HONEY: { [key: number]: Token } = {
   [ChainId.XDAI]: new Token(ChainId.XDAI, '0x71850b7e9ee3f13ab46d67167341e4bdc905eef9', 18, 'HNY', 'Honey'),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey'),
-  [ChainId.CANDLE]: new Token(ChainId.CANDLE, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey')
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xb371248dd0f9e4061ccf8850e9223ca48aa7ca4b', 18, 'HNY', 'Honey')
 }
 
 export const STAKE = new Token(
@@ -174,13 +173,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     SURF,
     WAVE
   ],
-  [ChainId.CANDLE]: [
-    WETH[ChainId.CANDLE],
-    HONEY[ChainId.CANDLE],
-    DAI[ChainId.CANDLE],
-    USDC[ChainId.CANDLE],
-    USDT[ChainId.CANDLE]
-  ]
+  [ChainId.CANDLE]: [WETH[ChainId.CANDLE], SURF, WAVE]
 }
 
 // used for display in the default list when adding liquidity (native currency is already shown
@@ -211,6 +204,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     USDT[ChainId.MATIC]
   ],
   [ChainId.CANDLE]: [
+    WMATIC[ChainId.CANDLE],
     WETH[ChainId.CANDLE],
     HONEY[ChainId.CANDLE],
     DAI[ChainId.CANDLE],
@@ -276,6 +270,15 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
   WALLET_CONNECT_MATIC: {
     connector: walletConnectMATIC,
     name: 'WalletConnect for Polygon',
+    iconName: 'wallet-connect.svg',
+    description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
+    href: null,
+    color: '#4196FC',
+    mobile: true
+  },
+  WALLET_CONNECT_CANDLE: {
+    connector: walletConnectCANDLE,
+    name: 'WalletConnect for Candle',
     iconName: 'wallet-connect.svg',
     description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
     href: null,
@@ -370,7 +373,7 @@ export const NETWORK_DETAIL: { [chainId: number]: NetworkDetails } = {
     chainName: 'Candle',
     nativeCurrency: {
       name: Currency.CANDLE.name || 'Candle',
-      symbol: Currency.CANDLE.symbol || 'CANDLE',
+      symbol: Currency.CANDLE.symbol || 'CNDL',
       decimals: Currency.CANDLE.decimals || 18
     },
     // rpcUrls: [`https://rpc-mainnet.maticvigil.com/v1/${MATIC_PROJECT_ID}`],

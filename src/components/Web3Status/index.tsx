@@ -23,7 +23,8 @@ import EthereumLogo from '../../assets/images/ethereum-logo.png'
 import GnosisLogo from '../../assets/images/gnosis-chain-logo.png'
 import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
 import PolygonLogo from '../../assets/images/polygon-logo.png'
-import { ChainId } from 'bxswap-sdk'
+import CandleLogo from '../../assets/images/candle-logo.png'
+import { ChainId } from 'dxswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
 
 const ChainLogo: any = {
@@ -32,7 +33,8 @@ const ChainLogo: any = {
   [ChainId.ARBITRUM_TESTNET_V3]: ArbitrumLogo,
   [ChainId.SOKOL]: '',
   [ChainId.XDAI]: GnosisLogo,
-  [ChainId.MATIC]: PolygonLogo
+  [ChainId.MATIC]: PolygonLogo,
+  [ChainId.CANDLE]: CandleLogo
 }
 
 const ChainLabel: any = {
@@ -41,7 +43,8 @@ const ChainLabel: any = {
   [ChainId.ARBITRUM_TESTNET_V3]: 'Arbitrum',
   [ChainId.SOKOL]: 'Sokol',
   [ChainId.XDAI]: 'Gnosis Chain',
-  [ChainId.MATIC]: 'Polygon'
+  [ChainId.MATIC]: 'Polygon',
+  [ChainId.CANDLE]: 'Candle'
 }
 
 const IconWrapper = styled.div<{ size?: number | null }>`

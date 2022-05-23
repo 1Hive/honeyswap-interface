@@ -1,5 +1,5 @@
 import { parseBytes32String } from '@ethersproject/strings'
-import { Currency, Token, currencyEquals, Pair } from 'bxswap-sdk'
+import { Currency, Token, currencyEquals, Pair } from 'dxswap-sdk'
 import { useMemo } from 'react'
 import { useTokenList } from '../state/lists/hooks'
 import { NEVER_RELOAD, useSingleCallResult } from '../state/multicall/hooks'

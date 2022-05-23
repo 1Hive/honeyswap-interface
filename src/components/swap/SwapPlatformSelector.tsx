@@ -1,5 +1,5 @@
 import React, { ReactNode, useCallback } from 'react'
-import { RoutablePlatform, Trade, TradeType } from 'bxswap-sdk'
+import { RoutablePlatform, Trade, TradeType } from 'dxswap-sdk'
 import { AutoColumn } from '../Column'
 import { RowBetween } from '../Row'
 import { TYPE } from '../../theme'

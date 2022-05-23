@@ -1,4 +1,4 @@
-import { Currency, currencyEquals } from 'bxswap-sdk'
+import { Currency, currencyEquals } from 'dxswap-sdk'
 import { useMemo } from 'react'
 import { tryParseAmount } from '../state/swap/hooks'
 import { useTransactionAdder } from '../state/transactions/hooks'

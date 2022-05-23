@@ -1,4 +1,4 @@
-import { Currency, Token } from 'bxswap-sdk'
+import { Currency, Token } from 'dxswap-sdk'
 import React, { KeyboardEvent, RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { transparentize } from 'polished'

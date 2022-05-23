@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { RoutablePlatform, Trade } from 'bxswap-sdk'
+import { RoutablePlatform, Trade } from 'dxswap-sdk'
 import { useLastTruthy } from '../../hooks/useLast'
 import { AdvancedSwapDetails } from './AdvancedSwapDetails'
 import { SwapPlatformSelector } from './SwapPlatformSelector'

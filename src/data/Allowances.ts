@@ -1,4 +1,4 @@
-import { Token, TokenAmount } from 'bxswap-sdk'
+import { Token, TokenAmount } from 'dxswap-sdk'
 import { BigNumber } from 'ethers'
 import { useMemo } from 'react'
 import ERC20_INTERFACE from '../constants/abis/erc20'

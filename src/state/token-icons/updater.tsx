@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useActiveWeb3React } from '../../hooks'
-import { Fetcher } from 'bxswap-sdk'
+import { Fetcher } from 'dxswap-sdk'
 
 // this updater makes sure the token icons cache is populated before accessing it
 export default function Updater() {

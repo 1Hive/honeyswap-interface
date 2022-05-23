@@ -1,4 +1,4 @@
-import { Currency, JSBI, TokenAmount } from 'bxswap-sdk'
+import { Currency, JSBI, TokenAmount } from 'dxswap-sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Plus } from 'react-feather'
 import { Link } from 'react-router-dom'

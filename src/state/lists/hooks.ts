@@ -1,4 +1,4 @@
-import { ChainId, Token, TokenInfo, TokenList } from 'bxswap-sdk'
+import { ChainId, Token, TokenInfo, TokenList } from 'dxswap-sdk'
 import { useSelector } from 'react-redux'
 import { AppState } from '../index'
 

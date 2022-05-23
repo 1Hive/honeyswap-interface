@@ -1,4 +1,4 @@
-import { Pair } from 'bxswap-sdk'
+import { Pair } from 'dxswap-sdk'
 import React, { KeyboardEvent, RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { transparentize } from 'polished'

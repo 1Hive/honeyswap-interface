@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client'
 import Decimal from 'decimal.js-light'
-import { ChainId, Token, CurrencyAmount } from 'bxswap-sdk'
+import { ChainId, Token, CurrencyAmount } from 'dxswap-sdk'
 import { ethers } from 'ethers'
 import { useMemo } from 'react'
 import { useActiveWeb3React } from '.'

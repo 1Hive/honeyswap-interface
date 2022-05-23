@@ -1,4 +1,4 @@
-import { Currency } from 'bxswap-sdk'
+import { Currency } from 'dxswap-sdk'
 import { transparentize } from 'polished'
 import React from 'react'
 import styled from 'styled-components'

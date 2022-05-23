@@ -1,5 +1,5 @@
 import { isAddress } from '../../utils'
-import { Pair, Token } from 'bxswap-sdk'
+import { Pair, Token } from 'dxswap-sdk'
 
 export function filterTokens(tokens: Token[], search: string): Token[] {
   if (search.length === 0) return tokens

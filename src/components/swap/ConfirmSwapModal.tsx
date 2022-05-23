@@ -1,4 +1,4 @@
-import { currencyEquals, RoutablePlatform, Trade } from 'bxswap-sdk'
+import { currencyEquals, RoutablePlatform, Trade } from 'dxswap-sdk'
 import React, { useCallback, useMemo } from 'react'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,

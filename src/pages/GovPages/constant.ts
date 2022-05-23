@@ -1,4 +1,4 @@
-import { ChainId, Currency } from 'bxswap-sdk'
+import { ChainId, Currency } from 'dxswap-sdk'
 import { DAI, USDC, USDT, WBTC } from '../../constants'
 
 export const MainPage = 'Governance Main Page'
