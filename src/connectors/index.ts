@@ -53,6 +53,11 @@ export const walletconnect = new WalletConnectConnector({
   qrcode: true
 })
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+console.debug('REACT_APP_UD_REDIRECT_URI', process.env.REACT_APP_UD_REDIRECT_URI!)
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+console.debug('REACT_APP_UD_CLIENT_ID', process.env.REACT_APP_UD_CLIENT_ID!)
+
 export const UAUTH_CONFIG = {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   clientID: process.env.REACT_APP_UD_CLIENT_ID!,
