@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { darken, transparentize } from 'polished'
-import React, { useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 import { Activity, ChevronDown } from 'react-feather'
 
 import { useTranslation } from 'react-i18next'
@@ -26,9 +26,7 @@ import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
 import PolygonLogo from '../../assets/images/polygon-logo.png'
 import { ChainId } from 'dxswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
-
-import UAuth from '@uauth/js'
-import { UserInfo } from '@uauth/js'
+import useUAuthUser from '../../hooks/useUAuthUser'
 
 const ChainLogo: any = {
   // [ChainId.MAINNET]: EthereumLogo,
@@ -156,42 +154,6 @@ const NetworkIcon = styled(Activity)`
 function newTransactionsFirst(a: TransactionDetails, b: TransactionDetails) {
   return b.addedTime - a.addedTime
 }
-export function useUAuth(walletAddress?: string) {
-  const [user, setUser] = useState<UserInfo | undefined>(undefined)
-
-  React.useEffect(() => {
-    async function fetchUAuthUser() {
-      const uauth = new UAuth({
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        clientID: process.env.REACT_APP_UD_CLIENT_ID!,
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        redirectUri: process.env.REACT_APP_UD_REDIRECT_URI!
-      })
-
-      try {
-        console.log('uauthUser before get')
-        console.log('walletAddress', walletAddress)
-        const uauthUser = await uauth.user()
-        if (walletAddress && walletAddress.toLowerCase() === uauthUser.wallet_address?.toLowerCase()) {
-          setUser(uauthUser)
-        } else {
-          setUser(undefined)
-        }
-        console.log('uauthUser', uauthUser)
-      } catch (error) {
-        console.log('uauthUser error', error)
-        setUser(undefined)
-      }
-    }
-
-    if (walletAddress) {
-      fetchUAuthUser()
-    } else {
-      setUser(undefined)
-    }
-  }, [setUser, walletAddress])
-  return user
-}
 
 function Web3StatusInner() {
   const { t } = useTranslation()
@@ -199,7 +161,7 @@ function Web3StatusInner() {
   const { chainId: networkConnectorChainId } = useActiveWeb3React()
 
   const { ENSName } = useENSName(account ?? undefined)
-  const user = useUAuth(account ?? undefined)
+  const user = useUAuthUser(account ?? undefined)
   const allTransactions = useAllTransactions()
 
   const sortedRecentTransactions = useMemo(() => {
@@ -214,6 +176,7 @@ function Web3StatusInner() {
   const toggleNetworkSwitcherPopover = useNetworkSwitcherPopoverToggle()
 
   if (error) {
+    console.error('webstatusinner err:', error)
     return (
       <Web3StatusError onClick={toggleWalletModal}>
         <NetworkIcon />

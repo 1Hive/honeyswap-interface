@@ -53,13 +53,17 @@ export const walletconnect = new WalletConnectConnector({
   qrcode: true
 })
 
-//These params (ClientID & redirectUri) are obtained by following the Login Client Configuration in the UD login integration guide
-export const uauth = new UAuthConnector({
+export const UAUTH_CONFIG = {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   clientID: process.env.REACT_APP_UD_CLIENT_ID!,
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   redirectUri: process.env.REACT_APP_UD_REDIRECT_URI!,
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  scope: process.env.REACT_APP_UD_REDIRECT_URI!,
+  scope: process.env.REACT_APP_UD_SCOPE!
+}
+
+//These params (ClientID & redirectUri) are obtained by following the Login Client Configuration in the UD login integration guide
+export const uauth = new UAuthConnector({
+  ...UAUTH_CONFIG,
   connectors: { injected, walletconnect }
 })
