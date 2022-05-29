@@ -55,8 +55,11 @@ export const walletconnect = new WalletConnectConnector({
 
 //These params (ClientID & redirectUri) are obtained by following the Login Client Configuration in the UD login integration guide
 export const uauth = new UAuthConnector({
-  clientID: '1227d953-276d-487a-b437-aaa90dbddc1d',
-  redirectUri: 'http://localhost:3000',
-  scope: 'openid wallet',
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  clientID: process.env.REACT_APP_UD_CLIENT_ID!,
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  redirectUri: process.env.REACT_APP_UD_REDIRECT_URI!,
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  scope: process.env.REACT_APP_UD_REDIRECT_URI!,
   connectors: { injected, walletconnect }
 })
