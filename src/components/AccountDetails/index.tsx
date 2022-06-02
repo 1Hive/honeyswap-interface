@@ -226,24 +226,6 @@ export default function AccountDetails({
             <InfoCard>
               <AccountGroupingRow>
                 <div>
-                  {connector !== injected && (
-                    <WalletAction
-                      onClick={() => {
-                        console.log('connector: ', connector)
-                        if (connector) {
-                          if ('close' in connector) {
-                            ;(connector as any).close()
-                          } else if ('_uath' in connector) {
-                            // TODO disconnect it here
-                          }
-                        } else {
-                          // TODO connector is undefined, something happen.
-                        }
-                      }}
-                    >
-                      Disconnect
-                    </WalletAction>
-                  )}
                   <WalletAction
                     onClick={() => {
                       openOptions()
