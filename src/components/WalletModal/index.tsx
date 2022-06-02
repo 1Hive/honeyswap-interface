@@ -191,14 +191,13 @@ export default function WalletModal({
     if (connector !== uauth) {
       tryActivation(connector)
     } else if (connector === uauth) {
+      toggleWalletModal()
+      await activate(uauth)
       if (window.ethereum && window.ethereum.request && chainId !== 137) {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
           params: [{ chainId: '0x89' }]
         })
-        toggleWalletModal()
-        await activate(uauth)
-      } else {
         toggleWalletModal()
         await activate(uauth)
       }
