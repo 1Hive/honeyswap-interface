@@ -52,6 +52,15 @@ const BodyWrapper = styled.div`
 const Marginer = styled.div`
   margin-top: 5rem;
 `
+
+const Footer = styled.div`
+  font-size: 12px;
+  text-align: center;
+  width: 420px;
+  margin: auto;
+  color: #fffa;
+`
+
 export default function App() {
   return (
     <Suspense fallback={null}>
@@ -83,6 +92,9 @@ export default function App() {
             </Web3ReactManager>
             <Marginer />
           </BodyWrapper>
+
+          <Footer>
+            “That which is not good for the <span role="img" aria-label="bee">🐝</span>-hive cannot be good for the <span role="img" aria-label="bee">🐝</span>.”  —Marcus Aurelius</Footer>
         </AppWrapper>
       </HashRouter>
     </Suspense>

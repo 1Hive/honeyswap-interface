@@ -112,6 +112,26 @@ export const GNO = new Token(
   'Gnosis Token from Ethereum'
 )
 
+export const WATER = new Token(ChainId.XDAI, '0x4291F029B9e7acb02D49428458cf6fceAC545f81', 18, 'WATER', 'Water Token')
+
+export const BRIGHT = new Token(
+  ChainId.XDAI,
+  '0x83FF60E2f93F8eDD0637Ef669C69D5Fb4f64cA8E',
+  18,
+  'BRIGHT',
+  'Bright from Ethereum'
+)
+
+export const WORK = new Token(
+  ChainId.XDAI,
+  '0xA187153C9E2bbAdEe5782D6b604cb1007bc6a86A',
+  18,
+  'WORK',
+  'The Employment Commons Work Token from Mainnet'
+)
+
+export const FOX = new Token(ChainId.XDAI, '0x21a42669643f45Bc0e086b8Fc2ed70c23D67509d', 18, 'FOX', 'FOX from Ethereum')
+
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.MAINNET]: [
@@ -134,7 +154,11 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     AGAVE,
     GIV,
     TEC,
-    GNO
+    GNO,
+    WATER,
+    BRIGHT,
+    WORK,
+    FOX
   ],
   [ChainId.MATIC]: [
     WETH[ChainId.MATIC],
