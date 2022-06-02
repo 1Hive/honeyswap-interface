@@ -131,7 +131,7 @@ export default function WalletModal({
   ENSName?: string
 }) {
   // important that these are destructed from the account-specific web3-react context
-  const { active, account, connector, activate, error } = useWeb3React()
+  const { active, account, connector, activate, error, chainId } = useWeb3React()
   const [walletView, setWalletView] = useState(WALLET_VIEWS.ACCOUNT)
 
   const [pendingWallet, setPendingWallet] = useState<AbstractConnector | undefined>()
@@ -191,8 +191,17 @@ export default function WalletModal({
     if (connector !== uauth) {
       tryActivation(connector)
     } else if (connector === uauth) {
-      toggleWalletModal()
-      await activate(uauth)
+      if (window.ethereum && window.ethereum.request && chainId !== 137) {
+        await window.ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: '0x89' }]
+        })
+        toggleWalletModal()
+        await activate(uauth)
+      } else {
+        toggleWalletModal()
+        await activate(uauth)
+      }
     }
   }
 
