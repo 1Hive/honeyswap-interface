@@ -3,6 +3,7 @@ import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { darken, transparentize } from 'polished'
 import React, { useMemo } from 'react'
 import { Activity, ChevronDown } from 'react-feather'
+
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import { NetworkContextName } from '../../constants'
@@ -25,6 +26,7 @@ import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
 import PolygonLogo from '../../assets/images/polygon-logo.png'
 import { ChainId } from 'dxswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
+import useUAuthUser from '../../hooks/useUAuthUser'
 
 const ChainLogo: any = {
   // [ChainId.MAINNET]: EthereumLogo,
@@ -159,7 +161,7 @@ function Web3StatusInner() {
   const { chainId: networkConnectorChainId } = useActiveWeb3React()
 
   const { ENSName } = useENSName(account ?? undefined)
-
+  const user = useUAuthUser(account ?? undefined)
   const allTransactions = useAllTransactions()
 
   const sortedRecentTransactions = useMemo(() => {
@@ -174,6 +176,7 @@ function Web3StatusInner() {
   const toggleNetworkSwitcherPopover = useNetworkSwitcherPopoverToggle()
 
   if (error) {
+    console.error('webstatusinner err:', error)
     return (
       <Web3StatusError onClick={toggleWalletModal}>
         <NetworkIcon />
@@ -191,7 +194,7 @@ function Web3StatusInner() {
                 <Text fontSize={13}>{pending?.length} Pending</Text> <Loader />
               </RowBetween>
             ) : (
-              ENSName || shortenAddress(account)
+              (user && user.sub) || ENSName || shortenAddress(account)
             )}
           </Web3StatusConnected>
         ) : (

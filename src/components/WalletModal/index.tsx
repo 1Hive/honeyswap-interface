@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { transparentize } from 'polished'
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
-import { injected } from '../../connectors'
+import { injected, uauth } from '../../connectors'
 import { SUPPORTED_WALLETS } from '../../constants'
 import usePrevious from '../../hooks/usePrevious'
 import { ApplicationModal } from '../../state/application/actions'
@@ -172,7 +172,7 @@ export default function WalletModal({
     setWalletView(WALLET_VIEWS.PENDING)
 
     // if the connector is walletconnect and the user has already tried to connect, manually reset the connector
-    if (connector instanceof WalletConnectConnector && connector.walletConnectProvider?.wc?.uri) {
+    if (connector instanceof WalletConnectConnector && connector.walletConnectProvider?.connector?.uri) {
       connector.walletConnectProvider = undefined
     }
 
@@ -184,6 +184,16 @@ export default function WalletModal({
           setPendingError(true)
         }
       })
+  }
+
+  //function added to avoid the pending wallet modal (it causes an error that don't let modify the input value in the UD login modal)
+  const clickHandler = async (connector: AbstractConnector | undefined) => {
+    if (connector !== uauth) {
+      tryActivation(connector)
+    } else if (connector === uauth) {
+      toggleWalletModal()
+      await activate(uauth)
+    }
   }
 
   // get wallets user can switch too, depending on device/browser
@@ -253,7 +263,7 @@ export default function WalletModal({
             onClick={() => {
               option.connector === connector
                 ? setWalletView(WALLET_VIEWS.ACCOUNT)
-                : !option.href && tryActivation(option.connector)
+                : !option.href && clickHandler(option.connector)
             }}
             key={key}
             active={option.connector === connector}
