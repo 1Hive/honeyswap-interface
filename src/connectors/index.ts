@@ -70,5 +70,6 @@ export const UAUTH_CONFIG = {
 //These params (ClientID & redirectUri) are obtained by following the Login Client Configuration in the UD login integration guide
 export const uauth = new UAuthConnector({
   ...UAUTH_CONFIG,
+  supportedChainIds: [ChainId.XDAI, ChainId.MATIC],
   connectors: { injected, walletconnect }
 })

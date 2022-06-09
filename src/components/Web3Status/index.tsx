@@ -38,7 +38,7 @@ const ChainLogo: any = {
 }
 
 const ChainLabel: any = {
-  [ChainId.MAINNET]: 'Change Wallet Network',
+  [ChainId.MAINNET]: 'Choose network',
   [ChainId.RINKEBY]: 'Rinkeby',
   [ChainId.ARBITRUM_TESTNET_V3]: 'Arbitrum',
   [ChainId.SOKOL]: 'Sokol',
