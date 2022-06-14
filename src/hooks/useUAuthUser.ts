@@ -11,17 +11,13 @@ export default function useUAuthUser(walletAddress?: string) {
       const uauth = new UAuth(UAUTH_CONFIG)
 
       try {
-        console.log('uauthUser before get')
-        console.log('walletAddress', walletAddress)
         const uauthUser = await uauth.user()
         if (walletAddress && walletAddress.toLowerCase() === uauthUser.wallet_address?.toLowerCase()) {
           setUser(uauthUser)
         } else {
           setUser(undefined)
         }
-        console.log('uauthUser', uauthUser)
       } catch (error) {
-        console.log('uauthUser error', error)
         setUser(undefined)
       }
     }
