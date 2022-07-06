@@ -150,7 +150,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDC[ChainId.XDAI],
     USDT[ChainId.XDAI],
     WBTC[ChainId.XDAI],
-    HONEY[ChainId.XDAI],
+    // HONEY[ChainId.XDAI],
     AGAVE,
     GIV,
     TEC,
