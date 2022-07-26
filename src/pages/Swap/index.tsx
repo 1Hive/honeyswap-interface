@@ -265,14 +265,30 @@ export default function Swap() {
 
   let currencyMessage = ""
   if (chainId === 137) {
-  if (FEE_MESSAGE_CURRENCIES_CODE.includes(inputCurrency)) { 
-    currencyMessage = inputCurrency
+    if (FEE_MESSAGE_CURRENCIES_CODE.includes(inputCurrency)) {
+      currencyMessage = inputCurrency
   } else if (FEE_MESSAGE_CURRENCIES_CODE.includes(outputCurrency)) {
-    currencyMessage = outputCurrency
+      currencyMessage = outputCurrency
   }
   }
   return (
     <>
+      <p>
+        We updated our DNS provider to{' '}
+        <a href="https://honeyswap.1hive.eth.limo/#/swap" style={{ color: 'lightskyblue' }}>
+          https://honeyswap.1hive.eth.limo/
+        </a>
+      </p>
+      <p style={{ marginBottom: '30px' }}>
+        To prevent web2 vulnerabilty, you can read the medium acticle for additional information{' '}
+        <a
+          href="https://medium.com/1hive/how-1hive-solved-domain-hijack-issue-on-honeyswap-a7b0aea527f3"
+          style={{ color: 'lightskyblue' }}
+        >
+          https://medium.com/1hive
+        </a>
+      </p>
+
       <NetworkWarningModal
         isOpen={!!account && !!urlLoadedChainId && chainId !== urlLoadedChainId}
         targetedNetwork={urlLoadedChainId}
