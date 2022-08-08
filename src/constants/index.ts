@@ -237,6 +237,14 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#E8831D'
   },
+  BRAVE: {
+    connector: injected,
+    name: 'Brave',
+    iconName: 'brave_logo.svg',
+    description: 'No need for browser extension.',
+    href: null,
+    color: '#E8831D'
+  },
   WALLET_LINK: {
     connector: walletlink,
     name: 'Coinbase Wallet',

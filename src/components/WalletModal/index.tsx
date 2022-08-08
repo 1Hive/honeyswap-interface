@@ -199,6 +199,13 @@ export default function WalletModal({
   // get wallets user can switch too, depending on device/browser
   function getOptions() {
     const isMetamask = window.ethereum && window.ethereum.isMetaMask
+    const isBraveWallet = window.ethereum && window.ethereum.isBraveWallet
+
+    if (isBraveWallet) {
+      delete SUPPORTED_WALLETS['METAMASK']
+    } else {
+      delete SUPPORTED_WALLETS['BRAVE']
+    }
 
     return Object.keys(SUPPORTED_WALLETS).map(key => {
       const option = SUPPORTED_WALLETS[key]
