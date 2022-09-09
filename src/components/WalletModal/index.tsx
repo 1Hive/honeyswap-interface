@@ -200,6 +200,11 @@ export default function WalletModal({
   function getOptions() {
     const isMetamask = window.ethereum && window.ethereum.isMetaMask
     const isBraveWallet = window.ethereum && window.ethereum.isBraveWallet
+    const isBitKeep = window.bitkeep && window.bitkeep.ethereum
+
+    if (!isBitKeep) {
+      delete SUPPORTED_WALLETS['BITKEEP']
+    }
 
     if (isBraveWallet) {
       delete SUPPORTED_WALLETS['METAMASK']

@@ -1,7 +1,7 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { ChainId, JSBI, Percent, CurrencyAmount, WETH, WSPOA, WXDAI, Token, Currency, WMATIC } from 'dxswap-sdk'
 import { tokens } from './tokens'
-import { injected, walletConnectMATIC, walletConnectXDAI, walletlink, uauth } from '../connectors'
+import { injected, walletConnectMATIC, walletConnectXDAI, walletlink, uauth, bitKeepInjected } from '../connectors'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -242,6 +242,14 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     name: 'Brave',
     iconName: 'brave_logo.svg',
     description: 'No need for browser extension.',
+    href: null,
+    color: '#E8831D'
+  },
+  BITKEEP: {
+    connector: bitKeepInjected,
+    name: 'BitKeep Wallet',
+    iconName: 'bitkeep.svg',
+    description: 'Find the hottest assets in BitKeep.',
     href: null,
     color: '#E8831D'
   },
