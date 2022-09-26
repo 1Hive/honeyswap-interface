@@ -1,10 +1,11 @@
-import { InjectedConnector } from '@web3-react/injected-connector'
 import { AuthereumConnector } from '@web3-react/authereum-connector'
-import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
-import { CustomNetworkConnector } from './CustomNetworkConnector'
 import { ChainId } from 'dxswap-sdk'
-import { WalletLinkConnector } from '@web3-react/walletlink-connector'
+import { CustomNetworkConnector } from './CustomNetworkConnector'
+import { BitKeepInjectedConnector } from './BitKeepConnector'
+import { InjectedConnector } from '@web3-react/injected-connector'
 import { UAuthConnector } from '@uauth/web3-react'
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
+import { WalletLinkConnector } from '@web3-react/walletlink-connector'
 
 export const INFURA_PROJECT_ID = '0ebf4dd05d6740f482938b8a80860d13'
 
@@ -18,6 +19,9 @@ export const network = new CustomNetworkConnector({
 })
 
 export const injected = new InjectedConnector({
+  supportedChainIds: [ChainId.RINKEBY, ChainId.SOKOL, ChainId.XDAI, ChainId.MATIC]
+})
+export const bitKeepInjected = new BitKeepInjectedConnector({
   supportedChainIds: [ChainId.RINKEBY, ChainId.SOKOL, ChainId.XDAI, ChainId.MATIC]
 })
 
