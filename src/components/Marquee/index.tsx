@@ -49,17 +49,16 @@ const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
     }
   }
 
-  const fetchMarquee = async () => {
-    if (library) {
-      const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, library)
-      const currentMarquee = await contract.marquee()
-      setNewMarquee(currentMarquee)
-    }
-  }
-
   useEffect(() => {
+    const fetchMarquee = async () => {
+      if (library) {
+        const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, library)
+        const currentMarquee = await contract.marquee()
+        setNewMarquee(currentMarquee)
+      }
+    }
     fetchMarquee()
-  }, [])
+  }, [library])
 
   return (
     <div>
