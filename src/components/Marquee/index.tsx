@@ -67,7 +67,7 @@ const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
       </div>
       <div style={{ margin: '8px 0' }}>
         {!showNewMarquee ? (
-          <ButtonPrimary onClick={handleButtonClick}>Change this message</ButtonPrimary>
+          <ButtonPrimary onClick={handleButtonClick}>Change this BIG message</ButtonPrimary>
         ) : (
           <>
             {transactionHash ? (
@@ -78,7 +78,7 @@ const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
                   rel="noopener noreferrer"
                   style={{ color: 'white', textDecoration: 'underline' }}
                 >
-                  View your transaction on Gnosis Scan
+                  View your transaction on gnosisscan
                 </a>
               </div>
             ) : (
