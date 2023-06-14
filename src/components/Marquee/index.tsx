@@ -67,7 +67,7 @@ const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
       </div>
       <div style={{ margin: '8px 0' }}>
         {!showNewMarquee ? (
-          <ButtonPrimary onClick={handleButtonClick}>Change this here message</ButtonPrimary>
+          <ButtonPrimary onClick={handleButtonClick}>Change this dumb message</ButtonPrimary>
         ) : (
           <>
             {transactionHash ? (
