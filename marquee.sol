@@ -1,28 +1,37 @@
-pragma solidity >=0.8.0 <0.9.0;
-//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+// SPDX-License-Identifier: MIT
 
 import "hardhat/console.sol";
-// import "@openzeppelin/contracts/access/Ownable.sol"; 
-// https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Web3Marquee {
+contract Web3Marquee is Ownable {
+  event SetMarquee(address sender, string marquee);
 
-  event SetPurpose(address sender, string purpose);
+  string public marquee = "for the love of satoshi please just work dammit";
+  uint public priceToChange = 1000000000000000;
 
-  string public purpose = "premium rugs at a great discount";
+  constructor() payable {}
 
-  constructor() payable {
-    // what should we do on deploy?
+  function setMarquee(string memory newMarquee) public payable {
+    require(msg.value >= priceToChange, "You didn't pay enough");
+    marquee = newMarquee;
+    console.log(msg.sender, "set marquee to", marquee);
   }
 
-  function setPurpose(string memory newPurpose) public payable {
-      require(msg.value >= .0001 ether, "nope");
-      purpose = newPurpose;
-      console.log(msg.sender,"set purpose to",purpose);
-    // emit SetPurpose(msg.sender, purpose);
+  function getBalance() public view returns (uint) {
+    return address(this).balance;
   }
 
-  // to support receiving ETH by default
+
+  function withdrawMoney() public onlyOwner {
+    address payable to = payable(msg.sender);
+    to.transfer(getBalance());
+  }
+
+  function updatepriceToChange(uint newPrice) public onlyOwner {
+    priceToChange = newPrice;
+  }
+
   receive() external payable {}
   fallback() external payable {}
 }
