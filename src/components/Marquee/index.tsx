@@ -3,7 +3,7 @@ import { utils, ethers } from 'ethers'
 import { useActiveWeb3React } from '../../hooks'
 import { ButtonPrimary } from '../Button'
 import marqueeAbi from '../../constants/abis/marquee.json'
-export const MARQUEE_CONTRACT_ADDRESS = '0xcEB602AC9dD7d51778bD249152F103E39A673a04'
+export const MARQUEE_CONTRACT_ADDRESS = '0x3Ce93B6a6cee2F5c6e1b8A72FE6f3a41Bee9b351'
 
 export { marqueeAbi }
 
@@ -13,7 +13,7 @@ interface MarqueeProps {
 }
 
 const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
-  const { library, account } = useActiveWeb3React()
+  const { library, account, chainId } = useActiveWeb3React()
   const [newMarquee, setNewMarquee] = useState('')
   const [showNewMarquee, setShowNewMarquee] = useState(false)
   const [transactionProcessing, setTransactionProcessing] = useState(false)
@@ -27,34 +27,43 @@ const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
     setNewMarquee(e.target.value)
   }
 
-  const handleChangeMarquee = async () => {
-    if (library && account) {
-      const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, library.getSigner(account))
+  const [initialMarquee, setInitialMarquee] = useState('');
 
-      try {
-        setTransactionProcessing(true)
-        const txResponse = await contract.setMarquee(newMarquee, {
-          value: utils.parseEther('.001')
-        })
-        await txResponse.wait()
-        setTransactionHash(txResponse.hash)
-        onUpdate(newMarquee)
-      } catch (error) {
-        console.error(error)
-      } finally {
-        setTransactionProcessing(false)
+    const handleChangeMarquee = async () => {
+      if (library && account) {
+        const currentNetwork = await library.getNetwork()
+        if (currentNetwork.chainId !== 100) {
+          console.error('Connect your wallet to Gnosis Chain')
+          return
+        }
+
+        const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, library.getSigner(account))
+
+        try {
+          setTransactionProcessing(true)
+          const txResponse = await contract.setMarquee(newMarquee, {
+            value: utils.parseEther('.001')
+          })
+          await txResponse.wait()
+          setTransactionHash(txResponse.hash)
+          onUpdate(newMarquee)
+        } catch (error) {
+          console.error(error)
+        } finally {
+          setTransactionProcessing(false)
+        }
+      } else {
+        console.error('Ethereum provider not available')
       }
-    } else {
-      console.error('Ethereum provider not available')
     }
-  }
+
 
   useEffect(() => {
     const fetchMarquee = async () => {
       if (library) {
         const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, library)
         const currentMarquee = await contract.marquee()
-        setNewMarquee(currentMarquee)
+        setInitialMarquee(currentMarquee)
       }
     }
     fetchMarquee()
@@ -67,7 +76,7 @@ const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
       </div>
       <div style={{ margin: '8px 0' }}>
         {!showNewMarquee ? (
-          <ButtonPrimary onClick={handleButtonClick}>Change this dumb message</ButtonPrimary>
+          <ButtonPrimary onClick={handleButtonClick}>Change this message</ButtonPrimary>
         ) : (
           <>
             {transactionHash ? (
@@ -100,9 +109,11 @@ const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
                   }}
                 />
                 <div style={{ marginTop: 8 }}>
-                  <ButtonPrimary onClick={handleChangeMarquee} disabled={transactionProcessing}>
+                  <ButtonPrimary onClick={handleChangeMarquee} disabled={transactionProcessing || chainId !== 100 || !account}>
                     {transactionProcessing
                       ? 'Complete transaction in your wallet...'
+                      : chainId !== 100 || !account
+                      ? 'Connect your wallet to Gnosis Chain'
                       : 'Publish to the world for 10 xDAI'}
                   </ButtonPrimary>
                 </div>
