@@ -1,23 +1,48 @@
-import React, { useState, ChangeEvent } from 'react'
-import { utils, ethers } from 'ethers'
+import React, { useState, ChangeEvent, useEffect } from 'react'
+import { ethers } from 'ethers'
 import { useActiveWeb3React } from '../../hooks'
 import { ButtonPrimary } from '../Button'
 import marqueeAbi from '../../constants/abis/marquee.json'
+
 export const MARQUEE_CONTRACT_ADDRESS = '0x3Ce93B6a6cee2F5c6e1b8A72FE6f3a41Bee9b351'
+const MSG_CONNECT_GNOSIS = 'Connect your wallet to Gnosis Chain'
+const GNOSIS_CHAINID = 100
 
 export { marqueeAbi }
 
-interface MarqueeProps {
-  marquee: string
-  onUpdate: (newMarquee: string) => void
-}
-
-const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
+const Marquee: React.FC = () => {
   const { library, account, chainId } = useActiveWeb3React()
   const [newMarquee, setNewMarquee] = useState('')
+  const [price, setPrice] = useState(0)
   const [showNewMarquee, setShowNewMarquee] = useState(false)
   const [transactionProcessing, setTransactionProcessing] = useState(false)
   const [transactionHash, setTransactionHash] = useState<string | null>(null)
+
+  const [currentMarquee, setCurrentMarquee] = useState('')
+
+  useEffect(() => {
+    const run = async () => {
+      if (library) {
+        const currentNetwork = await library.getNetwork()
+        if (currentNetwork.chainId !== GNOSIS_CHAINID) {
+          console.error(MSG_CONNECT_GNOSIS)
+          return
+        }
+        const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, library)
+
+        try {
+          const marquee = await contract.marquee()
+          setCurrentMarquee(marquee)
+        } catch (error) {
+          console.error('Error retrieving marquee:', error)
+        }
+
+        const currentPrice = await contract.priceToChange()
+        setPrice(currentPrice)
+      }
+    }
+    run()
+  }, [library])
 
   const handleButtonClick = () => {
     setShowNewMarquee(true)
@@ -30,8 +55,8 @@ const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
   const handleChangeMarquee = async () => {
     if (library && account) {
       const currentNetwork = await library.getNetwork()
-      if (currentNetwork.chainId !== 100) {
-        console.error('Connect your wallet to Gnosis Chain')
+      if (currentNetwork.chainId !== GNOSIS_CHAINID) {
+        console.error(MSG_CONNECT_GNOSIS)
         return
       }
 
@@ -40,11 +65,11 @@ const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
       try {
         setTransactionProcessing(true)
         const txResponse = await contract.setMarquee(newMarquee, {
-          value: utils.parseEther('.001')
+          value: price
         })
         await txResponse.wait()
         setTransactionHash(txResponse.hash)
-        onUpdate(newMarquee)
+        setCurrentMarquee(newMarquee)
       } catch (error) {
         console.error(error)
       } finally {
@@ -58,7 +83,7 @@ const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
   return (
     <div>
       <div style={{ border: '1px solid #cccccc', padding: 16, width: 400, margin: 'auto' }}>
-        <h4 style={{ fontFamily: 'courier', fontSize: '16px', textAlign: 'center' }}>{marquee}</h4>
+        <h4 style={{ fontFamily: 'courier', fontSize: '16px', textAlign: 'center' }}>{currentMarquee}</h4>
       </div>
       <div style={{ margin: '8px 0' }}>
         {!showNewMarquee ? (
@@ -97,13 +122,13 @@ const Marquee: React.FC<MarqueeProps> = ({ marquee, onUpdate }) => {
                 <div style={{ marginTop: 8 }}>
                   <ButtonPrimary
                     onClick={handleChangeMarquee}
-                    disabled={transactionProcessing || chainId !== 100 || !account}
+                    disabled={transactionProcessing || chainId !== GNOSIS_CHAINID || !account}
                   >
                     {transactionProcessing
                       ? 'Complete transaction in your wallet...'
-                      : chainId !== 100 || !account
-                      ? 'Connect your wallet to Gnosis Chain'
-                      : 'Publish to the world for 10 xDAI'}
+                      : chainId !== GNOSIS_CHAINID || !account
+                      ? MSG_CONNECT_GNOSIS
+                      : `Publish to the world for ${ethers.utils.formatEther(price)} xDAI`}
                   </ButtonPrimary>
                 </div>
               </>

@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from 'react'
+import React, { Suspense } from 'react'
 import { Route, Switch, HashRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from '../components/Header'
@@ -13,9 +13,7 @@ import RemoveLiquidity from './RemoveLiquidity'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
-import { useActiveWeb3React } from '../hooks'
-import { ethers } from 'ethers'
-import Marquee, { MARQUEE_CONTRACT_ADDRESS, marqueeAbi } from '../components/Marquee'
+import Marquee from '../components/Marquee'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -85,26 +83,6 @@ const Footer = styled.div`
 `
 
 export default function App() {
-  const { library } = useActiveWeb3React()
-  const [currentMarquee, setCurrentMarquee] = useState('')
-  const handleMarqueeUpdate = (newMarquee: string) => {
-    setCurrentMarquee(newMarquee)
-  }
-
-  useEffect(() => {
-    if (library) {
-      const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, library)
-      contract
-        .marquee()
-        .then((marquee: string) => {
-          setCurrentMarquee(marquee)
-        })
-        .catch((error: Error) => {
-          console.error('Error retrieving marquee:', error)
-        })
-    }
-  }, [library])
-
   return (
     <Suspense fallback={null}>
       <HashRouter>
@@ -134,7 +112,7 @@ export default function App() {
               </Switch>
             </Web3ReactManager>
             <MarqueeWrapper>
-              <Marquee marquee={currentMarquee} onUpdate={handleMarqueeUpdate} />
+              <Marquee />
             </MarqueeWrapper>
             <Marginer />
           </BodyWrapper>

@@ -8,7 +8,7 @@ contract Web3Marquee is Ownable {
   event SetMarquee(address sender, string marquee);
 
   string public marquee = "for the love of satoshi please just work dammit";
-  uint public priceToChange = 1000000000000000;
+  uint public priceToChange = 0.001 ether;
 
   constructor() payable {}
 
