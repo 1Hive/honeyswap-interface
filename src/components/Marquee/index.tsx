@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, useEffect } from 'react'
-import { ethers } from 'ethers'
+import { BigNumber, ethers } from 'ethers'
 import { useActiveWeb3React } from '../../hooks'
 import { ButtonPrimary } from '../Button'
 import marqueeAbi from '../../constants/abis/marquee.json'
@@ -15,7 +15,7 @@ export { marqueeAbi }
 const Marquee: React.FC = () => {
   const { library, account, chainId } = useActiveWeb3React()
   const [newMarquee, setNewMarquee] = useState('')
-  const [price, setPrice] = useState(0)
+  const [price, setPrice] = useState<BigNumber>(BigNumber.from(0))
   const [showNewMarquee, setShowNewMarquee] = useState(false)
   const [transactionProcessing, setTransactionProcessing] = useState(false)
   const [transactionHash, setTransactionHash] = useState<string | null>(null)
@@ -125,7 +125,7 @@ const Marquee: React.FC = () => {
                 <div style={{ marginTop: 8 }}>
                   <ButtonPrimary
                     onClick={handleChangeMarquee}
-                    disabled={transactionProcessing || chainId !== GNOSIS_CHAINID || !account}
+                    disabled={transactionProcessing || chainId !== GNOSIS_CHAINID || !account || price.isZero()}
                   >
                     {transactionProcessing
                       ? 'Complete transaction in your wallet...'
