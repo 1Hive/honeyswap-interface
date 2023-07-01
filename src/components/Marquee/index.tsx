@@ -8,6 +8,8 @@ export const MARQUEE_CONTRACT_ADDRESS = '0x3Ce93B6a6cee2F5c6e1b8A72FE6f3a41Bee9b
 const MSG_CONNECT_GNOSIS = 'Connect your wallet to Gnosis Chain'
 const GNOSIS_CHAINID = 100
 
+const GNOSIS_PROVIDER = new ethers.providers.StaticJsonRpcProvider('https://rpc.gnosischain.com/')
+
 export { marqueeAbi }
 
 const Marquee: React.FC = () => {
@@ -22,6 +24,15 @@ const Marquee: React.FC = () => {
 
   useEffect(() => {
     const run = async () => {
+      const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, GNOSIS_PROVIDER)
+
+      try {
+        const marquee = await contract.marquee()
+        setCurrentMarquee(marquee)
+      } catch (error) {
+        console.error('Error retrieving marquee:', error)
+      }
+
       if (library) {
         const currentNetwork = await library.getNetwork()
         if (currentNetwork.chainId !== GNOSIS_CHAINID) {
@@ -29,14 +40,6 @@ const Marquee: React.FC = () => {
           return
         }
         const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, library)
-
-        try {
-          const marquee = await contract.marquee()
-          setCurrentMarquee(marquee)
-        } catch (error) {
-          console.error('Error retrieving marquee:', error)
-        }
-
         const currentPrice = await contract.priceToChange()
         setPrice(currentPrice)
       }
