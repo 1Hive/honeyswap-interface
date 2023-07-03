@@ -21,16 +21,24 @@ const Marquee: React.FC = () => {
   const [transactionHash, setTransactionHash] = useState<string | null>(null)
 
   const [currentMarquee, setCurrentMarquee] = useState('')
+  const [maxMarqueeLength, setMaxMarqueeLength] = useState(200)
 
   useEffect(() => {
     const run = async () => {
       const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, GNOSIS_PROVIDER)
 
       try {
-        const marquee = await contract.marquee()
+        const marquee = await contract.getMarquee()
         setCurrentMarquee(marquee)
       } catch (error) {
         console.error('Error retrieving marquee:', error)
+        setCurrentMarquee('')
+      }
+
+      try {
+        setMaxMarqueeLength(await contract.maxLenMarquee())
+      } catch (error) {
+        console.error('Error retrieving max Len Marquee:', error)
       }
 
       if (library) {
@@ -40,7 +48,7 @@ const Marquee: React.FC = () => {
           return
         }
         const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, library)
-        const currentPrice = await contract.priceToChange()
+        const currentPrice = await contract.getPrice()
         setPrice(currentPrice)
       }
     }
@@ -77,6 +85,7 @@ const Marquee: React.FC = () => {
         console.error(error)
       } finally {
         setTransactionProcessing(false)
+        setCurrentMarquee('')
       }
     } else {
       console.error('Ethereum provider not available')
@@ -109,8 +118,8 @@ const Marquee: React.FC = () => {
                 <textarea
                   value={newMarquee}
                   onChange={handleInputChange}
-                  placeholder="Type new message here... (200 characters max)"
-                  maxLength={200}
+                  placeholder={`Type new message here... (${maxMarqueeLength} characters max)`}
+                  maxLength={maxMarqueeLength}
                   rows={3}
                   style={{
                     color: 'white',
