@@ -13,7 +13,6 @@ import RemoveLiquidity from './RemoveLiquidity'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
-import Marquee from '../components/Marquee'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -44,25 +43,6 @@ const BodyWrapper = styled.div`
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
     padding: 16px;
-    
-  `};
-
-  z-index: 1;
-`
-
-const MarqueeWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 16px;
-  align-items: center;
-  flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
-  z-index: 10;
-
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    padding: 16px;
     padding-top: 2rem;
   `};
 
@@ -78,7 +58,6 @@ const Footer = styled.div`
   text-align: center;
   width: 420px;
   margin: auto;
-  padding-bottom: 16px
   color: #fffa;
 `
 
@@ -111,23 +90,11 @@ export default function App() {
                 <Route component={RedirectPathToSwapOnly} />
               </Switch>
             </Web3ReactManager>
-            <MarqueeWrapper>
-              <Marquee />
-            </MarqueeWrapper>
             <Marginer />
           </BodyWrapper>
 
           <Footer>
-            “That which is not good for the{' '}
-            <span role="img" aria-label="bee">
-              🐝
-            </span>
-            -hive cannot be good for the{' '}
-            <span role="img" aria-label="bee">
-              🐝
-            </span>
-            .” —Marcus Aurelius
-          </Footer>
+            “That which is not good for the <span role="img" aria-label="bee">🐝</span>-hive cannot be good for the <span role="img" aria-label="bee">🐝</span>.”  —Marcus Aurelius</Footer>
         </AppWrapper>
       </HashRouter>
     </Suspense>
