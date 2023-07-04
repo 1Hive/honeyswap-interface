@@ -2,6 +2,17 @@
 src = "src"
 out = "out"
 libs = ["lib"]
+solc = "0.8.19" # gnosis not implemented PUSH0
 
+
+[rpc_endpoints]
+goerli = "${GOERLI_RPC_URL}"
+mumbai = "${MUMBAI_RPC_URL}"
+gnosis = "${GNOSIS_RPC_URL}"
+
+[etherscan]
+goerli = { key = "${ETHERSCAN_API_KEY}", chain="goerli" }
+mumbai = { key = "${POLYGONSCAN_API_KEY}", chain="mumbai" }
+gnosis = { key = "${GNOSISSCAN_API_KEY}", chain="gnosis" }
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
