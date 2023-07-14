@@ -77,7 +77,7 @@ const Marquee: React.FC = () => {
         console.error(MSG_CONNECT_GNOSIS)
         return
       }
-
+      // contract
       const contract = new ethers.Contract(MARQUEE_CONTRACT_ADDRESS, marqueeAbi, library.getSigner(account))
 
       try {
