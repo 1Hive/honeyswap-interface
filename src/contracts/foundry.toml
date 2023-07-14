@@ -1,0 +1,18 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc = "0.8.19" # gnosis not implemented PUSH0 (EIP-3855 https://eips.ethereum.org/EIPS/eip-3855) (0.8.20)
+
+
+[rpc_endpoints]
+goerli = "${GOERLI_RPC_URL}"
+mumbai = "${MUMBAI_RPC_URL}"
+gnosis = "${GNOSIS_RPC_URL}"
+
+[etherscan]
+goerli = { key = "${ETHERSCAN_API_KEY}", chain="goerli" }
+mumbai = { key = "${POLYGONSCAN_API_KEY}", chain="mumbai" }
+gnosis = { key = "${GNOSISSCAN_API_KEY}", chain="gnosis", url="https://api.gnosisscan.io/api" }
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config

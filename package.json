@@ -52,6 +52,7 @@
     "eslint-plugin-react-hooks": "^4.0.0",
     "ethers": "^5.0.7",
     "git-revision-webpack-plugin": "^3.0.6",
+    "glob": "^10.3.1",
     "graphql": "^15.5.0",
     "http-server": "^0.12.3",
     "i18next": "^15.0.9",
@@ -90,6 +91,7 @@
     "serve": "^11.3.0",
     "start-server-and-test": "^1.11.0",
     "styled-components": "^4.2.0",
+    "ts-node": "^10.9.1",
     "typescript": "^3.8.3",
     "use-count-up": "^2.2.5",
     "wcag-contrast": "^3.0.0"
@@ -102,7 +104,9 @@
     "eject": "react-scripts eject",
     "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
     "build-test": "http-server build",
-    "lint": "eslint . --ext .ts,.tsx --fix"
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "deploy:anvil": "./src/contracts/script/deploy.anvil.sh && yarn post-deploy",
+    "post-deploy": "ts-node ./src/contracts/script/findAddresses.ts --resolveJsonModule"
   },
   "eslintConfig": {
     "extends": "react-app",
