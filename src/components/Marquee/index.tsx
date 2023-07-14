@@ -2,13 +2,20 @@ import React, { useState, ChangeEvent, useEffect } from 'react'
 import { BigNumber, ethers } from 'ethers'
 import { useActiveWeb3React } from '../../hooks'
 import { ButtonPrimary } from '../Button'
-import marqueeAbi from '../../constants/abis/marquee.json'
 
-export const MARQUEE_CONTRACT_ADDRESS = '0x3Ce93B6a6cee2F5c6e1b8A72FE6f3a41Bee9b351'
-const MSG_CONNECT_GNOSIS = 'Connect your wallet to Gnosis Chain'
+import _marqueeAbi from '../../contracts/out/Marquee.sol/Marquee.json'
+
+import addresses from '../../contracts/addresses.json'
+
 const GNOSIS_CHAINID = 100
 
+export const MARQUEE_CONTRACT_ADDRESS = addresses[GNOSIS_CHAINID]['MarqueeProxy']
+
+const MSG_CONNECT_GNOSIS = 'Connect your wallet to Gnosis Chain'
+
 const GNOSIS_PROVIDER = new ethers.providers.StaticJsonRpcProvider('https://rpc.gnosischain.com/')
+
+const marqueeAbi = [..._marqueeAbi.abi] as const
 
 export { marqueeAbi }
 

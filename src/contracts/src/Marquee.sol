@@ -27,7 +27,7 @@ contract Marquee is Initializable, PausableUpgradeable, OwnableUpgradeable, UUPS
      */
     function initialize() public initializer {
         __Pausable_init();
-        __Ownable_init(msg.sender);
+        __Ownable_init();
         __UUPSUpgradeable_init();
 
         version = 1;
