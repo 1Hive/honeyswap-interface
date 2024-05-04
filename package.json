@@ -132,5 +132,6 @@
     "@web3-react/abstract-connector": "^6.0.7",
     "query-string": "^6.13.8",
     "react-use": "^15.3.3"
-  }
+  },
+  "packageManager": "yarn@4.2.1"
 }
