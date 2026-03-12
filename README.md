@@ -17,9 +17,11 @@ yarn start
 ```
 
 <!-- MARKEE:START -->
+> 🪧🪧🪧🪧🪧🪧🪧 MARKEE 🪧🪧🪧🪧🪧🪧🪧
+>
 > That which is not good for the beehive, cannot be good for the bee.
-
 > — 🐝
-
-*This message was bought on [Markee](https://markee.xyz). Currently costs 0.0050 ETH to change — [take the top spot](https://markee.xyz/ecosystem/platforms/github/0x56C5f6cE9D79F48264D7A162EDBD2DAe0fA426A8).*
+>
+> 🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧
+> Change this message for 0.0050 ETH on the [Markee App](https://markee.xyz/ecosystem/platforms/github/0x56C5f6cE9D79F48264D7A162EDBD2DAe0fA426A8).
 <!-- MARKEE:END -->
