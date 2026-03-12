@@ -19,7 +19,7 @@ yarn start
 <!-- MARKEE:START -->
 > 🪧🪧🪧🪧🪧🪧🪧 MARKEE 🪧🪧🪧🪧🪧🪧🪧
 >
-> That which is not good for the beehive, cannot be good for the bee.
+> That which is not good for the beehive, cannot be good for the bee🐝
 > — 🐝
 >
 > 🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧🪧
