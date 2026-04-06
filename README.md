@@ -19,8 +19,8 @@ yarn start
 <!-- MARKEE:START:0x56c5f6ce9d79f48264d7a162edbd2dae0fa426a8 -->
 ```
   ╔══════════════════════════════════════════════════════╗
-  ║                    ⡷⢾ ⣎⣱ ⣏⡱ ⣇⠜ ⣏⡉ ⣏⡉                 ║
-  ║                    ⠇⠸ ⠇⠸ ⠇⠱ ⠇⠱ ⠧⠤ ⠧⠤                 ║
+  ║                  ⡷⢾ ⣎⣱ ⣏⡱ ⣇⠜ ⣏⡉ ⣏⡉                 ║
+  ║                  ⠇⠸ ⠇⠸ ⠇⠱ ⠇⠱ ⠧⠤ ⠧⠤                 ║
   ╠══════════════════════════════════════════════════════╣
   ║                                                      ║
   ║   That which is not good for the beehive, cannot     ║
@@ -29,9 +29,9 @@ yarn start
   ╠══════════════════════════════════════════════════════╣
   ║                 0.005 ETH to change                  ║
   ╚══════════════════════════════════════════════════════╝
-              │││                    │││
-            ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+                   ││                      ││
+   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 ```
-[Change this message at markee.xyz](https://markee.xyz/ecosystem/platforms/github/0x56c5f6ce9d79f48264d7a162edbd2dae0fa426a8) and show the world you support this repo.
+*Show the world you support this repo by [changing this message at markee.xyz](https://markee.xyz/ecosystem/platforms/github/0x56c5f6ce9d79f48264d7a162edbd2dae0fa426a8)*
 <!-- MARKEE:END:0x56c5f6ce9d79f48264d7a162edbd2dae0fa426a8 -->
