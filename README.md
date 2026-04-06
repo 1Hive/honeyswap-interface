@@ -29,8 +29,8 @@ yarn start
   ╠══════════════════════════════════════════════════════╣
   ║                 0.005 ETH to change                  ║
   ╚══════════════════════════════════════════════════════╝
-                   ││                      ││
+                 ││                      ││
    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 ```
-*Show the world you support this repo by [changing this message at markee.xyz](https://markee.xyz/ecosystem/platforms/github/0x56c5f6ce9d79f48264d7a162edbd2dae0fa426a8)*
+*Show the world you support this repo! [Change this message at markee.xyz](https://markee.xyz/ecosystem/platforms/github/0x56c5f6ce9d79f48264d7a162edbd2dae0fa426a8)*
 <!-- MARKEE:END:0x56c5f6ce9d79f48264d7a162edbd2dae0fa426a8 -->
