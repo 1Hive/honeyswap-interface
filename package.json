@@ -1,6 +1,6 @@
 {
   "name": "dxswap-dapp",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "description": "DXswap Decentralized Application",
   "devDependencies": {
     "@apollo/client": "^3.3.13",
@@ -44,7 +44,7 @@
     "decimal.js-light": "^2.5.1",
     "dxswap-core": "https://github.com/1Hive/dxswap-core.git",
     "dxswap-periphery": "https://github.com/1Hive/dxswap-periphery.git",
-    "dxswap-sdk": "https://github.com/1Hive/honeyswap-sdk.git",
+    "dxswap-sdk": "https://github.com/1Hive/honeyswap-sdk.git#master",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
@@ -132,5 +132,6 @@
     "@web3-react/abstract-connector": "^6.0.7",
     "query-string": "^6.13.8",
     "react-use": "^15.3.3"
-  }
+  },
+  "packageManager": "yarn@4.2.1"
 }
