@@ -6,6 +6,13 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 
 // Used to make the build reproducible between different machines (IPFS-related)
 module.exports = (config, env) => {
+  // Allow webpack 4 to handle .mjs files with named exports from CommonJS modules
+  config.module.rules.push({
+    test: /\.mjs$/,
+    include: /node_modules/,
+    type: 'javascript/auto'
+  })
+
   if (env !== 'production') {
     return config
   }
