@@ -1,7 +1,7 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { ChainId, JSBI, Percent, CurrencyAmount, WETH, WSPOA, WXDAI, Token, Currency, WMATIC } from 'dxswap-sdk'
 import { tokens } from './tokens'
-import { injected, walletConnectMATIC, walletConnectXDAI, walletlink } from '../connectors'
+import { injected, walletConnectMATIC, walletConnectXDAI, walletlink, uauth, bitKeepInjected } from '../connectors'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
@@ -89,6 +89,49 @@ export const AGAVE = new Token(ChainId.XDAI, '0x3a97704a1b25F08aa230ae53B352e2e7
 export const SURF = new Token(ChainId.MATIC, '0x1e42edbe5376e717c1b22904c59e406426e8173f', 18, 'SURF', 'SURF.Finance')
 export const WAVE = new Token(ChainId.MATIC, '0x4de7fea447b837d7e77848a4b6c0662a64a84e14', 18, 'WAVE', 'WAVE Token')
 
+export const GIV = new Token(
+  ChainId.XDAI,
+  '0x4f4f9b8d5b4d0dc10506e5551b0513b61fd59e75',
+  18,
+  'GIV',
+  'Giveth from Mainnet'
+)
+export const TEC = new Token(
+  ChainId.XDAI,
+  '0x5df8339c5e282ee48c0c7ce8a7d01a73d38b3b27',
+  18,
+  'TEC',
+  'Token Engineering Commons'
+)
+
+export const GNO = new Token(
+  ChainId.XDAI,
+  '0x9c58bacc331c9aa871afd802db6379a98e80cedb',
+  18,
+  'GNO',
+  'Gnosis Token from Ethereum'
+)
+
+export const WATER = new Token(ChainId.XDAI, '0x4291F029B9e7acb02D49428458cf6fceAC545f81', 18, 'WATER', 'Water Token')
+
+export const BRIGHT = new Token(
+  ChainId.XDAI,
+  '0x83FF60E2f93F8eDD0637Ef669C69D5Fb4f64cA8E',
+  18,
+  'BRIGHT',
+  'Bright from Ethereum'
+)
+
+export const WORK = new Token(
+  ChainId.XDAI,
+  '0xA187153C9E2bbAdEe5782D6b604cb1007bc6a86A',
+  18,
+  'WORK',
+  'The Employment Commons Work Token from Mainnet'
+)
+
+export const FOX = new Token(ChainId.XDAI, '0x21a42669643f45Bc0e086b8Fc2ed70c23D67509d', 18, 'FOX', 'FOX from Ethereum')
+
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.MAINNET]: [
@@ -108,9 +151,14 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDT[ChainId.XDAI],
     WBTC[ChainId.XDAI],
     HONEY[ChainId.XDAI],
-    STAKE,
     AGAVE,
-    BAO
+    GIV,
+    TEC,
+    GNO,
+    WATER,
+    BRIGHT,
+    WORK,
+    FOX
   ],
   [ChainId.MATIC]: [
     WETH[ChainId.MATIC],
@@ -189,6 +237,22 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#E8831D'
   },
+  BRAVE: {
+    connector: injected,
+    name: 'Brave',
+    iconName: 'brave_logo.svg',
+    description: 'No need for browser extension.',
+    href: null,
+    color: '#E8831D'
+  },
+  BITKEEP: {
+    connector: bitKeepInjected,
+    name: 'BitKeep Wallet',
+    iconName: 'bitkeep.svg',
+    description: 'Find the hottest assets in BitKeep.',
+    href: null,
+    color: '#E8831D'
+  },
   WALLET_LINK: {
     connector: walletlink,
     name: 'Coinbase Wallet',
@@ -214,6 +278,14 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#4196FC',
     mobile: true
+  },
+  WALLET_CONNECT_UD: {
+    connector: uauth,
+    name: 'Unstoppable Domains',
+    iconName: 'default-icon-UD.png',
+    description: 'Login with Unstoppable Domains',
+    href: null,
+    color: '#4196FC'
   }
 }
 

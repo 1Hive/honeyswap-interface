@@ -11,14 +11,26 @@ interface EthereumProviderRequestArguments {
   params?: unknown[] | object
 }
 
+interface Ethereum {
+  send: unknown
+  enable: () => Promise<string[]>
+  on?: (method: string, listener: (...args: any[]) => void) => void
+  removeListener?: (method: string, listener: (...args: any[]) => void) => void
+}
+interface BitKeep {
+  ethereum?: Ethereum
+}
+
 interface Window {
   ethereum?: {
     isMetaMask?: true
+    isBraveWallet?: true
     on?: (...args: any[]) => void
     removeListener?: (...args: any[]) => void
     request?: (args: EthereumProviderRequestArguments) => Promise<unknown>
   }
   web3?: {}
+  bitkeep?: BitKeep
 }
 
 declare module 'content-hash' {

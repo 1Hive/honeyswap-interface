@@ -1,0 +1,10 @@
+{
+  "100": {
+    "Marquee": "0x3A8522377fFf402CDB56736deb19871c16D3eE2F",
+    "MarqueeProxy": "0xD1Ba333828cE9f6d76704b1131875989db21DBB7"
+  },
+  "31337": {
+    "Marquee": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "MarqueeProxy": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+  }
+}

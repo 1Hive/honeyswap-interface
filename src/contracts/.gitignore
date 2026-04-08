@@ -1,0 +1,5 @@
+# Foundry
+
+cache/
+broadcast/
+!broadcast/run-latest.json
