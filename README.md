@@ -1,6 +1,6 @@
-# Swapr dapp
+# Honeyswap
 
-An open source decentralized application for Swapr -- a protocol for decentralized exchange of Ethereum tokens governed by the DXdao.
+An open source AMM forked from Uniswap v2 by 1Hive, deployed on Gnosis Chain. Swap and provide liquidity for tokens on Gnosis Chain.
 
 ## Development
 
