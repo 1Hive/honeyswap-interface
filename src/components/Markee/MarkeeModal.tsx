@@ -997,7 +997,7 @@ export default function MarkeeModal({
             <ModalFooter>
               You&apos;ll receive MARKEE tokens with your purchase and co-own the{' '}
               <ExternalLink
-                href="https://gardens.1hive.org"
+                href="https://app.gardens.fund/gardens/8453/0xce6b968c8bd130ca08f1fcc97b509a824380d867"
                 target="_blank"
                 rel="noopener noreferrer"
               >
