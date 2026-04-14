@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { Flag } from 'react-feather'
 import { BigNumber, ethers } from 'ethers'
 import styled from 'styled-components'
 import {
@@ -26,6 +27,8 @@ export interface MarkeeModalProps {
   takeTopSpot: BigNumber
   currentMessage: string
   currentName: string
+  topMarkeeAddress?: string | null
+  flaggedSet?: Set<string>
   onClose: () => void
   onSuccess: () => void
 }
@@ -134,6 +137,18 @@ const CurrentOwner = styled.p`
   color: ${({ theme }) => theme.text4};
 `
 
+const FlaggedOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #e03131;
+  font-size: 12px;
+  pointer-events: none;
+`
+
 const TabBar = styled.div`
   display: flex;
   margin: 16px 20px 0;
@@ -211,7 +226,8 @@ const Input = styled.input`
   border: 1px solid ${({ theme }) => theme.bg3};
   border-radius: 10px;
   color: ${({ theme }) => theme.text1};
-  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
   padding: 10px 12px;
   box-sizing: border-box;
   outline: none;
@@ -464,6 +480,8 @@ export default function MarkeeModal({
   takeTopSpot,
   currentMessage,
   currentName,
+  topMarkeeAddress,
+  flaggedSet = new Set(),
   onClose,
   onSuccess,
 }: MarkeeModalProps) {
@@ -772,12 +790,32 @@ export default function MarkeeModal({
         ) : (
           <>
             {/* Current top message */}
-            <CurrentMessageBox>
-              <CurrentMessageText>&ldquo;{currentMessage}&rdquo;</CurrentMessageText>
-              {currentName && (
-                <CurrentOwner>{formatOwner(currentName)}</CurrentOwner>
-              )}
-            </CurrentMessageBox>
+            {(() => {
+              const isCurrentFlagged = !!topMarkeeAddress && flaggedSet.has(topMarkeeAddress.toLowerCase())
+              return (
+                <>
+                  <CurrentMessageBox style={{ position: 'relative' }}>
+                    <CurrentMessageText style={isCurrentFlagged ? { filter: 'blur(6px)', userSelect: 'none' } : undefined}>
+                      &ldquo;{currentMessage}&rdquo;
+                    </CurrentMessageText>
+                    {currentName && !isCurrentFlagged && (
+                      <CurrentOwner>{formatOwner(currentName)}</CurrentOwner>
+                    )}
+                    {isCurrentFlagged && (
+                      <FlaggedOverlay>
+                        <Flag size={13} />
+                        flagged
+                      </FlaggedOverlay>
+                    )}
+                  </CurrentMessageBox>
+                  {isCurrentFlagged && (
+                    <div style={{ margin: '8px 20px 0', fontSize: 12, color: '#e03131', lineHeight: 1.5 }}>
+                      This message has been flagged by moderators. You can still buy a new message or add funds to existing messages.
+                    </div>
+                  )}
+                </>
+              )
+            })()}
 
             {/* Tabs */}
             <TabBar>
@@ -920,22 +958,33 @@ export default function MarkeeModal({
                   <Warning variant="info">No messages yet. Be the first!</Warning>
                 ) : (
                   <BoostList>
-                    {topEntries.map((entry, i) => (
-                      <BoostEntry
-                        key={entry.address}
-                        selected={selectedBoostAddress === entry.address}
-                        onClick={() => setSelectedBoostAddress(entry.address)}
-                      >
-                        {i === 0 && <Badge>#1</Badge>}
-                        <div style={{ flex: 1 }}>
-                          <BoostMessage>{entry.message || '(no message)'}</BoostMessage>
-                          <BoostMeta>
-                            {formatOwner(entry.name) || entry.address.slice(0, 8) + '...'}{' '}
-                            &middot; {formatEth(entry.funds)} ETH
-                          </BoostMeta>
-                        </div>
-                      </BoostEntry>
-                    ))}
+                    {topEntries.map((entry, i) => {
+                      const entryFlagged = flaggedSet.has(entry.address.toLowerCase())
+                      return (
+                        <BoostEntry
+                          key={entry.address}
+                          selected={selectedBoostAddress === entry.address}
+                          onClick={() => setSelectedBoostAddress(entry.address)}
+                        >
+                          {i === 0 && <Badge>#1</Badge>}
+                          <div style={{ flex: 1, position: 'relative' }}>
+                            <BoostMessage style={entryFlagged ? { filter: 'blur(5px)', userSelect: 'none' } : undefined}>
+                              {entry.message || '(no message)'}
+                            </BoostMessage>
+                            <BoostMeta style={entryFlagged ? { filter: 'blur(5px)', userSelect: 'none' } : undefined}>
+                              {formatOwner(entry.name) || entry.address.slice(0, 8) + '...'}{' '}
+                              &middot; {formatEth(entry.funds)} ETH
+                            </BoostMeta>
+                            {entryFlagged && (
+                              <FlaggedOverlay>
+                                <Flag size={11} />
+                                flagged
+                              </FlaggedOverlay>
+                            )}
+                          </div>
+                        </BoostEntry>
+                      )
+                    })}
                   </BoostList>
                 )}
 

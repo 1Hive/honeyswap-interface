@@ -366,6 +366,8 @@ export default function MarkeeSign() {
           takeTopSpot={takeTopSpot}
           currentMessage={data.message}
           currentName={data.name}
+          topMarkeeAddress={data.topMarkeeAddress}
+          flaggedSet={flaggedSet}
           onClose={() => setModalOpen(false)}
           onSuccess={() => {
             setModalOpen(false)
