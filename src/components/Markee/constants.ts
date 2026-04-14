@@ -11,7 +11,7 @@ export const MIN_INCREMENT = BigNumber.from('1000000000000000')
 
 export const BASE_PROVIDER = new ethers.providers.StaticJsonRpcProvider('https://mainnet.base.org')
 
-export const API_URL = 'https://markee.xyz/api/openinternet/leaderboards'
+export const API_URL = 'https://www.markee.xyz/api/openinternet/leaderboards'
 export const BUY_URL = `https://markee.xyz/ecosystem/website/${LEADERBOARD_ADDRESS}`
 
 export const LEADERBOARD_ABI = [

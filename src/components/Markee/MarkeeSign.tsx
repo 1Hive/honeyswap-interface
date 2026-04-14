@@ -12,7 +12,7 @@ import {
   MIN_INCREMENT,
 } from './constants'
 
-const VIEWS_URL = 'https://markee.xyz/api/views'
+const VIEWS_URL = 'https://www.markee.xyz/api/views'
 
 // ---------------------------------------------------------------------------
 // Types
