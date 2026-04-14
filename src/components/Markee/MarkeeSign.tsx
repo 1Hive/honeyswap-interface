@@ -12,6 +12,8 @@ import {
   MIN_INCREMENT,
 } from './constants'
 
+const VIEWS_URL = 'https://markee.xyz/api/views'
+
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
@@ -173,6 +175,14 @@ export default function MarkeeSign() {
           name: lb.topMessageOwner ?? '',
           totalFundsAdded: BigNumber.from(lb.topFundsAddedRaw ?? '0'),
         })
+        // Track a view for the top markee address
+        if (lb.topMarkeeAddress) {
+          fetch(VIEWS_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ address: lb.topMarkeeAddress.toLowerCase(), message: lb.topMessage }),
+          }).catch(() => {})
+        }
       }
     } catch {
       // Leave DEFAULT_DATA; modal still works via contract reads
