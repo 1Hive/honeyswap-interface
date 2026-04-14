@@ -472,6 +472,7 @@ export default function MarkeeModal({
   const [name, setName] = useState('')
   const [amountInput, setAmountInput] = useState('')
   const [selectedBoostAddress, setSelectedBoostAddress] = useState<string | null>(null)
+  const amountInputRef = useRef<HTMLInputElement>(null)
 
   const [txHash, setTxHash] = useState<string | null>(null)
   const [txPending, setTxPending] = useState(false)
@@ -820,7 +821,7 @@ export default function MarkeeModal({
                     id="markee-name"
                     value={name}
                     onChange={e => setName(e.target.value)}
-                    placeholder="ENS, handle, or leave blank"
+                    placeholder="take credit for your masterpiece"
                   />
                 </div>
 
@@ -832,6 +833,7 @@ export default function MarkeeModal({
                       <PresetButton
                         onClick={() => {
                           setAmountInput(capDigits(ethers.utils.formatEther(takeTopSpot)))
+                          amountInputRef.current?.focus()
                         }}
                       >
                         Take top spot<br />
@@ -843,6 +845,7 @@ export default function MarkeeModal({
                     <PresetButton
                       onClick={() => {
                         setAmountInput(capDigits(ethers.utils.formatEther(minimumPrice)))
+                        amountInputRef.current?.focus()
                       }}
                     >
                       Minimum<br />
@@ -851,6 +854,7 @@ export default function MarkeeModal({
                       </span>
                     </PresetButton>
                     <AmountInput
+                      ref={amountInputRef}
                       type="text"
                       inputMode="decimal"
                       value={amountInput}
@@ -946,15 +950,19 @@ export default function MarkeeModal({
                 <div>
                   <Label>Amount (ETH on Base)</Label>
                   <AmountRow>
-                    {selectedEntry && boostTakeTopSpot.gt(BigNumber.from(0)) && (
+                    {selectedEntry && (
                       <PresetButton
                         onClick={() => {
-                          setAmountInput(capDigits(ethers.utils.formatEther(boostTakeTopSpot)))
+                          const preset = selectedIsTop
+                            ? selectedEntry.funds
+                            : boostTakeTopSpot
+                          setAmountInput(capDigits(ethers.utils.formatEther(preset)))
+                          amountInputRef.current?.focus()
                         }}
                       >
-                        Take top spot<br />
+                        {selectedIsTop ? 'Double up' : 'Take top spot'}<br />
                         <span style={{ fontSize: 10, fontWeight: 400 }}>
-                          {formatEth(boostTakeTopSpot)} ETH
+                          {formatEth(selectedIsTop ? selectedEntry.funds : boostTakeTopSpot)} ETH
                         </span>
                       </PresetButton>
                     )}
