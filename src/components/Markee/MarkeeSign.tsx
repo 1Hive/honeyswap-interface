@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import { Eye } from 'react-feather'
 import { BigNumber, ethers } from 'ethers'
 import styled from 'styled-components'
 import MarkeeModal from './MarkeeModal'
@@ -247,7 +248,10 @@ export default function MarkeeSign() {
                     : ''}
               </FooterText>
               {viewCount != null && (
-                <FooterText>{viewCount} {viewCount === 1 ? 'view' : 'views'}</FooterText>
+                <FooterText style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                  <Eye size={11} />
+                  {viewCount}
+                </FooterText>
               )}
             </CardFooter>
           )}
