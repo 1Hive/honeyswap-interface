@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { Eye } from 'react-feather'
+import { Eye, Flag } from 'react-feather'
 import { BigNumber, ethers } from 'ethers'
 import styled from 'styled-components'
 import MarkeeModal from './MarkeeModal'
@@ -14,6 +14,14 @@ import {
 } from './constants'
 
 const VIEWS_URL = 'https://www.markee.xyz/api/views'
+const MODERATION_API = '/api/moderation'
+const MODERATION_CHAIN_ID = 8453
+const MODERATION_ADMINS = [
+  '0x809c9f8dd8ca93a41c3adca4972fa234c28f7714',
+  '0x07ad02e0c1fa0b09fc945ff197e18e9c256838c6',
+  '0x2f9e113434aebdd70bb99cb6505e1f726c578d6d',
+  '0xa25211b64d041f690c0c818183e32f28ba9647dd',
+]
 
 // ---------------------------------------------------------------------------
 // Types
@@ -142,6 +150,29 @@ const LoadingText = styled.span`
   color: ${({ theme }) => theme.text4};
 `
 
+const FlagIconButton = styled.button<{ flagged: boolean }>`
+  background: none;
+  border: 1px solid ${({ theme, flagged }) => flagged ? '#e03131' : theme.bg3};
+  border-radius: 4px;
+  padding: 2px 5px;
+  cursor: pointer;
+  color: ${({ flagged }) => flagged ? '#e03131' : '#888'};
+  display: flex;
+  align-items: center;
+  transition: all 0.15s;
+  margin-left: 6px;
+
+  &:hover {
+    border-color: #e03131;
+    color: #e03131;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+`
+
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
@@ -153,6 +184,9 @@ export default function MarkeeSign() {
   const [modalOpen, setModalOpen] = useState(false)
   const [minimumPrice, setMinimumPrice] = useState<BigNumber>(BigNumber.from('3000000000000000'))
   const [maxMessageLength, setMaxMessageLength] = useState(223)
+  const [flaggedSet, setFlaggedSet] = useState<Set<string>>(new Set())
+  const [connectedAccount, setConnectedAccount] = useState<string | null>(null)
+  const [flagging, setFlagging] = useState(false)
 
   // Read minimumPrice and maxMessageLength from contract once on mount
   useEffect(() => {
@@ -210,6 +244,55 @@ export default function MarkeeSign() {
     fetchData()
   }, [fetchData])
 
+  // Fetch flagged markee list on mount
+  useEffect(() => {
+    fetch(MODERATION_API)
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if (d?.flagged) setFlaggedSet(new Set(d.flagged)) })
+      .catch(() => {})
+  }, [])
+
+  // Track connected wallet for admin check
+  useEffect(() => {
+    const eth = (window as any).ethereum
+    if (!eth) return
+    eth.request({ method: 'eth_accounts' })
+      .then((accounts: string[]) => setConnectedAccount(accounts[0]?.toLowerCase() ?? null))
+      .catch(() => {})
+    const onAccountsChanged = (accounts: string[]) =>
+      setConnectedAccount(accounts[0]?.toLowerCase() ?? null)
+    eth.on('accountsChanged', onAccountsChanged)
+    return () => eth.removeListener('accountsChanged', onAccountsChanged)
+  }, [])
+
+  const topMarkeeKey = data.topMarkeeAddress?.toLowerCase() ?? null
+  const isFlagged = !!topMarkeeKey && flaggedSet.has(topMarkeeKey)
+  const isAdmin = !!connectedAccount && MODERATION_ADMINS.includes(connectedAccount)
+
+  const handleFlag = useCallback(async () => {
+    const eth = (window as any).ethereum
+    if (!eth || !connectedAccount || !topMarkeeKey) return
+    const action = flaggedSet.has(topMarkeeKey) ? 'unflag' : 'flag'
+    setFlagging(true)
+    try {
+      const timestamp = Math.floor(Date.now() / 1000)
+      const message = `markee-moderation:${action}:${MODERATION_CHAIN_ID}:${topMarkeeKey}:${timestamp}`
+      const provider = new ethers.providers.Web3Provider(eth)
+      const signature = await provider.getSigner().signMessage(message)
+      const res = await fetch(MODERATION_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ markeeId: topMarkeeKey, action, adminAddress: connectedAccount, signature, timestamp }),
+      })
+      const d = await res.json()
+      if (d.flagged) setFlaggedSet(new Set(d.flagged))
+    } catch {
+      // ignore
+    } finally {
+      setFlagging(false)
+    }
+  }, [connectedAccount, topMarkeeKey, flaggedSet])
+
   const takeTopSpot = data.totalFundsAdded.gt(BigNumber.from(0))
     ? data.totalFundsAdded.add(MIN_INCREMENT)
     : minimumPrice
@@ -231,7 +314,7 @@ export default function MarkeeSign() {
                 disabled={loading}
                 aria-label="Click to change the Honeyswap Markee message"
               >
-                <MessageText>
+                <MessageText style={isFlagged ? { filter: 'blur(6px)', userSelect: 'none' } : undefined}>
                   {loading ? (
                     <LoadingText>loading...</LoadingText>
                   ) : (
@@ -250,12 +333,24 @@ export default function MarkeeSign() {
                     ? truncateAddress(data.topMarkeeOwner)
                     : ''}
               </FooterText>
-              {viewCount != null && (
-                <FooterText style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                  <Eye size={11} />
-                  {viewCount}
-                </FooterText>
-              )}
+              <FooterText style={{ display: 'flex', alignItems: 'center' }}>
+                {viewCount != null && (
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                    <Eye size={11} />
+                    {viewCount}
+                  </span>
+                )}
+                {isAdmin && topMarkeeKey && (
+                  <FlagIconButton
+                    flagged={isFlagged}
+                    onClick={e => { e.stopPropagation(); handleFlag() }}
+                    disabled={flagging}
+                    title={isFlagged ? 'Unflag this message' : 'Flag this message'}
+                  >
+                    <Flag size={10} />
+                  </FlagIconButton>
+                )}
+              </FooterText>
             </CardFooter>
           )}
         </Card>
