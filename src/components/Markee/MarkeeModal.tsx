@@ -554,15 +554,27 @@ export default function MarkeeModal({
       .finally(() => setLoadingEntries(false))
   }, [activeTab]) // eslint-disable-line react-hooks/exhaustive-deps
 
+  const isDirty =
+    message.trim().length > 0 ||
+    name.trim().length > 0 ||
+    amountInput.trim().length > 0
+
   // Close on backdrop click
   const handleBackdropClick = useCallback(
     (e: React.MouseEvent) => {
-      if (e.target === backdropRef.current) {
-        if (txHash) onSuccess()
-        else onClose()
+      if (e.target !== backdropRef.current) return
+
+      if (txHash) {
+        onSuccess()
+        return
       }
-    },
-    [txHash, onClose, onSuccess]
+
+      if (isDirty) {
+        return false
+      }
+
+      onClose()
+    },[txHash, isDirty, onClose, onSuccess]
   )
 
   // ---------------------------------------------------------------------------
