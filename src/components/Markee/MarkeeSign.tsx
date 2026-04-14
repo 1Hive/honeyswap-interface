@@ -21,6 +21,7 @@ const VIEWS_URL = 'https://www.markee.xyz/api/views'
 
 interface SignData {
   topMarkeeAddress: string | null
+  topMarkeeOwner: string | null
   message: string
   name: string
   totalFundsAdded: BigNumber
@@ -32,6 +33,7 @@ function truncateAddress(addr: string): string {
 
 const DEFAULT_DATA: SignData = {
   topMarkeeAddress: null,
+  topMarkeeOwner: null,
   message: 'this is a sign.',
   name: '',
   totalFundsAdded: BigNumber.from(0),
@@ -180,6 +182,7 @@ export default function MarkeeSign() {
       } else {
         setData({
           topMarkeeAddress: lb.topMarkeeAddress ?? null,
+          topMarkeeOwner: lb.topMarkeeOwner ?? null,
           message: lb.topMessage,
           name: lb.topMessageOwner ?? '',
           totalFundsAdded: BigNumber.from(lb.topFundsAddedRaw ?? '0'),
@@ -243,8 +246,8 @@ export default function MarkeeSign() {
               <FooterText>
                 {data.name
                   ? formatOwner(data.name)
-                  : data.topMarkeeAddress
-                    ? truncateAddress(data.topMarkeeAddress)
+                  : data.topMarkeeOwner
+                    ? truncateAddress(data.topMarkeeOwner)
                     : ''}
               </FooterText>
               {viewCount != null && (
