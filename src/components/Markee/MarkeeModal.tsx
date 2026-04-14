@@ -614,6 +614,12 @@ export default function MarkeeModal({
     return new ethers.providers.Web3Provider(eth).getSigner()
   }
 
+  const switchToGnosis = async () => {
+    const eth = (window as any).ethereum
+    if (!eth) return
+    await eth.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x64' }] }).catch(() => {})
+  }
+
   const handleBuy = async () => {
     if (!account || !isOnBase) return
     const signer = getSigner()
@@ -627,6 +633,7 @@ export default function MarkeeModal({
       const tx = await contract.createMarkee(message, name, { value: amountBN })
       await tx.wait()
       setTxHash(tx.hash)
+      switchToGnosis()
     } catch (err) {
       const e = err as any
       const msg: string = e?.data?.message ?? e?.message ?? 'Transaction failed'
@@ -649,6 +656,7 @@ export default function MarkeeModal({
       const tx = await contract.addFunds(selectedBoostAddress, { value: amountBN })
       await tx.wait()
       setTxHash(tx.hash)
+      switchToGnosis()
     } catch (err) {
       const e = err as any
       const msg: string = e?.data?.message ?? e?.message ?? 'Transaction failed'

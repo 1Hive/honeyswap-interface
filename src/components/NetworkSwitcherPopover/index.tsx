@@ -5,7 +5,6 @@ import Option from './Option'
 import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useCloseModals, useAddPopup } from '../../state/application/hooks'
 
-import ArbitrumLogo from '../../assets/images/arbitrum-logo.jpg'
 import GnosisLogo from '../../assets/images/gnosis-chain-logo.png'
 import PolygonLogo from '../../assets/images/polygon-logo.png'
 import Popover from '../Popover'
@@ -72,15 +71,6 @@ export default function NetworkSwitcherPopover({ children }: { children: ReactNo
               }}
               header={'Polygon'}
               logoSrc={PolygonLogo}
-            />
-            <Option
-              onClick={() => {
-                selectNetwork(ChainId.ARBITRUM_TESTNET_V3)
-              }}
-              header={'Arbitrum'}
-              logoSrc={ArbitrumLogo}
-              disabled={true}
-              clickable={false}
             />
           </OptionGrid>
         }
