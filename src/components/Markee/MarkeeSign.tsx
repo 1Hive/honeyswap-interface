@@ -25,6 +25,10 @@ interface SignData {
   totalFundsAdded: BigNumber
 }
 
+function truncateAddress(addr: string): string {
+  return `${addr.slice(0, 6)}...${addr.slice(-4)}`
+}
+
 const DEFAULT_DATA: SignData = {
   topMarkeeAddress: null,
   message: 'this is a sign.',
@@ -93,16 +97,6 @@ const MessageText = styled.p`
   }
 `
 
-const OwnerText = styled.p`
-  margin: 0;
-  font-size: 11px;
-  color: ${({ theme }) => theme.text4};
-  transition: color 0.2s;
-
-  ${Card}:hover & {
-    color: ${({ theme }) => theme.text3};
-  }
-`
 
 const PriceBadge = styled.span`
   position: absolute;
@@ -128,6 +122,19 @@ const PriceBadge = styled.span`
   }
 `
 
+const CardFooter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 14px 10px;
+  border-top: 1px solid ${({ theme }) => theme.bg3};
+`
+
+const FooterText = styled.span`
+  font-size: 11px;
+  color: ${({ theme }) => theme.text4};
+`
+
 const LoadingText = styled.span`
   color: ${({ theme }) => theme.text4};
 `
@@ -138,6 +145,7 @@ const LoadingText = styled.span`
 
 export default function MarkeeSign() {
   const [data, setData] = useState<SignData>(DEFAULT_DATA)
+  const [viewCount, setViewCount] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
   const [modalOpen, setModalOpen] = useState(false)
   const [minimumPrice, setMinimumPrice] = useState<BigNumber>(BigNumber.from('3000000000000000'))
@@ -175,13 +183,16 @@ export default function MarkeeSign() {
           name: lb.topMessageOwner ?? '',
           totalFundsAdded: BigNumber.from(lb.topFundsAddedRaw ?? '0'),
         })
-        // Track a view for the top markee address
+        // Track a view and get the current count
         if (lb.topMarkeeAddress) {
           fetch(VIEWS_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ address: lb.topMarkeeAddress.toLowerCase(), message: lb.topMessage }),
-          }).catch(() => {})
+          })
+            .then(r => r.ok ? r.json() : null)
+            .then(d => { if (d?.totalViews != null) setViewCount(d.totalViews) })
+            .catch(() => {})
         }
       }
     } catch {
@@ -223,12 +234,23 @@ export default function MarkeeSign() {
                     data.message
                   )}
                 </MessageText>
-                {data.name && !loading && (
-                  <OwnerText>{formatOwner(data.name)}</OwnerText>
-                )}
               </MessageButton>
             </MessageRow>
           </CardInner>
+          {!loading && (
+            <CardFooter>
+              <FooterText>
+                {data.name
+                  ? formatOwner(data.name)
+                  : data.topMarkeeAddress
+                    ? truncateAddress(data.topMarkeeAddress)
+                    : ''}
+              </FooterText>
+              {viewCount != null && (
+                <FooterText>{viewCount} {viewCount === 1 ? 'view' : 'views'}</FooterText>
+              )}
+            </CardFooter>
+          )}
         </Card>
 
         <PriceBadge>{loading ? '...' : priceLabel}</PriceBadge>
