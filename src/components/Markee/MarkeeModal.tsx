@@ -563,18 +563,15 @@ export default function MarkeeModal({
   const handleBackdropClick = useCallback(
     (e: React.MouseEvent) => {
       if (e.target !== backdropRef.current) return
-
       if (txHash) {
         onSuccess()
         return
       }
-
-      if (isDirty) {
-        return false
-      }
-
+      if (isDirty) return
       onClose()
-    },[txHash, isDirty, onClose, onSuccess]
+      return
+    },
+    [txHash, isDirty, onClose, onSuccess]
   )
 
   // ---------------------------------------------------------------------------
