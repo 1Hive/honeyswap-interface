@@ -16,6 +16,24 @@ yarn
 yarn start
 ```
 <!-- MARKEE:START:0xca7fc7887f6448d3a8232845e6f6e5dee916a286 -->
+```
+  ╔══════════════════════════════════════════════════════╗
+  ║                  ⡷⢾ ⣎⣱ ⣏⡱ ⣇⠜ ⣏⡉ ⣏⡉                 ║
+  ║                  ⠇⠸ ⠇⠸ ⠇⠱ ⠇⠱ ⠧⠤ ⠧⠤                 ║
+  ╠══════════════════════════════════════════════════════╣
+  ║                                                      ║
+  ║   Your users don't care that it's 3am. Neither do    ║
+  ║   we. ChainCare runs 24/7 support ops for DeFi       ║
+  ║   protocols — AI triage, crypto-native escalation,   ║
+  ║   trust & safety. chaincare.co                       ║
+  ║                                                      ║
+  ╠══════════════════════════════════════════════════════╣
+  ║                 0.0041 ETH to change                 ║
+  ╚══════════════════════════════════════════════════════╝
+                 ││                      ││
+   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+```
+*Show the world you support this repo! [Change this message at markee.xyz](https://markee.xyz/ecosystem/platforms/github/0xca7fc7887f6448d3a8232845e6f6e5dee916a286) ^*
 <!-- MARKEE:END:0xca7fc7887f6448d3a8232845e6f6e5dee916a286 -->
 
 <!-- MARKEE:START:0x43d025ea7f0bfcc508c5dc1708415fe2e41c464a -->
