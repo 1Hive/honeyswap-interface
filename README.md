@@ -9,11 +9,12 @@ An open source AMM forked from Uniswap v2 by 1Hive, deployed on Gnosis Chain. Sw
   ║                  ⠇⠸ ⠇⠸ ⠇⠱ ⠇⠱ ⠧⠤ ⠧⠤                 ║
   ╠══════════════════════════════════════════════════════╣
   ║                                                      ║
-  ║   🏆 OvertimeMarket.xyz 🏆 Crypto’s best sports      ║
-  ║   betting market! 🚀⚽🏈🏀                            ║
+  ║   Why fund other messages when you could be          ║
+  ║   funding this one? This message is where all the    ║
+  ║   cool kids hang out - join them.                    ║
   ║                                                      ║
   ╠══════════════════════════════════════════════════════╣
-  ║          0.001000005175038051 ETH to change          ║
+  ║          0.001000005136986301 ETH to change          ║
   ╚══════════════════════════════════════════════════════╝
                  ││                      ││
    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
