@@ -14,7 +14,7 @@ An open source AMM forked from Uniswap v2 by 1Hive, deployed on Gnosis Chain. Sw
   ║   cool kids hang out - join them.                    ║
   ║                                                      ║
   ╠══════════════════════════════════════════════════════╣
-  ║          0.001000005136986301 ETH to change          ║
+  ║          Stream over 0.009 ETH/mo to change          ║
   ╚══════════════════════════════════════════════════════╝
                  ││                      ││
    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
