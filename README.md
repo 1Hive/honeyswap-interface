@@ -2,22 +2,23 @@
 
 An open source AMM forked from Uniswap v2 by 1Hive, deployed on Gnosis Chain. Swap and provide liquidity for tokens on Gnosis Chain.
 
-<!-- MARKEE:START:0x0fda48f1f0fc975d1ed7eeb044936abde0239664 -->
+<!-- MARKEE:START:0x381ddabbfaf7de4822e675b45737efb8f55a0012 -->
 ```
   ╔══════════════════════════════════════════════════════╗
   ║                  ⡷⢾ ⣎⣱ ⣏⡱ ⣇⠜ ⣏⡉ ⣏⡉                 ║
   ║                  ⠇⠸ ⠇⠸ ⠇⠱ ⠇⠱ ⠧⠤ ⠧⠤                 ║
   ╠══════════════════════════════════════════════════════╣
   ║                                                      ║
-  ║   Why fund other messages when you could be          ║
-  ║   funding this one? This message is where all the    ║
-  ║   cool kids hang out - join them.                    ║
+  ║   It's not too late to enter SUPFLUX Phase 1         ║
+  ║   Campaign!                                          ║
+  ║   https://fluxx-web.tunnelmole.net/phase1_dashboar   ║
+  ║   d_produc tion.html                                 ║
   ║                                                      ║
   ╠══════════════════════════════════════════════════════╣
-  ║          Stream over 0.009 ETH/mo to change          ║
+  ║                 0.0075 ETH to change                 ║
   ╚══════════════════════════════════════════════════════╝
                  ││                      ││
    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 ```
-*Show the world you support this repo! [Change this message at markee.xyz](https://markee.xyz/markee/0x0fda48f1f0fc975d1ed7eeb044936abde0239664) ^*
-<!-- MARKEE:END:0x0fda48f1f0fc975d1ed7eeb044936abde0239664 -->
+*Show the world you support this repo! [Change this message at markee.xyz](https://markee.xyz/markee/0x381ddabbfaf7de4822e675b45737efb8f55a0012) ^*
+<!-- MARKEE:END:0x381ddabbfaf7de4822e675b45737efb8f55a0012 -->
