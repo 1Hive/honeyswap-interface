@@ -9,10 +9,10 @@ An open source AMM forked from Uniswap v2 by 1Hive, deployed on Gnosis Chain. Sw
   ║                  ⠇⠸ ⠇⠸ ⠇⠱ ⠇⠱ ⠧⠤ ⠧⠤                 ║
   ╠══════════════════════════════════════════════════════╣
   ║                                                      ║
-  ║   It's not too late to enter SUPFLUX Phase 1         ║
-  ║   Campaign!                                          ║
-  ║   https://fluxx-web.tunnelmole.net/phase1_dashboar   ║
-  ║   d_produc tion.html                                 ║
+  ║   The Men: A Novel About “Keeping the Republic”      ║
+  ║   https://reamstories.com/iamrael/public “A          ║
+  ║   republic, if you can keep it.” — Benjamin          ║
+  ║   Franklin                                           ║
   ║                                                      ║
   ╠══════════════════════════════════════════════════════╣
   ║                 0.0075 ETH to change                 ║
