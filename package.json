@@ -2,6 +2,9 @@
   "name": "dxswap-dapp",
   "version": "1.0.0-alpha.7",
   "description": "DXswap Decentralized Application",
+  "engines": {
+    "node": "24.x"
+  },
   "devDependencies": {
     "@apollo/client": "^3.3.13",
     "@ethersproject/experimental": "^5.0.10",
