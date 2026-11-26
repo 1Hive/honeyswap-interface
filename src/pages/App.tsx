@@ -13,7 +13,7 @@ import RemoveLiquidity from './RemoveLiquidity'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 import Swap from './Swap'
 import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
-import { MarkeeSign } from '../components/Markee'
+import Markee from '../components/Markee'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -112,7 +112,7 @@ export default function App() {
               </Switch>
             </Web3ReactManager>
             <MarqueeWrapper>
-              <MarkeeSign />
+              <Markee />
             </MarqueeWrapper>
             <Marginer />
           </BodyWrapper>

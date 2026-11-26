@@ -34,3 +34,5 @@ cypress/screenshots
 cypress/fixtures/example.json
 
 .env
+# copied from node_modules by scripts/copy-markee-sdk.js
+/public/markee-sdk.js

@@ -1,6 +1,6 @@
 FROM fleek/create-react-app:node-20 as node
 
-ENV NODE_VERSION=20.20.2
+ENV NODE_VERSION=24.21.0
 
 RUN echo "${NODE_VERSION}"
 

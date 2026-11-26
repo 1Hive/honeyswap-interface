@@ -2,8 +2,10 @@
   "name": "dxswap-dapp",
   "version": "1.0.0-alpha.7",
   "description": "DXswap Decentralized Application",
+  "engines": {
+    "node": "24.x"
+  },
   "devDependencies": {
-    "@vercel/node": "^5.0.0",
     "@apollo/client": "^3.3.13",
     "@ethersproject/experimental": "^5.0.10",
     "@fontsource/montserrat": "^4.2.2",
@@ -98,8 +100,11 @@
     "wcag-contrast": "^3.0.0"
   },
   "scripts": {
+    "prestart": "node scripts/copy-markee-sdk.js",
     "start": "react-scripts start",
+    "prebuild": "node scripts/copy-markee-sdk.js",
     "build": "cross-env GENERATE_SOURCEMAP=false react-app-rewired build",
+    "preipfs-build": "node scripts/copy-markee-sdk.js",
     "ipfs-build": "cross-env PUBLIC_URL=\".\" GENERATE_SOURCEMAP=false react-app-rewired build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -129,7 +134,7 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@vercel/kv": "^3.0.0",
+    "@markee_team/sdk": "^0.1.0-beta.17",
     "@uauth/web3-react": "^1.1.0",
     "@web3-react/abstract-connector": "^6.0.7",
     "query-string": "^6.13.8",
