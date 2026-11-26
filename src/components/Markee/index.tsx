@@ -1,6 +1,9 @@
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
+import { ChainId } from 'dxswap-sdk'
 import React, { useContext, useEffect, useMemo, useRef } from 'react'
 import styled, { ThemeContext } from 'styled-components'
+import { pendingActivation } from '../../connectors/activation'
+import { NETWORK_DETAIL } from '../../constants'
 import { ApplicationModal } from '../../state/application/actions'
 import { useCloseModals, useModalOpen, useOpenModal } from '../../state/application/hooks'
 import { useIsDarkMode } from '../../state/user/hooks'
@@ -25,10 +28,38 @@ const SignContainer = styled.div`
   max-width: 420px;
 `
 
+interface WalletState {
+  connector: unknown
+  account: string | null | undefined
+  error: Error | undefined
+}
+
 interface PendingConnect {
   resolve: (provider: EIP1193Provider) => void
   reject: (error: Error) => void
+  /** Wallet state when connect() was called; only a change from it counts as a selection. */
+  before: WalletState
   sawWalletModal: boolean
+  awaitingActivation: boolean
+}
+
+async function chainIdOf(provider: EIP1193Provider): Promise<number | null> {
+  const id = await provider.request({ method: 'eth_chainId' }).catch(() => null)
+  return typeof id === 'string' || typeof id === 'number' ? Number(id) : null
+}
+
+/** Puts the wallet back on a Honeyswap network after Markee moved it to Base. */
+async function switchBack(provider: EIP1193Provider, chainId: number) {
+  const hexId = `0x${chainId.toString(16)}`
+  try {
+    await provider.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: hexId }] })
+  } catch (e) {
+    const details = NETWORK_DETAIL[chainId]
+    if ((e as { code?: number })?.code !== 4902 || !details) return
+    await provider
+      .request({ method: 'wallet_addEthereumChain', params: [{ ...details, metamaskAddable: undefined }] })
+      .catch(() => undefined)
+  }
 }
 
 /**
@@ -48,8 +79,8 @@ export default function Markee() {
   const openWalletModal = useOpenModal(ApplicationModal.WALLET)
   const closeModals = useCloseModals()
 
-  const latest = useRef({ connector, theme, openWalletModal })
-  latest.current = { connector, theme, openWalletModal }
+  const latest = useRef({ connector, account, error, theme, openWalletModal })
+  latest.current = { connector, account, error, theme, openWalletModal }
   const pendingConnect = useRef<PendingConnect | null>(null)
   const instances = useRef<{ sign: MarkeeSign; modal: MarkeeModal } | null>(null)
 
@@ -67,7 +98,14 @@ export default function Markee() {
       connect() {
         return new Promise<EIP1193Provider>((resolve, reject) => {
           pendingConnect.current?.reject(new Error('Wallet connection was superseded.'))
-          pendingConnect.current = { resolve, reject, sawWalletModal: false }
+          const { connector, account, error } = latest.current
+          pendingConnect.current = {
+            resolve,
+            reject,
+            before: { connector, account, error },
+            sawWalletModal: false,
+            awaitingActivation: false
+          }
           latest.current.openWalletModal()
         })
       }
@@ -93,7 +131,26 @@ export default function Markee() {
           placement: PLACEMENT,
           moderation: MODERATION,
           theme: latest.current.theme,
-          onOpen: () => modal.open({ placement: PLACEMENT })
+          onOpen: () => {
+            // Markee switches the wallet to Base to pay. Remember the network it started on (Gnosis if
+            // no wallet was connected yet) and switch back when the modal closes, so Honeyswap doesn't
+            // stay on "Wrong Network".
+            const startChain: Promise<number | null> = wallet
+              .getProvider()
+              .then(provider => (provider ? chainIdOf(provider) : null))
+              .catch(() => null)
+            modal.open({
+              placement: PLACEMENT,
+              onClose: async () => {
+                const provider = await wallet.getProvider().catch(() => null)
+                if (!provider) return
+                const [from, now] = await Promise.all([startChain, chainIdOf(provider)])
+                if (now === PLACEMENT.chainId && from !== PLACEMENT.chainId) {
+                  await switchBack(provider, from ?? ChainId.XDAI)
+                }
+              }
+            })
+          }
         })
         instances.current = { sign, modal }
       })
@@ -120,7 +177,9 @@ export default function Markee() {
     if (!pending) return
     if (walletModalOpen) pending.sawWalletModal = true
 
-    if (connector && (account || error instanceof UnsupportedChainIdError)) {
+    const { before } = pending
+    const changed = connector !== before.connector || account !== before.account || error !== before.error
+    if (connector && changed && (account || error instanceof UnsupportedChainIdError)) {
       pendingConnect.current = null
       connector
         .getProvider()
@@ -130,9 +189,24 @@ export default function Markee() {
           pending.resolve(provider)
         })
         .catch((e: Error) => pending.reject(e))
-    } else if (pending.sawWalletModal && !walletModalOpen) {
-      pendingConnect.current = null
-      pending.reject(new Error('Wallet connection was cancelled.'))
+    } else if (pending.sawWalletModal && !walletModalOpen && !pending.awaitingActivation) {
+      const cancel = () => {
+        if (pendingConnect.current !== pending) return
+        pendingConnect.current = null
+        pending.reject(new Error('Wallet connection was cancelled.'))
+      }
+      // Unstoppable Domains closes the wallet modal before its login finishes; wait for it. A
+      // successful login settles above when web3-react's state changes.
+      const activation = pendingActivation()
+      if (activation) {
+        pending.awaitingActivation = true
+        activation.then(
+          () => setTimeout(cancel, 0),
+          () => setTimeout(cancel, 0)
+        )
+      } else {
+        cancel()
+      }
     }
   }, [connector, account, error, walletModalOpen, closeModals])
 

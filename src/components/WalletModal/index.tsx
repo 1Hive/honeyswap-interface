@@ -8,6 +8,7 @@ import { transparentize } from 'polished'
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
 import { injected, uauth } from '../../connectors'
+import { trackActivation } from '../../connectors/activation'
 import { SUPPORTED_WALLETS } from '../../constants'
 import usePrevious from '../../hooks/usePrevious'
 import { ApplicationModal } from '../../state/application/actions'
@@ -192,7 +193,7 @@ export default function WalletModal({
       tryActivation(connector)
     } else if (connector === uauth) {
       toggleWalletModal()
-      await activate(uauth)
+      await trackActivation(activate(uauth))
     }
   }
 
